@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+currentBranchName=$(git branch | grep -i "* \w" | sed -e 's/[* ]//g')
+
+if [ $currentBranchName == "main" ]; then
+    exit 0
+fi
+
+yarn test vcs
+
+LIGHTGREEN='\033[1;32m'
+
+echo ''
+echo -e "${LIGHTGREEN}*************************************************************${LIGHTGREEN}"
+echo "*                                                           *"
+echo "* Congratulations! You have passed your first git exercise! *"
+echo "*                                                           *"
+echo "*************************************************************"
+echo ''
+
+exit 1
