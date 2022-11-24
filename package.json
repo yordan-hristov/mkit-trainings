@@ -1,0 +1,16 @@
+{
+  "name": "mkit-trainings",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yordan-hristov/mkit-trainings.git",
+  "author": "Yordan Hristov <y.hristov11@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "run:oop": "node \"Quest 1/OOP/index.js\"",
+    "run:fp": "node \"Quest 1/FP/index.js\""
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
