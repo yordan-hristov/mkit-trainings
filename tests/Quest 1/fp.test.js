@@ -1,4 +1,4 @@
-const index = require("../../Quests/1. OOP, FP & VCS/FP/index");
+const index = require("../../quests/1-oop-fp-vcs/FP/index");
 
 test("Reduce_Returns_Number", async function () {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

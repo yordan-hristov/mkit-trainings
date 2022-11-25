@@ -1,4 +1,4 @@
-const index = require("../../Quests/1. OOP, FP & VCS/OOP/index");
+const index = require("../../quests/1-oop-fp-vcs/OOP/index");
 
 test("Shape_Instance_Of", async function () {
   const result = new index.Shape("sq", 4, 5);
