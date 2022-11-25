@@ -6,7 +6,7 @@
 
 #### 2. Open the terminal and run `yarn`
 
-#### 2. Run `yarn prepare`
+#### 3. Run `yarn prepare`
 
 ### Scripts
 

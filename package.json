@@ -8,8 +8,8 @@
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
-    "run:oop": "node \"Quest 1/OOP/index.js\"",
-    "run:fp": "node \"Quest 1/FP/index.js\""
+    "run:oop": "node \"Quests/1. OOP, FP & VCS/OOP/index.js\"",
+    "run:fp": "node \"Quests/1. OOP, FP & VCS/FP/index.js\""
   },
   "devDependencies": {
     "husky": "^8.0.2",
