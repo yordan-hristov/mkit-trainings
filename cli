@@ -1,0 +1,104 @@
+#!/bin/bash
+
+quests=(
+    "OOP, FP, VCS"
+    "Front-End Development Introduction"
+    "JavaScript Essentials"
+    "JavaScript Advanced"
+    "Web Development Essentials"
+    "Web Development Advanced"
+    "React Essentials"
+    "React Hooks Essentials"
+    "React Hooks Advanced"
+    "Advanced State Management"
+    "React Performance Optimization"
+    "NodeJS, Testing, Databases"
+)
+
+# Modules for each quest separated by ':', because later they are splitted by ':' and turned into an array
+modules_map=(
+    "OOP:FP"
+    "Software Development Methodologies:Front-End Architectures:Front-End Architectures With React"
+    "JavaScript Commons:JavaScript Functions and this:JavaScript Closures, Hoisting, and OOP:TypeScript"
+    "Module Systems:Compile vs Transpile vs Interpret:Webpack:Babel"
+    "HTML Best Practices:CSS Best Practices:Sass:The Various DOMs"
+    "HTTP:What Is an API?:JavaScript Async Communication:Web Performance"
+    "React Folder Structures:React Components:React and Browser Rendering:CSS-in-JS"
+    "React Hooks:React useState Hook:React useEffect Hook:React Async Communication"
+    "React useRef Hook:React useContext Hook:React useReducer Hook:React useLayoutEffect Hook:React useImperativeHandle Hook"
+    "React Forms:Redux:Redux Hooks"
+    "Memoization:React Performance Optimizations"
+    "NodeJS Essentials:Testing:Databases"
+)
+
+quests_paths=(
+    1-oop-fp-vcs
+    2-front-end-development-introduction
+    3-javascript-essentials
+    4-javascript-advanced
+    5-web-development-essentials
+    6-web-development-advanced
+    7-react-essentials
+    8-react-hooks-essentials
+    9-react-hooks-advanced
+    10-advanced-state-management
+    11-react-performance-optimization
+    12-nodejs-testing-databases
+)
+
+# Paths for each quest separated by ',', because later they are splitted by ',' and turned into an array
+modules_paths=(
+    OOP,FP
+    software-development-methodologies,front-end-architectures,front-end-architectures-with-react
+    javascript-commons,javascript-functions-and-this,javascript-closures-hoisting-and-oop,typescript
+    module-systems,compile-vs-transpile-vs-interpret,webpack,babel
+    html-best-practices,css-best-practices,sass,the-various-doms
+    http,what-is-an-api,javascript-async-communication,web-performance
+    react-folder-structures,react-components,react-and-browser-rendering,css-in-js
+    react-hooks,react-useState-hook,react-useEffect-hook,react-async-communication
+    react-useRef-hook,react-useContext-hook,react-useReducer-hook,react-useLayoutEffect-hook,react-useImperativeHandle-hook
+    react-forms,redux,redux-hooks
+    memoization,react-performance-optimizations
+    nodejs-essentials,testing,databases
+)
+
+# Empty line
+echo ''
+# Loop over quests and display them in format ${index}. ${quest_name}
+for index in "${!quests[@]}"
+do
+    echo "$(($index+1)). ${quests[$index]}"
+done
+
+# Empty line
+echo ''
+# Ask the user to select a quest (1-12) and save it into a variable called 'quest_index'
+read -p 'Select Quest (1-12): ' quest_index
+# Empty line
+echo ''
+
+# Get the string at position ${quest_index - 1}, split it by ':' and save it to a variable called 'modules'
+IFS=':' read -ra modules <<< ${modules_map[quest_index - 1]}
+
+# Loop over the modules and display them in format ${index}. ${quest_name}
+for index in ${!modules[@]}
+do
+    echo "$(($index+1)). ${modules[$index]}"
+done
+
+# Empty line
+echo ''
+# Ask the user to select a module and save it into a variable called 'module_index'
+read -p 'Select Module: ' module_index
+# Empty line
+echo ''
+
+# Get the string at position ${quest_index - 1}, split it by ',' and save it to a variable called 'modules_p'
+IFS=',' read -ra modules_p <<< ${modules_paths[quest_index - 1]}
+
+# Get the string associated with selected quest and module
+quest_path=${quests_paths[quest_index - 1]}
+module_path=${modules_p[module_index - 1]}
+
+# Execute index.js file based on above variables
+node quests/$quest_path/$module_path/index.js
