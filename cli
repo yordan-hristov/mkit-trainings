@@ -101,4 +101,4 @@ quest_path=${quests_paths[quest_index - 1]}
 module_path=${modules_p[module_index - 1]}
 
 # Execute index.js file based on above variables
-node quests/$quest_path/$module_path/index.js
+nodemon quests/$quest_path/$module_path/index.js
