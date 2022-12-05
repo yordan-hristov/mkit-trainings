@@ -112,3 +112,52 @@ export class Teacher extends Person implements ITeacher {
     return `Subject: ${this.subject}`;
   }
 }
+
+// Assessment 5
+
+interface PaymentProvider {
+  pay(price: string): {
+    success: boolean;
+    total: number;
+  };
+}
+
+export class Store {
+  private provider: PaymentProvider;
+
+  constructor(provider: PaymentProvider) {
+    this.provider = provider;
+  }
+
+  buySomething(price: string) {
+    return this.provider.pay(price);
+  }
+}
+
+export class StripeProvider implements PaymentProvider {
+  pay(price: string) {
+    // @ts-ignore
+    const { isSuccess } = stripeApi.createPayment(price);
+    const priceToNumber = Number(price);
+    // @ts-ignore
+    const total = priceToNumber + priceToNumber * stripeApi.tax;
+
+    return {
+      success: isSuccess,
+      total,
+    };
+  }
+}
+
+export class PayPalProvider implements PaymentProvider {
+  pay(price: string) {
+    const priceToNumber = Number(price);
+    // @ts-ignore
+    const { hasFailed } = paypalApi.makePayment(priceToNumber);
+
+    return {
+      success: !hasFailed,
+      total: priceToNumber,
+    };
+  }
+}

@@ -52,3 +52,44 @@ In this assessment you are provided with 2 interfaces: `IStudent` and `ITeacher`
 - Implement 2 classes:
     1. `Student`: Implementing `IStudent` and greeting in format `"Hello, I'm {fullName}"`
     2. `Teacher`: Implementing `ITeacher` and greeting in format `"Hello, I'm Mrs. {lastName}"`
+
+## Assessment #5
+
+In this assessment you are provided with: 
+
+- interface `PaymentProvider`:
+  ```typescript
+  pay(price: string): {
+    success: boolean;
+    total: number;
+  };
+  ```
+- `stripeApi`: 
+  ```typescript
+  tax: number;
+  createPayment(price: string): { isSuccess: boolean }
+  ```
+- `paypalApi`:
+    ```typescript
+    makePayment(price: number): { hasFailed: boolean }
+    ```
+
+Your tasks are to: 
+
+- Implement a class `Store` in a way that:
+  - It has a `private` field called `provider` and is of type `PaymentProvider`
+  - It has a `public` method called `buySomething` which takes accepts `price: string` as an argument and calls `this.provider.pay(price)`
+
+- Implement 2 classes called `StripeProvider` and `PayPalProvider`, both implementing the interface `PaymentProvider`. Note that `stripe` applies `stripeApi.tax` to the total price
+
+- Class `Store` should be able to be instantiated with both providers.
+
+Example: 
+```typescript
+const storeA = new Store(new StripeProvider())
+storeA.buySomething('29.99') // { success: true, total: 31.4895 }
+
+const storeB = new Store(new PaypalProvider())
+storeB.buySomething('29.99') // { success: true, total: 29.99 }
+
+```

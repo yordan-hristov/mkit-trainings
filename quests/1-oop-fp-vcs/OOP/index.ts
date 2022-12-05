@@ -27,3 +27,19 @@ export class Person {}
 export class Student {}
 
 export class Teacher {}
+
+// Assessment 5
+import { paypalApi, stripeApi } from "./_api";
+
+interface PaymentProvider {
+  pay(price: string): {
+    success: boolean;
+    total: number;
+  };
+}
+
+export class Store {}
+
+export class StripeProvider {}
+
+export class PayPalProvider {}

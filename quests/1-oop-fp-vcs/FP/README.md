@@ -28,7 +28,7 @@ In this assessment you are provided with the function declaration `sort`. It wil
 - Do the above without mutating the original array
 
 Example:
-```
+```javascript
 const testArray = [
     { name: 'john', age: 20},
     { name: 'will', age: 43},
@@ -57,7 +57,7 @@ In this assessment you are provided with the object literal `calculator`. Your t
 
 Example: 
 
-```
+```javascript
 calculator.add(10).add(10).subtract(5);
 console.log(calculator.result); // 15
 calculator.multiply(2);
@@ -70,7 +70,7 @@ In this assessment you are provided with the function `recursive(n: number, resu
 
 Example:
 
-```
+```javascript
 recursive(10) // [ 10, 8, 6, 4, 2, 0 ]
 recursive(25) // [24, 22, 20, 18, 16, 14, 12, 10,  8,  6,  4,  2, 0]
 ```
@@ -81,7 +81,7 @@ In this assessment you are provided with the function `createFibonacciClosure`. 
 
 Example:
 
-```
+```javascript
 const getNextFibonacci = createFibonacciClosure()
 
 console.log(getNextFibonacci()) // 1
@@ -99,7 +99,7 @@ In this assessment you are provided with the function `add(n: number)`. Your tas
 
 Example:
 
-```
+```javascript
 console.log(add(5)()); // 5
 console.log(add(5)(10)(20)()); // 35
 console.log(add(5)(10)(20)(25)()); // 60

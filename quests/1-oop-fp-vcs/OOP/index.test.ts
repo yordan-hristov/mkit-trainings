@@ -4,7 +4,17 @@ import { readFileSync } from "fs";
 import { find, findInfo } from "ast-parser";
 import { parse as babelParse } from "@babel/parser";
 
-import { Cat, Greeter, Shape, Person, Student, Teacher } from "./index";
+import {
+  Cat,
+  Greeter,
+  Shape,
+  Person,
+  Student,
+  Teacher,
+  PayPalProvider,
+  StripeProvider,
+  Store,
+} from "./index";
 
 function getNode(code) {
   return babelParse(code, {
@@ -24,6 +34,9 @@ const [
   personDeclaration,
   studentDeclaration,
   teacherDeclaration,
+  storeDeclaration,
+  stripeProviderDeclaration,
+  paypalProviderDeclaration,
 ] = allClassDeclarations;
 
 describe("Assessment 1", () => {
@@ -450,6 +463,159 @@ describe("Assessment 4", () => {
       it("Returns correct value", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
         expect(testTeacher.displaySubject()).toEqual("Subject: history");
+      });
+    });
+  });
+});
+
+describe("Assessment 5", () => {
+  describe("Store", () => {
+    const allStoreMethods = findInfo("ClassMethod", storeDeclaration);
+
+    const constructor = allStoreMethods?.find((x) =>
+      x.string.includes("constructor")
+    );
+
+    it("Is defined", () => {
+      expect(Store).toBeDefined();
+    });
+
+    it("Accepts one argument in the constructor", () => {
+      expect(constructor.params.length).toEqual(1);
+    });
+
+    it("Argument is of type PaymentProvider", () => {
+      expect(constructor.params[0].typeAnnotation.string).toEqual(
+        "PaymentProvider"
+      );
+    });
+
+    describe("provider", () => {
+      const providerProperty = findInfo("ClassProperty", storeDeclaration);
+
+      it("Is defined", () => {
+        expect(providerProperty).toBeTruthy();
+      });
+
+      it("Is private", () => {
+        expect(providerProperty.accessibility).toEqual("private");
+      });
+
+      it("Is of type PaymentProvider", () => {
+        expect(providerProperty.typeAnnotation.typeAnnotation.string).toEqual(
+          "PaymentProvider"
+        );
+      });
+    });
+
+    describe("buySomething", () => {
+      const buySomething = allStoreMethods?.find((x) =>
+        x.string.includes("buySomething")
+      );
+
+      it("Is defined", () => {
+        expect(buySomething).toBeTruthy();
+      });
+
+      it("Accepts one argument", () => {
+        expect(buySomething.params.length).toEqual(1);
+      });
+
+      it("Argument is of type string", () => {
+        expect(buySomething.params[0].typeAnnotation.string).toEqual("string");
+      });
+
+      it("Calls this.provider.pay()", () => {
+        const mockProvider = {
+          pay: (price: string) => true,
+        };
+        const spyPay = jest.spyOn(mockProvider, "pay");
+        expect(spyPay).toHaveBeenCalledTimes(0);
+        const testStore = new Store(mockProvider);
+        testStore.buySomething(1);
+        expect(spyPay).toHaveBeenCalledTimes(1);
+      });
+
+      it("Returns correct value with stripe provider", () => {
+        const testProvider = new StripeProvider();
+        const testStore = new Store(testProvider);
+        const expected = {
+          success: true,
+          total: 31.4895,
+        };
+
+        expect(testStore.buySomething("29.99")).toEqual(expected);
+      });
+
+      it("Returns correct value with paypal provider", () => {
+        const testProvider = new PayPalProvider();
+        const testStore = new Store(testProvider);
+        const expected = {
+          success: true,
+          total: 29.99,
+        };
+
+        expect(testStore.buySomething("29.99")).toEqual(expected);
+      });
+    });
+  });
+
+  describe("StripeProvider", () => {
+    it("Is defined", () => {
+      expect(StripeProvider).toBeDefined();
+    });
+
+    it("Implements PaymentProvider", () => {
+      expect(stripeProviderDeclaration.implements[0].string).toEqual(
+        "PaymentProvider"
+      );
+    });
+
+    describe("pay", () => {
+      it("Is defined", () => {
+        const test = new StripeProvider();
+
+        expect(test.pay).toBeDefined();
+      });
+
+      it("Returns correct value", () => {
+        const test = new StripeProvider();
+        const expected = {
+          success: true,
+          total: 10.5,
+        };
+
+        expect(test.pay("10")).toEqual(expected);
+      });
+    });
+  });
+
+  describe("PayPalProvider", () => {
+    it("Is defined", () => {
+      expect(PayPalProvider).toBeDefined();
+    });
+
+    it("Implements PaymentProvider", () => {
+      expect(paypalProviderDeclaration.implements[0].string).toEqual(
+        "PaymentProvider"
+      );
+    });
+
+    describe("pay", () => {
+      it("Is defined", () => {
+        const test = new PayPalProvider();
+
+        expect(test.pay).toBeDefined();
+      });
+
+      it("Returns correct value", () => {
+        const test = new PayPalProvider();
+        const expected = {
+          success: true,
+          total: 10,
+        };
+
+        expect(test.pay("10")).toEqual(expected);
       });
     });
   });
