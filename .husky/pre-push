@@ -1,15 +1,33 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+LIGHTGREEN='\033[1;32m'
+RED='\033[0;31m'
+
 currentBranchName=$(git branch | grep -i "* \w" | sed -e 's/[* ]//g')
 
 if [ $currentBranchName == "main" ]; then
     exit 0
 fi
 
-yarn test vcs
+yarn test 1-oop-fp-vcs/vcs || (
+    (
+        echo ''
+        echo -e "${RED}*************************************************************${RED}"
+        echo "*                                                           *"
+        echo "*             Some of the unit tests failed!                *"
+        echo "*              You have to start over again.                *"
+        echo "*                                                           *"
+        echo "*************************************************************"
+        echo ''
+        
+        # git checkout feature/oop-and-fp-exercises
+        # git branch -D $currentBranchName
+        
+        exit 1
+    )
+)
 
-LIGHTGREEN='\033[1;32m'
 
 echo ''
 echo -e "${LIGHTGREEN}*************************************************************${LIGHTGREEN}"

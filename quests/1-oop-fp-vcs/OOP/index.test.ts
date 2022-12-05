@@ -98,39 +98,57 @@ describe("Assessment 1", () => {
   });
 });
 
-// TODO:
-describe.only("Assessment 2", () => {
+describe("Assessment 2", () => {
   describe("Shape", () => {
+    const result = new Shape("sq", 4, 5);
+
     it("Is defined", () => {
       expect(Shape).toBeDefined();
     });
 
-    describe("");
-  });
+    it("Is can be instantiated", () => {
+      expect(result).toBeInstanceOf(Shape);
+    });
 
-  test("Shape_Instance_Of", async function () {
-    const result = new Shape("sq", 4, 5);
-    expect(result).toBeInstanceOf(Shape);
-  });
+    describe("calcPerimeter", () => {
+      it("Is defined", () => {
+        expect(result.calcPerimeter).toBeDefined();
+      });
 
-  test("Shape_Calc_Perimeter", async function () {
-    const sq = new Shape("sq", 4, 5);
-    expect(sq.calcPerimeter()).toBe(20);
-  });
+      it("Returns correct value", () => {
+        expect(sq.calcPerimeter()).toBe(20);
+      });
+    });
 
-  test("Shape_Side_Length", async function () {
-    const sq = new Shape("sq", 4, 5);
-    expect(sq.sideLength).toBe(5);
-  });
+    describe("sideLength", () => {
+      it("Is defined", () => {
+        expect(result.sideLength).toBeDefined();
+      });
 
-  test("Shape_Sides", async function () {
-    const sq = new Shape("sq", 4, 5);
-    expect(sq.sides).toBe(4);
-  });
+      it("Returns correct value", () => {
+        expect(result.sideLength).toBe(5);
+      });
+    });
 
-  test("Shape_Name", async function () {
-    const sq = new Shape("sq", 4, 5);
-    expect(sq.name).toBe("sq");
+    describe("sides", () => {
+      it("Is defined", () => {
+        expect(result.sides).toBeDefined();
+      });
+
+      it("Returns correct value", () => {
+        expect(result.sides).toEqual(4);
+      });
+    });
+
+    describe("name", () => {
+      it("Is defined", () => {
+        expect(result.name).toBeDefined();
+      });
+
+      it("Returns correct value", () => {
+        expect(result.name).toEqual("sq");
+      });
+    });
   });
 });
 

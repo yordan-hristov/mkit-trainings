@@ -1,8 +1,10 @@
-# Quest 1 - Assessment
+# Quest 1 - Object-Oriented Programming
 
 ## Introduction
 
-...
+OOP is a programming paradigm based on the concepts of "objects", which helps describe complex real life problems into a more human-natural way. OOP objects can represent various physical (or not) entities encapsulating both data and functionality within a single model. A typical illustration of OOP is the concept of a hierarchy, e.g. Animal (parent, top-level entity) - Cat, Dog (extends from parent, lower-level entity), etc.
+
+[Link to Notion](https://www.notion.so/mkit/Object-Oriented-Programming-OOP-1d516d7c57764e02b31d0eaa719b1bf2)
 
 ## Assessment #1 - Modifiers
 

@@ -1,8 +1,10 @@
-# Quest 1 - Assessment
+# Quest 1 - Functional Programming
 
 ## Introduction
 
-...
+FP is yet another programming paradigm based on declarative code, function composition, data immutability, and pure functions avoiding side effects. FP decomposes business problems into functions and the application state flows through pure functions rather than having a shared application state. A typical illustration of FP are mathematical functions where no side effects should be possible and mathematical operations can be chained one after another.
+
+[Link to Notion](https://www.notion.so/mkit/Functional-Programming-FP-f4c83a19c7e348d0b299cc09df1b6593)
 
 ## Assessment #1
 
