@@ -107,7 +107,8 @@ describe("Assessment 3", () => {
     });
 
     it("Returns correct value", () => {
-      const expected = "";
+      const expected =
+        "Gitflow is an Git branching model that involves the use of feature branches and multiple primary branches.";
 
       expect(gitFlow()).toEqual(expected);
     });
@@ -119,7 +120,8 @@ describe("Assessment 3", () => {
     });
 
     it("Returns correct value", () => {
-      const expected = "";
+      const expected =
+        "Github Flow focuses on branching and makes it possible for teams to experiment freely, and make deployments regularly.";
 
       expect(githubFlow()).toEqual(expected);
     });
