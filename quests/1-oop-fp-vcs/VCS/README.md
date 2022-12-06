@@ -32,13 +32,12 @@ After you have completed `Assessment 1`, your next tasks are to:
 
 After you have completed `Assessment 2`, your next tasks are to:
 
-- Cherry-pick the `feat: git flow` commit from `feature/aaa`
+- Cherry-pick the `feat: git flow` commit from `feature/cherry-pick`
 
-- Cherry-pick the `feat: github flow` commit from `feature/aaa`
+- Cherry-pick the `feat: github flow` commit from `feature/cherry-pick`
 
 - `Hint:` use `git log --oneline feature/aaa` to see the commits' `SHA`
 
-
 **After you have completed all assessments, your final task is to push the branch to remote.**
 
-If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message.
+If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message. If you feel stuck, checkout a new branch and start over.
