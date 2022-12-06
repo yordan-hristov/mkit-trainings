@@ -1,8 +1,7 @@
-function git() {}
+const vcs = {
+  git: "",
+};
 
 module.exports = {
-  git,
-  github,
-  gitFlow,
-  githubFlow,
+  vcs,
 };
