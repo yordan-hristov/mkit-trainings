@@ -130,7 +130,9 @@ describe("Assessment 1", () => {
       );
     });
   });
+});
 
+describe("Assessment 2", () => {
   describe("fibonacci", () => {
     it("Is defined", () => {
       expect(fibonacci).toBeDefined();
@@ -158,7 +160,9 @@ describe("Assessment 1", () => {
       expect(incrementFibonacci.next().value).toEqual(144);
     });
   });
+});
 
+describe("Assessment 3", () => {
   describe("potentialVotersResult", () => {
     it("Is defined", () => {
       expect(potentialVotersResult).toBeDefined();
@@ -240,7 +244,9 @@ describe("Assessment 1", () => {
       });
     });
   });
+});
 
+describe("Assessment 4", () => {
   describe("reduce", () => {
     const array = [1, 2, 3, 4, 5];
 
@@ -347,7 +353,9 @@ describe("Assessment 1", () => {
       );
     });
   });
+});
 
+describe("Assessment 4", () => {
   describe("calculateEvenAverage", () => {
     it("Should be defined", () => {
       expect(calculateEvenAverage).toBeDefined();
