@@ -1,6 +1,6 @@
 const exec = require("child_process").execSync;
 
-const { git, github, gitFlow, githubFlow } = require("./index");
+const { vcs, flows } = require("./index");
 
 describe("Assessment 1", () => {
   describe("Branch name", () => {
@@ -47,33 +47,35 @@ describe("Assessment 2", () => {
     });
 
     it("Conflicts are resolved", () => {
-      expect(gitHistory).toContain("rebase (continue): feat: solution");
+      expect(
+        gitHistory.some((x) => x.includes("rebase (continue):"))
+      ).toBeTruthy();
     });
   });
 
-  describe("git", () => {
+  describe("vcs.git", () => {
     it("Is defined", () => {
-      expect(git).toBeDefined();
+      expect(vcs.git).toBeDefined();
     });
 
     it("Returns correct value", () => {
       const expectedGitResult =
         "Git is a DevOps tool used for source code management.";
 
-      expect(git()).toEqual(expectedGitResult);
+      expect(vcs.git).toEqual(expectedGitResult);
     });
   });
 
-  describe("github", () => {
+  describe("vcs.github", () => {
     it("Is defined", () => {
-      expect(github).toBeDefined();
+      expect(vcs.github).toBeDefined();
     });
 
     it("Returns correct value", () => {
       const expectedGithubResult =
         "GitHub is a code hosting platform for version control and collaboration.";
 
-      expect(github()).toEqual(expectedGithubResult);
+      expect(vcs.github).toEqual(expectedGithubResult);
     });
   });
 });
@@ -95,29 +97,29 @@ describe("Assessment 3", () => {
     });
   });
 
-  describe("gitFlow", () => {
+  describe("flows.gitFlow", () => {
     it("Is defined", () => {
-      expect(gitFlow).toBeDefined();
+      expect(flows.gitFlow).toBeDefined();
     });
 
     it("Returns correct value", () => {
       const expected =
         "Gitflow is an Git branching model that involves the use of feature branches and multiple primary branches.";
 
-      expect(gitFlow()).toEqual(expected);
+      expect(flows.gitFlow).toEqual(expected);
     });
   });
 
-  describe("githubFlow", () => {
+  describe("flows.githubFlow", () => {
     it("Is defined", () => {
-      expect(githubFlow).toBeDefined();
+      expect(flows.githubFlow).toBeDefined();
     });
 
     it("Returns correct value", () => {
       const expected =
         "Github Flow focuses on branching and makes it possible for teams to experiment freely, and make deployments regularly.";
 
-      expect(githubFlow()).toEqual(expected);
+      expect(flows.githubFlow).toEqual(expected);
     });
   });
 });

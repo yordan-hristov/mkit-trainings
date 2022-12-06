@@ -10,11 +10,11 @@ No one can control the chaos of software development without the help of the pow
 
 ## Assessment #1 - Branches And Commits
 
-In this assessment you are provided with the function `git()`. Your tasks are to:
+In this assessment you are provided with the object `vcs`. Your tasks are to:
 
 - Create a new branch
 
-- Change the `git()` function is such way that it returns the string `"Git is a DevOps tool used for source code management."`
+- And new property called `git` that has a value `"Git is a DevOps tool used for source code management."`
 
 - Commit the changed file
 
@@ -36,7 +36,7 @@ After you have completed `Assessment 2`, your next tasks are to:
 
 - Cherry-pick the `feat: github flow` commit from `feature/cherry-pick`
 
-- `Hint:` use `git log --oneline feature/aaa` to see the commits' `SHA`
+- `Hint:` use `git log --oneline feature/cherry-pick` to see the commits' `SHA`
 
 **After you have completed all assessments, your final task is to push the branch to remote.**
 

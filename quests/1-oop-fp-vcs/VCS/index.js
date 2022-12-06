@@ -1,6 +1,4 @@
-const vcs = {
-  git: "",
-};
+const vcs = {};
 
 module.exports = {
   vcs,
