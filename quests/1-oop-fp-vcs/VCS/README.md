@@ -8,7 +8,7 @@ No one can control the chaos of software development without the help of the pow
 
 [Link to Notion](https://www.notion.so/mkit/Version-Control-Systems-VCS-36274ba4f59649a4b0bcbaa6f20aa57b)
 
-## Assessment #1
+## Assessment #1 - Branches And Commits
 
 In this assessment you are provided with the function `git()`. Your tasks are to:
 
@@ -18,10 +18,27 @@ In this assessment you are provided with the function `git()`. Your tasks are to
 
 - Commit the changed file
 
+- Follow the best practices for naming branches and commit messages
+
+## Assessment #2 - Rebasing And Resolving Conflicts
+
+After you have completed `Assessment 1`, your next tasks are to:
+
 - Rebase your branch with `feature/john-doe-solution`
 
 - Resolve the conflict is such way that you keep your changes but also John Doe's changes.
 
-- Push the branch to remote
+## Assessment #3 - Cherry Picking
 
-In order to successfully complete the assessment you have to follow the best practices and naming conventions. If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message and you will have to start over again.
+After you have completed `Assessment 2`, your next tasks are to:
+
+- Cherry-pick the `feat: git flow` commit from `feature/aaa`
+
+- Cherry-pick the `feat: github flow` commit from `feature/aaa`
+
+- `Hint:` use `git log --oneline feature/aaa` to see the commits' `SHA`
+
+
+**After you have completed all assessments, your final task is to push the branch to remote.**
+
+If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message.

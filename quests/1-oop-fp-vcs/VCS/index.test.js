@@ -1,8 +1,8 @@
 const exec = require("child_process").execSync;
 
-const { git, github } = require("./index");
+const { git, github, gitFlow, githubFlow } = require("./index");
 
-describe("VCS", () => {
+describe("Assessment 1", () => {
   describe("Branch name", () => {
     const currentBranchName = exec("git branch --show-current")
       .toString("utf-8")
@@ -30,32 +30,98 @@ describe("VCS", () => {
       expect(commitMessage).toMatch(regex);
     });
   });
+});
 
-  describe("Successful rebase", () => {
-    describe("git", () => {
-      it("Is defined", () => {
-        expect(git).toBeDefined();
-      });
+describe("Assessment 2", () => {
+  const gitHistory = exec(
+    "git reflog --oneline --pretty=format:%gs --max-count=20"
+  )
+    .toString("utf-8")
+    .split("\n");
 
-      it("Returns correct value", () => {
-        const expectedGitResult =
-          "Git is a DevOps tool used for source code management.";
-
-        expect(git()).toEqual(expectedGitResult);
-      });
+  describe("rebase", () => {
+    it("Is executed", () => {
+      expect(gitHistory).toContain(
+        "rebase (start): checkout feature/john-doe-solution"
+      );
     });
 
-    describe("github", () => {
-      it("Is defined", () => {
-        expect(github).toBeDefined();
-      });
+    it("Conflicts are resolved", () => {
+      expect(gitHistory).toContain("rebase (continue): feat: solution");
+    });
 
-      it("Returns correct value", () => {
-        const expectedGithubResult =
-          "GitHub is a code hosting platform for version control and collaboration.";
+    it("Is finished", () => {
+      expect(gitHistory).toContain(
+        "rebase (continue) (finish): returning to refs/heads/feature/solution"
+      );
+    });
+  });
 
-        expect(github()).toEqual(expectedGithubResult);
-      });
+  describe("git", () => {
+    it("Is defined", () => {
+      expect(git).toBeDefined();
+    });
+
+    it("Returns correct value", () => {
+      const expectedGitResult =
+        "Git is a DevOps tool used for source code management.";
+
+      expect(git()).toEqual(expectedGitResult);
+    });
+  });
+
+  describe("github", () => {
+    it("Is defined", () => {
+      expect(github).toBeDefined();
+    });
+
+    it("Returns correct value", () => {
+      const expectedGithubResult =
+        "GitHub is a code hosting platform for version control and collaboration.";
+
+      expect(github()).toEqual(expectedGithubResult);
+    });
+  });
+});
+
+describe("Assessment 3", () => {
+  const gitHistory = exec(
+    "git reflog --oneline --pretty=format:%gs --max-count=20"
+  )
+    .toString("utf-8")
+    .split("\n");
+
+  describe("cherry-pick", () => {
+    it("Cherry picked git flow", () => {
+      expect(gitHistory).toContain("cherry-pick: feat: git flow");
+    });
+
+    it("Cherry picked github flow", () => {
+      expect(gitHistory).toContain("cherry-pick: feat: github flow");
+    });
+  });
+
+  describe("gitFlow", () => {
+    it("Is defined", () => {
+      expect(gitFlow).toBeDefined();
+    });
+
+    it("Returns correct value", () => {
+      const expected = "";
+
+      expect(gitFlow()).toEqual(expected);
+    });
+  });
+
+  describe("githubFlow", () => {
+    it("Is defined", () => {
+      expect(githubFlow).toBeDefined();
+    });
+
+    it("Returns correct value", () => {
+      const expected = "";
+
+      expect(githubFlow()).toEqual(expected);
     });
   });
 });
