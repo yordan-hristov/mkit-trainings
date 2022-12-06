@@ -78,7 +78,7 @@ Your tasks are to:
 
 - Implement a class `Store` in a way that:
   - It has a `private` field called `provider` and is of type `PaymentProvider`
-  - It has a `public` method called `buySomething` which takes accepts `price: string` as an argument and calls `this.provider.pay(price)`
+  - It has a `public` method called `buySomething` which accepts `price: string` as an argument and calls `this.provider.pay(price)`
 
 - Implement 2 classes called `StripeProvider` and `PayPalProvider`, both implementing the interface `PaymentProvider`. Note that `stripe` applies `stripeApi.tax` to the total price
 
