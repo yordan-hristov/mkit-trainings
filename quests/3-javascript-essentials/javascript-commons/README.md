@@ -94,7 +94,7 @@ console.log(reduce([1, 2, 3, 4], (accumulator, currentElement) => accumulator + 
 
 ## Assessment #5 - Even Average Sum
 
-In this assessment you are provided with the function `calculateEvenAverage`. It will receive an array of numbers `arr: number[]`. Your task is to implement a function that when called, prints the average of only even numbers and the array of even numbers sorted decreasingly.
+In this assessment you are provided with the function `calculateEvenAverage`. It will receive an array of numbers `array: number[]`. Your task is to implement a function that when called, prints the average of only even numbers and the array of even numbers sorted decreasingly.
 
 Example:
 
