@@ -34,7 +34,7 @@ describe("Assessment 1", () => {
 
 describe("Assessment 2", () => {
   const gitHistory = exec(
-    "git reflog --oneline --pretty=format:%gs --max-count=20"
+    "git reflog --oneline --pretty=format:%gs --max-count=50"
   )
     .toString("utf-8")
     .split("\n");
@@ -48,12 +48,6 @@ describe("Assessment 2", () => {
 
     it("Conflicts are resolved", () => {
       expect(gitHistory).toContain("rebase (continue): feat: solution");
-    });
-
-    it("Is finished", () => {
-      expect(gitHistory).toContain(
-        "rebase (continue) (finish): returning to refs/heads/feature/solution"
-      );
     });
   });
 
