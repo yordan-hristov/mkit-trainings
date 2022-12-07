@@ -33,7 +33,7 @@ console.log(getNextFibonacci.next().value); // 13
 
 In this Exercise you are provided with `map` function declaration. It will receive an array of elements
 and a `map<T>(arr: T[], cb: () => [])` callback function as arguments. The callback must receive 3 arguments
-`(el:T, index: number, array: T[] ) => []`. 
+`(el:T, index: number, arr: T[] ) => []`. 
 
 Your Objective is to:
 - implement the well known array method `array.map()`
@@ -92,10 +92,10 @@ console.log(
 
 ## Exercise #4 - Array methods(Reduce implementation)
 
-In this Exercise you are provided with `reduce<T, InitializerT>(array: T[], callback: (accumulator: InitializerT, currentElement: T) => InitializerT, initializer: InitializerT = undefined)` function declaration and you can safely expect it's arguments to be valid. 
+In this Exercise you are provided with `reduce<T, InitializerT>(arr: T[], callback: (accumulator: InitializerT, currentElement: T) => InitializerT, initializer: InitializerT = undefined)` function declaration and you can safely expect it's arguments to be valid. 
 
 Your Objective is to:
-- implement the well known array method reduce from scratch
+- implement the well known `array.reduce()` method from scratch
 - You must throw an error if the the provided arguments are not correct
 
 Example:
@@ -106,7 +106,7 @@ console.log(reduce([1, 2, 3, 4], (accumulator, currentElement) => accumulator + 
 
 ## Exercise #5 - Even Average Sum
 
-In this Exercise you are provided with `calculateEvenAverage` function declaration. It will receive an array of numbers `array: number[]` as input and you can safely expect this input to be valid. 
+In this Exercise you are provided with `calculateEvenAverage` function declaration. It will receive an array of numbers `arr: number[]` as input and you can safely expect this input to be valid. 
 
 Your Objective is to:
 - implement a `calculateEvenAverage` that when called returns the average of only even numbers
