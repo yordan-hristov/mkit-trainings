@@ -117,7 +117,7 @@ john.getPerson(); // "John 23"
 
 In this Exercise you are provided with `getPrintName` function declaration. It will be assigned in to a `printName` property in a `person` object literal. The object literal will have a `name` property as well and you can safely expect to be tested with valid data. `getPrintName` should NOT accept any arguments.
 
-Your task is to:
+Your Objective is to:
 
 - implement `getPrintName` to be a high order function and return a callback (it should not accept arguments as well)
 - the callback itself should return the `name` value from `person` object
