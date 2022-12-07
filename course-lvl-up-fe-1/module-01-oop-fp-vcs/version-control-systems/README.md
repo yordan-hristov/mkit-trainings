@@ -10,7 +10,7 @@ No one can control the chaos of software development without the help of the pow
 
 ## Exercise #1 - Branches And Commits
 
-In this Exercise you are provided with the `vcs` object literal. 
+In this Exercise you are provided with the `vcs` object literal.
 
 Your objectives are to:
 

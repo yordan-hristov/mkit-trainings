@@ -17,6 +17,7 @@ Your objectives are to:
 - Implement a method called `greet()` that is accessible outside this class and returns a string in format `"Hello, {name}"`
 
 Example:
+
 ```typescript
 const greeter = new Greeter('John Doe')
 greeter.name // ❌
@@ -34,6 +35,7 @@ Your objectives are to:
 - Implement `calcPerimeter()` method that calculates its perimeter and returns the result
 
 Example:
+
 ```typescript
 const shape = new Shape('square', 4, 5)
 
@@ -56,6 +58,7 @@ Your objectives are to:
 - Implement `feed()` method that decrements `hungry` by `1`, increments `mood` by `1`, and calls `makeSound()`
 
 Example:
+
 ```typescript
 const cat = new Cat()
 
@@ -73,11 +76,14 @@ cat.feed() // ✅
 In this Exercise you are provided with `Person`, `Teacher`, and `Student` class definitions and:
 
 - interface `IStudent`:
+
   ```typescript
   grade: number;
   displayGrade: () => string; // Grade: {grade}
   ```
+
 - interface `ITeacher`:
+
   ```typescript
   subject: string;
   displaySubject: () => string; // Subject: {subject}
@@ -94,6 +100,7 @@ In this Exercise you are provided with `Person`, `Teacher`, and `Student` class 
     2. `Teacher`: Implementing `ITeacher` and greeting in format `"Hello, I'm Mrs. {lastName}"`
 
 Example:
+
 ```typescript
 const person = new Person('John', 'Doe') // ❌
 const student = new Student('John', 'Doe', 5) // ✅ 
@@ -109,26 +116,31 @@ teacher.displaySubject() // "Subject: History"
 
 ## Exercise #5 - Dependency Inversion Principle
 
-In this Exercise you are provided with `Store`, `StripeProvider`, and `PaypalProvider` class definitions and: 
+In this Exercise you are provided with `Store`, `StripeProvider`, and `PaypalProvider` class definitions and:
 
 - interface `PaymentProvider`:
+
   ```typescript
   pay(price: string): {
     success: boolean;
     total: number;
   };
   ```
-- `stripeApi`: 
+
+- `stripeApi`:
+
   ```typescript
   tax: number;
   createPayment(price: string): { isSuccess: boolean }
   ```
+
 - `paypalApi`:
+
     ```typescript
     makePayment(price: number): { hasFailed: boolean }
     ```
 
-Your objectives are to: 
+Your objectives are to:
 
 - Implement a class `Store` in a way that:
   - It has a `private` field called `provider` and is of type `PaymentProvider`
@@ -139,8 +151,8 @@ Your objectives are to:
 - Implement `Store` in such way that it should be able to be instantiated with both providers.
 
 _Pro tip: Do not forget that stripe api applies taxes to the total price_
+Example:
 
-Example: 
 ```typescript
 const storeA = new Store(new StripeProvider())
 storeA.buySomething('29.99') // { success: true, total: 31.4895 }

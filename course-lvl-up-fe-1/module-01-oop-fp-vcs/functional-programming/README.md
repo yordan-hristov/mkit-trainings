@@ -17,6 +17,7 @@ Your objectives are to:
 - Implement `reduce` in such a way that it returns the total sum of all the numbers.
 
 Example:
+
 ```js
 const testInput = [1, 2, 3, 4, 5];
 
@@ -84,7 +85,7 @@ Your objectives are to:
 - Implement a function `multiply(n: number)`, which should multiply `result` by the value of `n`
 - Implement a function `divide(n: number)`, which should divide `result` by the value of `n`
 
-Example: 
+Example:
 
 ```javascript
 calculator.add(10).add(10).subtract(5);
