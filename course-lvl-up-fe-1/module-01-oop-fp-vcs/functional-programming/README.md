@@ -72,9 +72,9 @@ Example:
 ];
 ```
 
-## Exercise #3 - Function Chaining and `this`
+## Exercise #3 - Function Chaining And `this`
 
-In this Exercise, you are provided with `calculator` object literal. Your task is to implement 1 property and 4 functions that can be chained. You can safely expect a valid input.
+In this Exercise, you are provided with `calculator` object literal. All functions should receive a number as an input and you can safely expect this input to be valid.
 
 Your objectives are to:
 
