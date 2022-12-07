@@ -15,6 +15,7 @@ import {
   StripeProvider,
   Store,
 } from "./index";
+import { stripeApi, paypalApi } from "./_resources/_api";
 
 function getNode(code) {
   return babelParse(code, {
@@ -39,22 +40,22 @@ const [
   paypalProviderDeclaration,
 ] = allClassDeclarations;
 
-describe("Exercise 1", () => {
+describe("Exercise 1 - Access Modifiers", () => {
   describe("Greeter", () => {
     const allGreeterMethods = findInfo("ClassMethod", greeterDeclaration);
 
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Greeter).toBeDefined();
     });
 
     describe("name", () => {
       const nameProperty = findInfo("ClassProperty", greeterDeclaration);
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(nameProperty).toBeTruthy();
       });
 
-      it("Is private", () => {
+      it("Should be private", () => {
         expect(nameProperty.string).toEqual("private name: string");
       });
     });
@@ -64,15 +65,15 @@ describe("Exercise 1", () => {
         x.string.includes("getName")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(getNameMethod).toBeTruthy();
       });
 
-      it("Is protected", () => {
+      it("Should be protected", () => {
         expect(getNameMethod.string).toEqual("protected getName()");
       });
 
-      it("It returns correct value", () => {
+      it("Should return correct value", () => {
         class TestChildClass extends Greeter {
           constructor(name: string) {
             super(name);
@@ -82,10 +83,11 @@ describe("Exercise 1", () => {
             return this.getName();
           }
         }
-
         const testGreeter = new TestChildClass("John");
 
-        expect(testGreeter.test()).toEqual("John");
+        const result = testGreeter.test();
+
+        expect(result).toEqual("John");
       });
     });
 
@@ -94,83 +96,85 @@ describe("Exercise 1", () => {
         x.string.includes("greet")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(greetMethod).toBeTruthy();
       });
 
-      it("Is public", () => {
+      it("Should be public", () => {
         expect(["greet()", "public greet()"]).toContain(greetMethod.string);
       });
 
-      it("It returns correct value", () => {
+      it("Should return correct value", () => {
         const testGreeter = new Greeter("John");
 
-        expect(testGreeter.greet()).toEqual("Hello, John");
+        const result = testGreeter.greet();
+
+        expect(result).toEqual("Hello, John");
       });
     });
   });
 });
 
-describe("Exercise 2", () => {
+describe("Exercise 2 - Constructor", () => {
   describe("Shape", () => {
     const result = new Shape("sq", 4, 5);
 
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Shape).toBeDefined();
     });
 
-    it("Is can be instantiated", () => {
+    it("Should be able to be instantiated", () => {
       expect(result).toBeInstanceOf(Shape);
     });
 
     describe("calcPerimeter", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(result.calcPerimeter).toBeDefined();
       });
 
-      it("Returns correct value", () => {
-        expect(sq.calcPerimeter()).toBe(20);
+      it("Should return correct value", () => {
+        expect(result.calcPerimeter()).toBe(20);
       });
     });
 
     describe("sideLength", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(result.sideLength).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         expect(result.sideLength).toBe(5);
       });
     });
 
     describe("sides", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(result.sides).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         expect(result.sides).toEqual(4);
       });
     });
 
     describe("name", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(result.name).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         expect(result.name).toEqual("sq");
       });
     });
   });
 });
 
-describe("Exercise 3", () => {
+describe("Exercise 3 - Encapsulation And Abstraction", () => {
   describe("Cat", () => {
     const allCatMethods = findInfo("ClassMethod", catDeclaration);
     const allCatProperties = findInfo("ClassProperty", catDeclaration);
 
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Cat).toBeDefined();
     });
 
@@ -179,11 +183,11 @@ describe("Exercise 3", () => {
         x.string.includes("mood")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(moodProperty).toBeTruthy();
       });
 
-      it("Is private", () => {
+      it("Should be private", () => {
         expect(moodProperty.string).toEqual("private mood: number");
       });
     });
@@ -193,11 +197,11 @@ describe("Exercise 3", () => {
         x.string.includes("hungry")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(hungryProperty).toBeTruthy();
       });
 
-      it("Is private", () => {
+      it("Should be private", () => {
         expect(hungryProperty.string).toEqual("private hungry: number");
       });
     });
@@ -207,11 +211,11 @@ describe("Exercise 3", () => {
         x.string.includes("energy")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(energyProperty).toBeTruthy();
       });
 
-      it("Is private", () => {
+      it("Should be private", () => {
         expect(energyProperty.string).toEqual("private energy: number");
       });
     });
@@ -221,17 +225,20 @@ describe("Exercise 3", () => {
         x.string.includes("makeSound")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(makeSoundMethod).toBeTruthy();
       });
 
-      it("Is private", () => {
+      it("Should be private", () => {
         expect(makeSoundMethod.string).toEqual("private makeSound()");
       });
 
-      it("Return correct value", () => {
+      it("Should return correct value", () => {
         const testCat = new Cat(5, 0, 3);
-        expect(testCat.makeSound()).toEqual("Meow");
+
+        const result = testCat.makeSound();
+
+        expect(result).toEqual("Meow");
       });
     });
 
@@ -240,15 +247,15 @@ describe("Exercise 3", () => {
         x.string.includes("sleep")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(sleepMethod).toBeDefined();
       });
 
-      it("Is public", () => {
+      it("Should be public", () => {
         expect(["sleep()", "public sleep()"]).toContain(sleepMethod.string);
       });
 
-      it("Increments energy and hungry by 1", () => {
+      it("Should increment energy and hungry by 1", () => {
         const testCat = new Cat(5, 0, 3);
 
         expect(testCat.energy).toEqual(3);
@@ -260,10 +267,12 @@ describe("Exercise 3", () => {
         expect(testCat.hungry).toEqual(1);
       });
 
-      it("Does not call makeSound", () => {
+      it("Should not call makeSound", () => {
         const testCat = new Cat(5, 0, 3);
         const makeSoundSpy = jest.spyOn(testCat, "makeSound");
+
         testCat.sleep();
+
         expect(makeSoundSpy).not.toHaveBeenCalled();
       });
     });
@@ -271,15 +280,15 @@ describe("Exercise 3", () => {
     describe("play", () => {
       const playMethod = allCatMethods?.find((x) => x.string.includes("play"));
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(playMethod).toBeTruthy();
       });
 
-      it("Is public", () => {
+      it("Should be public", () => {
         expect(["play()", "public play()"]).toContain(playMethod.string);
       });
 
-      it("Increments mood by 1 and decrements energy by 1", () => {
+      it("Should increments mood by 1 and decrements energy by 1", () => {
         const testCat = new Cat(5, 0, 3);
 
         expect(testCat.mood).toEqual(5);
@@ -291,7 +300,7 @@ describe("Exercise 3", () => {
         expect(testCat.energy).toEqual(2);
       });
 
-      it("Calls makeSound", () => {
+      it("Should call makeSound", () => {
         const testCat = new Cat(5, 0, 3);
         const spyMakeSound = jest.spyOn(testCat, "makeSound");
 
@@ -304,15 +313,15 @@ describe("Exercise 3", () => {
     describe("feed", () => {
       const feedMethod = allCatMethods?.find((x) => x.string.includes("feed"));
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(feedMethod).toBeTruthy();
       });
 
-      it("Is public", () => {
+      it("Should be public", () => {
         expect(["feed()", "public feed()"]).toContain(feedMethod.string);
       });
 
-      it("Decrements hungry by 1 and increments mood by 1", () => {
+      it("Should decrements hungry by 1 and increments mood by 1", () => {
         const testCat = new Cat(5, 2, 3);
 
         expect(testCat.hungry).toEqual(2);
@@ -324,7 +333,7 @@ describe("Exercise 3", () => {
         expect(testCat.mood).toEqual(6);
       });
 
-      it("Calls makeSound", () => {
+      it("Should call makeSound", () => {
         const testCat = new Cat(5, 0, 3);
         const spyMakeSound = jest.spyOn(testCat, "makeSound");
 
@@ -336,15 +345,15 @@ describe("Exercise 3", () => {
   });
 });
 
-describe("Exercise 4", () => {
+describe("Exercise 4 - Inheritance And Polymorphism", () => {
   describe("Person", () => {
     const allPersonProperties = findInfo("ClassProperty", personDeclaration);
 
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Person).toBeDefined();
     });
 
-    it("Is abstract", () => {
+    it("Should be abstract", () => {
       expect(personDeclaration.abstract).toBe(true);
     });
 
@@ -353,11 +362,11 @@ describe("Exercise 4", () => {
         x.string.includes("firstName")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(firstNameProperty).toBeTruthy();
       });
 
-      it("Is protected", () => {
+      it("Should be protected", () => {
         expect(firstNameProperty.string).toEqual("protected firstName: string");
       });
     });
@@ -367,108 +376,113 @@ describe("Exercise 4", () => {
         x.string.includes("lastName")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(lastNameProperty).toBeDefined();
       });
 
-      it("Is protected", () => {
+      it("Should be protected", () => {
         expect(lastNameProperty.string).toEqual("protected lastName: string");
       });
     });
   });
 
   describe("Student", () => {
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Student).toBeDefined();
     });
 
-    it("Implements IStudent", () => {
+    it("Should implement IStudent", () => {
       expect(studentDeclaration.implements[0].string).toEqual("IStudent");
     });
 
-    it("Is derived from class Person", () => {
+    it("Should be derived from class Person", () => {
       expect(studentDeclaration.superClass.string).toEqual("Person");
     });
 
     describe("grade", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const testStudent = new Student("John", "Doe", 6);
+
         expect(testStudent.grade).toBeDefined();
       });
     });
 
     describe("greet", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const testStudent = new Student("John", "Doe", 6);
         expect(testStudent.greet).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         const testStudent = new Student("John", "Doe", 6);
+
         expect(testStudent.greet()).toEqual("Hello, I'm John Doe");
       });
     });
 
     describe("displayGrade", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const testStudent = new Student("John", "Doe", 5);
         expect(testStudent.displayGrade).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         const testStudent = new Student("John", "Doe", 5);
+
         expect(testStudent.displayGrade()).toEqual("Grade: 5");
       });
     });
   });
 
   describe("Teacher", () => {
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Teacher).toBeDefined();
     });
 
-    it("Implements ITeacher", () => {
+    it("Should implement ITeacher", () => {
       expect(teacherDeclaration.implements[0].string).toEqual("ITeacher");
     });
 
-    it("Is derived from class Person", () => {
+    it("Should be derived from class Person", () => {
       expect(teacherDeclaration.superClass.string).toEqual("Person");
     });
 
     describe("subject", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
         expect(testTeacher.subject).toBeDefined();
       });
     });
 
     describe("greet", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
         expect(testTeacher.greet).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
+
         expect(testTeacher.greet()).toEqual("Hello, I'm Mrs. Doe");
       });
     });
 
     describe("displaySubject", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
         expect(testTeacher.displaySubject).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should return correct value", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
+
         expect(testTeacher.displaySubject()).toEqual("Subject: history");
       });
     });
   });
 });
 
-describe("Exercise 5", () => {
+describe("Exercise 5 - Dependency Inversion Principle", () => {
   describe("Store", () => {
     const allStoreMethods = findInfo("ClassMethod", storeDeclaration);
 
@@ -476,15 +490,15 @@ describe("Exercise 5", () => {
       x.string.includes("constructor")
     );
 
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(Store).toBeDefined();
     });
 
-    it("Accepts one argument in the constructor", () => {
+    it("Should accept one argument in the constructor", () => {
       expect(constructor.params.length).toEqual(1);
     });
 
-    it("Argument is of type PaymentProvider", () => {
+    it("Argument should be of type PaymentProvider", () => {
       expect(constructor.params[0].typeAnnotation.string).toEqual(
         "PaymentProvider"
       );
@@ -493,15 +507,15 @@ describe("Exercise 5", () => {
     describe("provider", () => {
       const providerProperty = findInfo("ClassProperty", storeDeclaration);
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(providerProperty).toBeTruthy();
       });
 
-      it("Is private", () => {
+      it("Should be private", () => {
         expect(providerProperty.accessibility).toEqual("private");
       });
 
-      it("Is of type PaymentProvider", () => {
+      it("Should be of type PaymentProvider", () => {
         expect(providerProperty.typeAnnotation.typeAnnotation.string).toEqual(
           "PaymentProvider"
         );
@@ -513,109 +527,138 @@ describe("Exercise 5", () => {
         x.string.includes("buySomething")
       );
 
-      it("Is defined", () => {
+      it("Should be defined", () => {
         expect(buySomething).toBeTruthy();
       });
 
-      it("Accepts one argument", () => {
+      it("Should accept one argument", () => {
         expect(buySomething.params.length).toEqual(1);
       });
 
-      it("Argument is of type string", () => {
+      it("Argument should be of type string", () => {
         expect(buySomething.params[0].typeAnnotation.string).toEqual("string");
       });
 
-      it("Calls this.provider.pay()", () => {
+      it("Should call this.provider.pay()", () => {
         const mockProvider = {
           pay: (price: string) => true,
         };
         const spyPay = jest.spyOn(mockProvider, "pay");
-        expect(spyPay).toHaveBeenCalledTimes(0);
         const testStore = new Store(mockProvider);
+
+        expect(spyPay).toHaveBeenCalledTimes(0);
+
         testStore.buySomething(1);
+
         expect(spyPay).toHaveBeenCalledTimes(1);
       });
 
-      it("Returns correct value with stripe provider", () => {
+      it("Should return correct value with stripe provider", () => {
         const testProvider = new StripeProvider();
         const testStore = new Store(testProvider);
+
         const expected = {
           success: true,
           total: 31.4895,
         };
+        const result = testStore.buySomething("29.99");
 
-        expect(testStore.buySomething("29.99")).toEqual(expected);
+        expect(result).toEqual(expected);
       });
 
-      it("Returns correct value with paypal provider", () => {
+      it("Should return correct value with paypal provider", () => {
         const testProvider = new PayPalProvider();
         const testStore = new Store(testProvider);
+
         const expected = {
           success: true,
           total: 29.99,
         };
+        const result = testStore.buySomething("29.99");
 
-        expect(testStore.buySomething("29.99")).toEqual(expected);
+        expect(result).toEqual(expected);
       });
     });
   });
 
   describe("StripeProvider", () => {
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(StripeProvider).toBeDefined();
     });
 
-    it("Implements PaymentProvider", () => {
+    it("Should implement PaymentProvider", () => {
       expect(stripeProviderDeclaration.implements[0].string).toEqual(
         "PaymentProvider"
       );
     });
 
     describe("pay", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const test = new StripeProvider();
 
         expect(test.pay).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should call createPayment from stripe api", () => {
+        const testStripeProvider = new StripeProvider();
+        const createPaymentSpy = jest.spyOn(stripeApi, "createPayment");
+
+        testStripeProvider.pay("10");
+
+        expect(createPaymentSpy).toHaveBeenCalled();
+      });
+
+      it("Should return correct value", () => {
         const test = new StripeProvider();
+
         const expected = {
           success: true,
           total: 10.5,
         };
+        const result = test.pay("10");
 
-        expect(test.pay("10")).toEqual(expected);
+        expect(result).toEqual(expected);
       });
     });
   });
 
   describe("PayPalProvider", () => {
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(PayPalProvider).toBeDefined();
     });
 
-    it("Implements PaymentProvider", () => {
+    it("Should implements PaymentProvider", () => {
       expect(paypalProviderDeclaration.implements[0].string).toEqual(
         "PaymentProvider"
       );
     });
 
     describe("pay", () => {
-      it("Is defined", () => {
+      it("Should be defined", () => {
         const test = new PayPalProvider();
 
         expect(test.pay).toBeDefined();
       });
 
-      it("Returns correct value", () => {
+      it("Should call makePayment from paypal api", () => {
+        const testPaypalProvider = new PayPalProvider();
+        const makePaymentSpy = jest.spyOn(paypalApi, "makePayment");
+
+        testPaypalProvider.pay("10");
+
+        expect(makePaymentSpy).toHaveBeenCalled();
+      });
+
+      it("Should return correct value", () => {
         const test = new PayPalProvider();
+
         const expected = {
           success: true,
           total: 10,
         };
+        const result = test.pay("10");
 
-        expect(test.pay("10")).toEqual(expected);
+        expect(result).toEqual(expected);
       });
     });
   });
