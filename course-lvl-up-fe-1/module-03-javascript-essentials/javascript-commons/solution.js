@@ -1,4 +1,4 @@
-// Assessment 1
+// Exercise 1
 
 function map(array, cb) {
   if (!Array.isArray(array)) {
@@ -18,7 +18,7 @@ function map(array, cb) {
   return newArray;
 }
 
-// Assessment 2
+// Exercise 2
 
 function* fibonacci() {
   let current = 0;
@@ -30,7 +30,7 @@ function* fibonacci() {
   }
 }
 
-// Assessment 3
+// Exercise 3
 
 function potentialVotersResult(votersList) {
   if (!Array.isArray(votersList)) {
@@ -82,7 +82,7 @@ function potentialVotersResult(votersList) {
   );
 }
 
-// Assessment 4
+// Exercise 4
 
 function reduce(array, callback, initializer = undefined) {
   if (!Array.isArray(array)) {
@@ -102,7 +102,7 @@ function reduce(array, callback, initializer = undefined) {
   return accumulator;
 }
 
-// Assessment 5
+// Exercise 5
 
 function calculateEvenAverage(array) {
   if (!Array.isArray(array)) {

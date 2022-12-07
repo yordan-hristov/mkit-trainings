@@ -1,24 +1,22 @@
-- [x] - Examples should have a provided language (js, ts, etc)
-- [x] - Quests should be course-lvlup-fe-1
-- [x] - Naming of folders in course should be `0<number-of-module>-<name-module-in-kebab-case>` e.g. - `module-01-oop-fp-vsc` | `module-10-advanced-state-management`
-- [x] - Topic folders should be lowercase
-- [x] - Introduction should be copied from notion for every topic
-- [x] - When using an acronym use it with its real meaning and then with an acronym e.g. `Functional Programming(FP)`
-- [x] - `Learning Materials About This Topic` a link to the topic in notion under introduction
-- [x] - README replace `Quest` in title with `Module`
-- [x] - Replace `Assessment` with `Exercise` everywhere
-- [x] - `Exercise` should be capitalized everywhere
-- [x] - All exercises should have examples with input and output
-- [x] - After argument's description it should be said that valid `input` will be safely provided when testing.
-- [x] - Every Exercise should include documentation about argument's types and validity when testing.
-    e.g. `Every function should receive an array of numbers as input and you can safely expect this input to be valid.`
-- [x] - In the description of every exercise your should follow `provided with <name-of-function> function declaration` as a convention.
-- [x] - `Your tasks` should be `Your objectives` 
-- [x] - Follow oxford comma convention
+- [ ] - Examples should have a provided language (js, ts, etc)
+- [ ] - Quests should be course-lvlup-fe-1
+- [ ] - Naming of folders in course should be `0<number-of-module>-<name-module-in-kebab-case>` e.g. - `module-01-oop-fp-vsc` | `module-10-advanced-state-management`
+- [ ] - Topic folders should be lowercase
+- [ ] - Introduction should be copied from notion for every topic
+- [ ] - When using an acronym use it with its real meaning and then with an acronym e.g. `Functional Programming(FP)`
+- [ ] - `Learning Materials About This Topic` a link to the topic in notion under introduction
+- [ ] - README replace `Quest` in title with `Module`
+- [ ] - Replace `Assessment` with `Exercise` everywhere
+- [ ] - `Exercise` should be capitalized everywhere
+- [ ] - All exercises should have examples with input and output
+- [ ] - Every Exercise should include documentation about argument's types and validity when testing e.g. `Every function should receive an array of numbers as input and you can safely expect this input to be valid.`
+- [ ] - In the description of every exercise your should follow `provided with <name-of-function> function declaration` as a convention.
+- [ ] - `Your tasks` should be `Your objectives`
+- [ ] - Follow oxford comma convention
 - [ ] - In exercises the different tasks should be described as bullets
-- [x] - `method` should be renamed to `function` everywhere except in OOP related sections / OOP context.
-- [x] - Consistency in figure of speech
-- [x] - Output result should be on the same line or with `...` in between
+- [ ] - `method` should be renamed to `function` everywhere except in OOP related sections / OOP context.
+- [ ] - Consistency in figure of speech
+- [ ] - Output result should be on the same line or with `...` in between
 - [ ] - Always console.log output function result e.g. `console.log(solve(123))`
 - [ ] - You can use -> `_Pro tip: Use something_` if needed
 - [ ] - Functions in index should be with documentation

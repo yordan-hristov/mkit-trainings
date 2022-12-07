@@ -5,10 +5,10 @@ const {
   potentialVotersResult,
   reduce,
   calculateEvenAverage,
-} = require("./index");
+} = require("./solution");
 
-describe("Assessment 1", () => {
-  describe("map", () => {
+describe("Exercise 1 - Generator Functions", () => {
+  describe("map()", () => {
     const numberedArray = [1, 2, 3, 4, 5];
     const namedArray = ["John", "Doe", "Peter", "Parker"];
     const mockedObject = [
@@ -38,19 +38,11 @@ describe("Assessment 1", () => {
 
     const extractName = (el) => el.name;
 
-    it("Should not call array map", () => {
-      const initializeMapSpy = jest.spyOn(Array.prototype, "map");
-
-      map(numberedArray, mockedCallBack);
-
-      expect(initializeMapSpy).not.toHaveBeenCalled();
-    });
-
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(map).toBeDefined();
     });
 
-    it("Accepts array as first argument", () => {
+    it("Should accepts array as first argument", () => {
       expect(() => {
         map("test", mockedCallBack);
       }).toThrow();
@@ -72,7 +64,7 @@ describe("Assessment 1", () => {
       }).not.toThrow();
     });
 
-    it("Accepts a function as a second argument", () => {
+    it("Should accepts a function as a second argument", () => {
       expect(() => {
         map(numberedArray, "test");
       }).toThrow();
@@ -98,52 +90,85 @@ describe("Assessment 1", () => {
       }).not.toThrow();
     });
 
+    it("Should not call array map", () => {
+      const initializeMapSpy = jest.spyOn(Array.prototype, "map");
+      const mockedMap = jest.fn(map);
+
+      mockedMap(numberedArray, mockedCallBack);
+
+      expect(initializeMapSpy).not.toHaveBeenCalled();
+    });
+
     it("Should return an array", () => {
-      expect(map(numberedArray, mockedCallBack)).toBeInstanceOf(Array);
+      const mockedMap = jest.fn(map);
+
+      const result = mockedMap(numberedArray, mockedCallBack);
+
+      expect(result).toBeInstanceOf(Array);
     });
 
     it("Should not mutate", () => {
-      expect(map(numberedArray, mockedCallBack)).not.toBe(numberedArray);
+      const mockedMap = jest.fn(map);
+
+      const result = mockedMap(numberedArray, mockedCallBack);
+
+      expect(result).not.toBe(numberedArray);
     });
 
     it("Should multiply every element by two", () => {
-      expect(map(numberedArray, multiplyByTwo)).toEqual(
-        numberedArray.map(multiplyByTwo)
-      );
+      const mockedMap = jest.fn(map);
+
+      const result = mockedMap(numberedArray, multiplyByTwo);
+      const realMapResult = numberedArray.map(multiplyByTwo);
+
+      expect(result).toEqual(realMapResult);
     });
 
     it("Should concat index to element", () => {
-      expect(map(namedArray, concatIndexToElement)).toEqual(
-        namedArray.map(concatIndexToElement)
-      );
+      const mockedMap = jest.fn(map);
+
+      const result = mockedMap(namedArray, concatIndexToElement);
+      const realMapResult = namedArray.map(concatIndexToElement);
+
+      expect(result).toEqual(realMapResult);
     });
 
-    it("Should concat element, index and current array", () => {
-      expect(map(namedArray, concatArguments)).toEqual(
-        namedArray.map(concatArguments)
-      );
+    it("Should concat element, index, and current array", () => {
+      const mockedMap = jest.fn(map);
+
+      const result = mockedMap(namedArray, concatArguments);
+      const realMapResult = namedArray.map(concatArguments);
+
+      expect(result).toEqual(realMapResult);
     });
 
     it("Should get names from object", () => {
-      expect(map(mockedObject, extractName)).toEqual(
-        mockedObject.map(extractName)
-      );
+      const mockedMap = jest.fn(map);
+
+      const result = mockedMap(mockedObject, extractName);
+      const realMapResult = mockedObject.map(extractName);
+
+      expect(result).toEqual(realMapResult);
     });
   });
 });
 
-describe("Assessment 2", () => {
+describe("Exercise 2 - Array Methods(Map)", () => {
   describe("fibonacci", () => {
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(fibonacci).toBeDefined();
     });
 
-    it("Should call a generator function", () => {
-      expect(isGeneratorFunction(fibonacci)).toEqual(true);
+    it("Should be a generator function", () => {
+      const isGeneratorUsed = isGeneratorFunction(fibonacci);
+
+      expect(isGeneratorUsed).toBeTruthy();
     });
 
     it("Should return return the smallest number of bills", () => {
-      const incrementFibonacci = fibonacci();
+      const mockedFibonacci = jest.fn(fibonacci);
+
+      const incrementFibonacci = mockedFibonacci();
 
       expect(incrementFibonacci.next().value).toEqual(0);
       expect(incrementFibonacci.next().value).toEqual(1);
@@ -162,9 +187,9 @@ describe("Assessment 2", () => {
   });
 });
 
-describe("Assessment 3", () => {
-  describe("potentialVotersResult", () => {
-    it("Is defined", () => {
+describe("Exercise 3 - Array Methods(Reduce)", () => {
+  describe("potentialVotersResult()", () => {
+    it("Should be defined", () => {
       expect(potentialVotersResult).toBeDefined();
     });
 
@@ -195,48 +220,50 @@ describe("Assessment 3", () => {
     });
 
     it("Should return correct result", () => {
-      expect(
-        potentialVotersResult([
-          { name: "John", age: 18, voted: true },
-          { name: "Jake", age: 55, voted: true },
-          { name: "Peter", age: 25, voted: false },
-          { name: "Harry", age: 53, voted: false },
-          { name: "George", age: 23, voted: false },
-          { name: "Dan", age: 40, voted: false },
-        ])
-      ).toEqual({
+      const mockedPotentialVotersResult = jest.fn(potentialVotersResult);
+
+      const result1 = mockedPotentialVotersResult([
+        { name: "John", age: 18, voted: true },
+        { name: "Jake", age: 55, voted: true },
+        { name: "Peter", age: 25, voted: false },
+        { name: "Harry", age: 53, voted: false },
+        { name: "George", age: 23, voted: false },
+        { name: "Dan", age: 40, voted: false },
+      ]);
+
+      const result2 = mockedPotentialVotersResult([
+        { name: "John", age: 0, voted: true },
+        { name: "Jake", age: 0, voted: true },
+        { name: "Peter", age: 0, voted: false },
+        { name: "Harry", age: 0, voted: false },
+        { name: "George", age: 0, voted: false },
+        { name: "Dan", age: 0, voted: false },
+      ]);
+
+      const result3 = mockedPotentialVotersResult([
+        { name: "John", age: 18, voted: true },
+        { name: "Jake", age: 23, voted: true },
+        { name: "Peter", age: 25, voted: true },
+        { name: "Harry", age: 76, voted: true },
+        { name: "George", age: 44, voted: true },
+        { name: "Dan", age: 40, voted: true },
+      ]);
+
+      expect(result1).toEqual({
         young: 1,
         midAged: 0,
         afterMidAged: 1,
         old: 0,
       });
 
-      expect(
-        potentialVotersResult([
-          { name: "John", age: 0, voted: true },
-          { name: "Jake", age: 0, voted: true },
-          { name: "Peter", age: 0, voted: false },
-          { name: "Harry", age: 0, voted: false },
-          { name: "George", age: 0, voted: false },
-          { name: "Dan", age: 0, voted: false },
-        ])
-      ).toEqual({
+      expect(result2).toEqual({
         young: 0,
         midAged: 0,
         afterMidAged: 0,
         old: 0,
       });
 
-      expect(
-        potentialVotersResult([
-          { name: "John", age: 18, voted: true },
-          { name: "Jake", age: 23, voted: true },
-          { name: "Peter", age: 25, voted: true },
-          { name: "Harry", age: 76, voted: true },
-          { name: "George", age: 44, voted: true },
-          { name: "Dan", age: 40, voted: true },
-        ])
-      ).toEqual({
+      expect(result3).toEqual({
         young: 3,
         midAged: 2,
         afterMidAged: 0,
@@ -246,8 +273,8 @@ describe("Assessment 3", () => {
   });
 });
 
-describe("Assessment 4", () => {
-  describe("reduce", () => {
+describe("Exercise 4 - Array methods(Reduce implementation)", () => {
+  describe("reduce()", () => {
     const array = [1, 2, 3, 4, 5];
 
     const objectArray = [
@@ -271,7 +298,7 @@ describe("Assessment 4", () => {
 
     const mockedCallBack = () => {};
 
-    it("Is defined", () => {
+    it("Should be defined", () => {
       expect(reduce).toBeDefined();
     });
 
@@ -333,30 +360,36 @@ describe("Assessment 4", () => {
 
     it("Should not call array reduce", () => {
       const initializeReduceSpy = jest.spyOn(Array.prototype, "reduce");
+      const mockedMap = jest.fn(reduce);
 
-      reduce(array, mockedCallBack);
+      mockedMap(array, mockedCallBack);
 
       expect(initializeReduceSpy).not.toHaveBeenCalled();
     });
 
-    it("Should return sum of array elements", () => {
-      expect(reduce(array, (acc, curr) => acc + curr, 0)).toEqual(
-        array.reduce((acc, curr) => acc + curr, 0)
-      );
-    });
+    it("Should return valid reduce result", () => {
+      const mockedReduce = jest.fn(reduce);
 
-    it("Should return sum of array elements", () => {
-      expect(
-        reduce(objectArray, (acc, curr) => acc + curr.salary / curr.saving, 0)
-      ).toEqual(
-        objectArray.reduce((acc, curr) => acc + curr.salary / curr.saving, 0)
+      const result1 = mockedReduce(array, (acc, curr) => acc + curr, 0);
+      const result2 = mockedReduce(
+        objectArray,
+        (acc, curr) => acc + curr.salary / curr.saving
       );
+
+      const realReduceResult1 = array.reduce((acc, curr) => acc + curr, 0);
+      const realReduceResult2 = objectArray.reduce(
+        (acc, curr) => acc + curr.salary / curr.saving,
+        0
+      );
+
+      expect(result1).toEqual(realReduceResult1);
+      expect(result2).toEqual(realReduceResult2);
     });
   });
 });
 
-describe("Assessment 4", () => {
-  describe("calculateEvenAverage", () => {
+describe("Exercise 5 - Even Average Sum", () => {
+  describe("calculateEvenAverage()", () => {
     it("Should be defined", () => {
       expect(calculateEvenAverage).toBeDefined();
     });
@@ -388,55 +421,66 @@ describe("Assessment 4", () => {
     });
 
     it("Should should return correct object", () => {
-      expect(calculateEvenAverage([])).toHaveProperty("sum");
-      console.log([]);
-      expect(calculateEvenAverage([])).toHaveProperty("evenArray");
+      const mockedCalculateEvenAverage = jest.fn(calculateEvenAverage);
+
+      const result = mockedCalculateEvenAverage([]);
+
+      expect(result).toHaveProperty("sum");
+      expect(result).toHaveProperty("evenArray");
     });
 
     it("Should return even array on evenArray", () => {
-      expect(
+      const mockedCalculateEvenAverage = jest.fn(calculateEvenAverage);
+
+      const result = mockedCalculateEvenAverage(
         calculateEvenAverage([]).evenArray.map((el) => el % 2)
-      ).not.toContain(1);
+      );
 
-      expect(
-        calculateEvenAverage([1, 2, 3, 4, 5]).evenArray.map((el) => el % 2)
-      ).not.toContain(1);
-
-      expect(
-        calculateEvenAverage([2, 6, 3, 9, 12]).evenArray.map((el) => el % 2)
-      ).not.toContain(1);
+      expect(result).not.toContain(1);
     });
 
     it("Should return correct sum of average", () => {
-      expect(calculateEvenAverage([1, 2, 3, 4, 5]).sum).toEqual(6);
-      expect(calculateEvenAverage([1, 3, 5, 7]).sum).toEqual(0);
-      expect(calculateEvenAverage([2, 6, 3, 9, 12]).sum).toEqual(20);
-      expect(calculateEvenAverage([0, 2, 2, 4, 2, 8]).sum).toEqual(18);
-      expect(calculateEvenAverage([1, 3, 5, 8, 21, 124]).sum).toEqual(132);
+      const mockedCalculateEvenAverage = jest.fn(calculateEvenAverage);
+
+      expect(mockedCalculateEvenAverage([1, 2, 3, 4, 5]).sum).toEqual(6);
+      expect(mockedCalculateEvenAverage([1, 3, 5, 7]).sum).toEqual(0);
+      expect(mockedCalculateEvenAverage([2, 6, 3, 9, 12]).sum).toEqual(20);
+      expect(mockedCalculateEvenAverage([0, 2, 2, 4, 2, 8]).sum).toEqual(18);
+      expect(mockedCalculateEvenAverage([1, 3, 5, 8, 21, 124]).sum).toEqual(
+        132
+      );
     });
 
     it("Should return correct final result", () => {
-      expect(calculateEvenAverage([1, 2, 3, 4, 5])).toEqual({
+      const mockedCalculateEvenAverage = jest.fn(calculateEvenAverage);
+
+      const result1 = mockedCalculateEvenAverage([1, 2, 3, 4, 5]);
+      const result2 = mockedCalculateEvenAverage([2, 2, 7, 12, 5]);
+      const result3 = mockedCalculateEvenAverage([0, 0, 0, 0, 0]);
+      const result4 = mockedCalculateEvenAverage([]);
+      const result5 = mockedCalculateEvenAverage([1, 3, 5, 9]);
+
+      expect(result1).toEqual({
         sum: 6,
         evenArray: [4, 2],
       });
 
-      expect(calculateEvenAverage([2, 2, 7, 12, 5])).toEqual({
+      expect(result2).toEqual({
         sum: 16,
         evenArray: [12, 2, 2],
       });
 
-      expect(calculateEvenAverage([0, 0, 0, 0, 0])).toEqual({
+      expect(result3).toEqual({
         sum: 0,
         evenArray: [0, 0, 0, 0, 0],
       });
 
-      expect(calculateEvenAverage([])).toEqual({
+      expect(result4).toEqual({
         sum: 0,
         evenArray: [],
       });
 
-      expect(calculateEvenAverage([1, 3, 5, 9])).toEqual({
+      expect(result5).toEqual({
         sum: 0,
         evenArray: [],
       });
