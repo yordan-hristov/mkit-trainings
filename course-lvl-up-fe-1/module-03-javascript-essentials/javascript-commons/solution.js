@@ -1,7 +1,7 @@
 // Exercise 1
 
 function map(array, cb) {
-  if (!Array.isArrayarr) {
+  if (!Array.isArray(arr)) {
     throw new Error("You must pass an array as a first argument!");
   }
 
@@ -85,7 +85,7 @@ function potentialVotersResult(votersList) {
 // Exercise 4
 
 function reduce(array, callback, initializer = undefined) {
-  if (!Array.isArrayarr) {
+  if (!Array.isArray(arr)) {
     throw new Error("Your must provide an array as a first argument!");
   }
 
@@ -104,8 +104,8 @@ function reduce(array, callback, initializer = undefined) {
 
 // Exercise 5
 
-function calculateEvenAveragearr {
-  if (!Array.isArrayarr) {
+function calculateEvenAverage(arr) {
+  if (!Array.isArray(arr)) {
     throw new Error("Provided argument should be an array");
   }
 
@@ -127,8 +127,6 @@ function calculateEvenAveragearr {
     evenArray: evenArray.sort((a, b) => b - a),
   };
 }
-
-console.log(calculateEvenAverage([1, 2, 3, 4, 5]));
 
 module.exports = {
   map,

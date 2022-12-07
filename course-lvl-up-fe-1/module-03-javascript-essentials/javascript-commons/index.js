@@ -2,10 +2,10 @@
 
 /**
  *
- * @param {number[]} array
+ * @param {number[]} arr
  * @param {Function} callback
  */
-function map(array, callback = () => {}) {}
+function map(arr, callback = () => {}) {}
 
 // Exercise 2 - Array Methods(Map)
 function* fibonacci() {}
@@ -22,18 +22,18 @@ function potentialVotersResult(votersList) {}
  *
  * @typeparam {T} the current value type
  * @typeparam {InitializerT} the initializer type
- * @param {Array<T>} array
+ * @param {Array<T>} arr
  * @param {(currElement: T) => InitializerT} callback
  * @param {InitializerT} initializer
  */
-function reduce(array, callback, initializer) {}
+function reduce(arr, callback, initializer) {}
 
 // Exercise 5 - Even Average Sum
 /**
- * 
- * @param {number[]} array 
+ *
+ * @param {number[]} arr
  */
-function calculateEvenAveragearr {}
+function calculateEvenAverage(arr) {}
 
 /*********************************************
  * DO NOT MODIFY THIS AREA
