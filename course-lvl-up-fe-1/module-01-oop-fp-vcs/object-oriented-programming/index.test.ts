@@ -39,7 +39,7 @@ const [
   paypalProviderDeclaration,
 ] = allClassDeclarations;
 
-describe("Assessment 1", () => {
+describe("Exercise 1", () => {
   describe("Greeter", () => {
     const allGreeterMethods = findInfo("ClassMethod", greeterDeclaration);
 
@@ -111,7 +111,7 @@ describe("Assessment 1", () => {
   });
 });
 
-describe("Assessment 2", () => {
+describe("Exercise 2", () => {
   describe("Shape", () => {
     const result = new Shape("sq", 4, 5);
 
@@ -165,7 +165,7 @@ describe("Assessment 2", () => {
   });
 });
 
-describe("Assessment 3", () => {
+describe("Exercise 3", () => {
   describe("Cat", () => {
     const allCatMethods = findInfo("ClassMethod", catDeclaration);
     const allCatProperties = findInfo("ClassProperty", catDeclaration);
@@ -336,7 +336,7 @@ describe("Assessment 3", () => {
   });
 });
 
-describe("Assessment 4", () => {
+describe("Exercise 4", () => {
   describe("Person", () => {
     const allPersonProperties = findInfo("ClassProperty", personDeclaration);
 
@@ -468,7 +468,7 @@ describe("Assessment 4", () => {
   });
 });
 
-describe("Assessment 5", () => {
+describe("Exercise 5", () => {
   describe("Store", () => {
     const allStoreMethods = findInfo("ClassMethod", storeDeclaration);
 

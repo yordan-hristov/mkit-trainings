@@ -1,4 +1,4 @@
-// Assessment 1
+// Exercise 1
 
 export class Greeter {
   private name: string;
@@ -16,11 +16,11 @@ export class Greeter {
   }
 }
 
-// Assessment 2
+// Exercise 2
 
 export class Shape {}
 
-// Assessment 3
+// Exercise 3
 
 export class Cat {
   private mood: number;
@@ -55,7 +55,7 @@ export class Cat {
   }
 }
 
-// Assessment 4
+// Exercise 4
 
 interface IStudent {
   grade: number;
@@ -113,7 +113,7 @@ export class Teacher extends Person implements ITeacher {
   }
 }
 
-// Assessment 5
+// Exercise 5
 
 interface PaymentProvider {
   pay(price: string): {

@@ -2,7 +2,7 @@ const exec = require("child_process").execSync;
 
 const { vcs, flows } = require("./index");
 
-describe("Assessment 1", () => {
+describe("Exercise 1", () => {
   describe("Branch name", () => {
     const currentBranchName = exec("git branch --show-current")
       .toString("utf-8")
@@ -32,7 +32,7 @@ describe("Assessment 1", () => {
   });
 });
 
-describe("Assessment 2", () => {
+describe("Exercise 2", () => {
   const gitHistory = exec(
     "git reflog --oneline --pretty=format:%gs --max-count=50"
   )
@@ -80,7 +80,7 @@ describe("Assessment 2", () => {
   });
 });
 
-describe("Assessment 3", () => {
+describe("Exercise 3", () => {
   const gitHistory = exec(
     "git reflog --oneline --pretty=format:%gs --max-count=20"
   )

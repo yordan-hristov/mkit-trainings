@@ -1,14 +1,14 @@
-# Quest 1 - Object-Oriented Programming
+# Module 1 - Object-Oriented Programming
 
 ## Introduction
 
-OOP is a programming paradigm based on the concepts of "objects", which helps describe complex real life problems into a more human-natural way. OOP objects can represent various physical (or not) entities encapsulating both data and functionality within a single model. A typical illustration of OOP is the concept of a hierarchy, e.g. Animal (parent, top-level entity) - Cat, Dog (extends from parent, lower-level entity), etc.
+Object Oriented Programming(OOP) is a programming paradigm based on the concepts of "objects", which helps describe complex real life problems into a more human-natural way. OOP objects can represent various physical (or not) entities encapsulating both data and functionality within a single model. A typical illustration of OOP is the concept of a hierarchy, e.g. Animal (parent, top-level entity) - Cat, Dog (extends from parent, lower-level entity), etc.
 
-[Link to Notion](https://www.notion.so/mkit/Object-Oriented-Programming-OOP-1d516d7c57764e02b31d0eaa719b1bf2)
+[Learning Materials About This Topic](https://www.notion.so/mkit/Object-Oriented-Programming-OOP-1d516d7c57764e02b31d0eaa719b1bf2)
 
-## Assessment #1 - Modifiers
+## Exercise #1 - Modifiers
 
-In this assessment you are provided with the starting of a definition for a `Greeter` class. Your tasks are to:
+In this Exercise you are provided with `Greeter` class definition. Your objectives are to:
 
 - Implement a field of type string that is called `name` and is accessible only in this class.
 
@@ -16,17 +16,17 @@ In this assessment you are provided with the starting of a definition for a `Gre
 
 - Implement a method called `greet()` that is accessible outside this class and returns a string in format `"Hello, {name}"`
 
-## Assessment #2
+## Exercise #2
 
- In this assessment you are provided with the starting of a definition for a `Shape` class. This class only models shapes for which all sides are the same length, like a square or an equilateral triangle.
+ In this Exercise you are provided with the starting of a definition for a `Shape` class. This class only models shapes for which all sides are the same length, like a square or an equilateral triangle. Your objectives are to:
 
 - Add a constructor to this class. The constructor takes arguments for the `name`, `sides`, and `sideLength` properties, and initializes them.
 
 - Add a new `calcPerimeter()` method to the class, which calculates its perimeter (the length of the shape's outer edge) and logs the result to the console.
 
-## Assessment #3 - Encapsulation And Abstraction
+## Exercise #3 - Encapsulation And Abstraction
 
-In this assessment you are provided with a class called `Cat`. You tasks are to:
+In this Exercise you are provided with a class called `Cat`. Your objectives are to:
 
 - Implement 3 fields: 
     1. `mood: number`:  Accessible only in this class.
@@ -40,9 +40,9 @@ In this assessment you are provided with a class called `Cat`. You tasks are to:
     4. `feed()`: decrements `hungry` by `1` and increment `mood` by `1`. Also calls `makeSound()`.
 
 
-## Assessment #4 - Inheritance And Polymorphism
+## Exercise #4 - Inheritance And Polymorphism
 
-In this assessment you are provided with 2 interfaces: `IStudent` and `ITeacher` and 3 class declarations: `Person`, `Teacher` and `Student`. Your tasks are to:
+In this Exercise you are provided with 2 interfaces: `IStudent` and `ITeacher` and 3 class declarations: `Person`, `Teacher` and `Student`. Your objectives are to:
 
 - Implement `Person` in such way that it can not be instantiated and has 3 fields:
     1. `firstName: string`: Accessible in this class and derived classes.
@@ -53,9 +53,9 @@ In this assessment you are provided with 2 interfaces: `IStudent` and `ITeacher`
     1. `Student`: Implementing `IStudent` and greeting in format `"Hello, I'm {fullName}"`
     2. `Teacher`: Implementing `ITeacher` and greeting in format `"Hello, I'm Mrs. {lastName}"`
 
-## Assessment #5
+## Exercise #5
 
-In this assessment you are provided with: 
+In this Exercise you are provided with: 
 
 - interface `PaymentProvider`:
   ```typescript
@@ -74,7 +74,7 @@ In this assessment you are provided with:
     makePayment(price: number): { hasFailed: boolean }
     ```
 
-Your tasks are to: 
+Your objectives are to: 
 
 - Implement a class `Store` in a way that:
   - It has a `private` field called `provider` and is of type `PaymentProvider`

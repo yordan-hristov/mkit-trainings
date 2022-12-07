@@ -1,4 +1,4 @@
-# Quest 1 - Version Control Systems
+# Module 1 - Version Control Systems
 
 ## Introduction
 
@@ -6,11 +6,11 @@ Version or **source control** is the best practice of **tracking and managing ch
 
 No one can control the chaos of software development without the help of the powerful version control systems and our school of choice is [Git](https://git-scm.com/).
 
-[Link to Notion](https://www.notion.so/mkit/Version-Control-Systems-VCS-36274ba4f59649a4b0bcbaa6f20aa57b)
+[Learning Materials About This Topic](https://www.notion.so/mkit/Version-Control-Systems-VCS-36274ba4f59649a4b0bcbaa6f20aa57b)
 
-## Assessment #1 - Branches And Commits
+## Exercise #1 - Branches And Commits
 
-In this assessment you are provided with the object `vcs`. Your tasks are to:
+In this Exercise you are provided with the object `vcs`. Your objectives are to:
 
 - Create a new branch
 
@@ -20,17 +20,17 @@ In this assessment you are provided with the object `vcs`. Your tasks are to:
 
 - Follow the best practices for naming branches and commit messages
 
-## Assessment #2 - Rebasing And Resolving Conflicts
+## Exercise #2 - Rebasing And Resolving Conflicts
 
-After you have completed `Assessment 1`, your next tasks are to:
+After you have completed `Exercise 1`, your next objectives are to:
 
 - Rebase your branch with `feature/john-doe-solution`
 
 - Resolve the conflict is such way that you keep your changes but also John Doe's changes.
 
-## Assessment #3 - Cherry Picking
+## Exercise #3 - Cherry Picking
 
-After you have completed `Assessment 2`, your next tasks are to:
+After you have completed `Exercise 2`, your next objectives are to:
 
 - Cherry-pick the `feat: git flow` commit from `feature/cherry-pick`
 
@@ -38,6 +38,6 @@ After you have completed `Assessment 2`, your next tasks are to:
 
 - `Hint:` use `git log --oneline feature/cherry-pick` to see the commits' `SHA`
 
-**After you have completed all assessments, your final task is to push the branch to remote.**
+**After you have completed all Exercises, your final task is to push the branch to remote.**
 
 If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message. If you feel stuck, checkout a new branch and start over.

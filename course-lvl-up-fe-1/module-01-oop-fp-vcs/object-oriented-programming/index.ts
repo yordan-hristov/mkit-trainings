@@ -1,16 +1,16 @@
-// Assessment 1
+// Exercise 1
 
 export class Greeter {}
 
-// Assessment 2
+// Exercise 2
 
 export class Shape {}
 
-// Assessment 3
+// Exercise 3
 
 export class Cat {}
 
-// Assessment 4
+// Exercise 4
 
 interface IStudent {
   grade: number;
@@ -28,7 +28,7 @@ export class Student {}
 
 export class Teacher {}
 
-// Assessment 5
+// Exercise 5
 import { paypalApi, stripeApi } from "./_api";
 
 interface PaymentProvider {
