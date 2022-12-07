@@ -1,10 +1,4 @@
-const {
-  carOwner,
-  addTwo,
-  getUsers,
-  Person,
-  getPrintName,
-} = require("./solution");
+const { carOwner, addTwo, getUsers, Person, getPrintName } = require("./index");
 
 describe("Exercise 1 - Car Manufacturing", () => {
   describe("carOwner()", () => {

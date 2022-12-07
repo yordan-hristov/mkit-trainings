@@ -5,7 +5,7 @@ const {
   potentialVotersResult,
   reduce,
   calculateEvenAverage,
-} = require("./solution");
+} = require("./index");
 
 describe("Exercise 1 - Generator Functions", () => {
   describe("map()", () => {
