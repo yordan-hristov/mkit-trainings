@@ -33,7 +33,7 @@ function reduce(array, callback, initializer) {}
  * 
  * @param {number[]} array 
  */
-function calculateEvenAverage(array) {}
+function calculateEvenAveragearr {}
 
 /*********************************************
  * DO NOT MODIFY THIS AREA

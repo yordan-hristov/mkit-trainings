@@ -154,7 +154,7 @@ describe("Exercise 1 - Generator Functions", () => {
 });
 
 describe("Exercise 2 - Array Methods(Map)", () => {
-  describe("fibonacci", () => {
+  describe("fibonacci()", () => {
     it("Should be defined", () => {
       expect(fibonacci).toBeDefined();
     });

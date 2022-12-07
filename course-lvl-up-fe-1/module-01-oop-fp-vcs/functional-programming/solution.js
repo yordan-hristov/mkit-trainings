@@ -1,20 +1,20 @@
 // Exercise 1
 
-const map = (array) => {
+const map = arr => {
   return array.map((x) => x * 2);
 };
 
-const filter = (array) => {
+const filter = arr => {
   return array.filter((x) => x % 2 === 0);
 };
 
-const reduce = (array) => {
+const reduce = arr => {
   return array.reduce((a, b) => a + b);
 };
 
 // Exercise 2
 
-const sort = (array) => {
+const sort = arr => {
   return [...array].sort(
     (a, b) => a.name.localeCompare(b.name) || a.age - b.age
   );
