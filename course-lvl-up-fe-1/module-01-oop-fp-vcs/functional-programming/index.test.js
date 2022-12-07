@@ -9,53 +9,60 @@ const {
   add,
 } = require("./index");
 
-describe("Assessment 1", () => {
-  describe("reduce()", () => {
-    it("Returns number", () => {
+describe("Exercise 1 - Array Functions", () => {
+  describe("map()", () => {
+    it("Should accept an array of numbers", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      const result = reduce(array);
-      expect(result).toEqual(expect.any(Number));
-    });
 
-    it("Accepts array", () => {
-      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       expect(() => {
-        reduce("test");
+        map("test");
       }).toThrow();
 
       expect(() => {
-        reduce(123);
+        map(123);
       }).toThrow();
 
       expect(() => {
-        reduce(true);
+        map(true);
       }).toThrow();
 
       expect(() => {
-        reduce({ prop: "test" });
+        map({ prop: "test" });
       }).toThrow();
 
       expect(() => {
-        reduce(array);
+        map(array);
       }).not.toThrow();
     });
 
-    it("Returns valid response", () => {
+    it("Should return an array of numbers", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      const result = reduce(array);
 
-      expect(result).toEqual(55);
+      const result = map(array);
+
+      expect(result).toBeInstanceOf(Array);
     });
 
-    it("Does not mutate", () => {
+    it("Should not mutate the input array of numbers", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       const copy = [...array];
-      const result = reduce(array);
+
+      const result = map(array);
 
       expect(array).toEqual(copy);
       expect(result).not.toBe(array);
     });
+
+    it("Should return a valid response", () => {
+      const mockMap = jest.fn((arr) => map(arr));
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      mockMap(array);
+
+      expect(mockMap).toHaveReturnedWith([2, 4, 6, 8, 10, 12, 14, 16, 18, 20]);
+    });
   });
+
   describe("filter()", () => {
     it("Returns array", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -103,55 +110,56 @@ describe("Assessment 1", () => {
       expect(result).not.toBe(array);
     });
   });
-  describe("map()", () => {
-    it("Returns valid response", () => {
-      const mockMap = jest.fn((arr) => map(arr));
-      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      mockMap(array);
-      expect(mockMap).toHaveReturnedWith([2, 4, 6, 8, 10, 12, 14, 16, 18, 20]);
-    });
 
-    it("Does not mutate", () => {
+  describe("reduce()", () => {
+    it("Returns number", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      const copy = [...array];
-      const result = map(array);
-
-      expect(array).toEqual(copy);
-      expect(result).not.toBe(array);
+      const result = reduce(array);
+      expect(result).toEqual(expect.any(Number));
     });
 
     it("Accepts array", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       expect(() => {
-        map("test");
+        reduce("test");
       }).toThrow();
 
       expect(() => {
-        map(123);
+        reduce(123);
       }).toThrow();
 
       expect(() => {
-        map(true);
+        reduce(true);
       }).toThrow();
 
       expect(() => {
-        map({ prop: "test" });
+        reduce({ prop: "test" });
       }).toThrow();
 
       expect(() => {
-        map(array);
+        reduce(array);
       }).not.toThrow();
     });
 
-    it("Returns array", () => {
+    it("Returns valid response", () => {
       const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      const result = map(array);
-      expect(result).toBeInstanceOf(Array);
+      const result = reduce(array);
+
+      expect(result).toEqual(55);
+    });
+
+    it("Does not mutate", () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const copy = [...array];
+      const result = reduce(array);
+
+      expect(array).toEqual(copy);
+      expect(result).not.toBe(array);
     });
   });
 });
 
-describe("Assessment 2 - Pure Functions", () => {
+describe("Exercise 2 - Pure Functions", () => {
   describe("sort()", () => {
     it("Is defined", () => {
       expect(sort).toBeDefined();
@@ -218,7 +226,7 @@ describe("Assessment 2 - Pure Functions", () => {
   });
 });
 
-describe("Assessment 3 - Function Chaining and this", () => {
+describe("Exercise 3 - Function Chaining and this", () => {
   describe("calculator", () => {
     it("Is defined", () => {
       expect(calculator).toBeDefined();
@@ -310,7 +318,7 @@ describe("Assessment 3 - Function Chaining and this", () => {
       });
     });
 
-    it("Can chain all methods", () => {
+    it("Can chain all functions", () => {
       calculator.result = 0;
       expect(
         calculator.add(20).subtract(5).multiply(2).divide(3).result
@@ -319,7 +327,7 @@ describe("Assessment 3 - Function Chaining and this", () => {
   });
 });
 
-describe("Assessment 4 - Recursion", () => {
+describe("Exercise 4 - Recursion", () => {
   describe("recursive", () => {
     it("Is defined", () => {
       expect(recursive).toBeDefined();
@@ -335,7 +343,7 @@ describe("Assessment 4 - Recursion", () => {
   });
 });
 
-describe("Assessment 5 - Closures", () => {
+describe("Exercise 5 - Closures", () => {
   describe("createFibonacciClosure", () => {
     it("Is defined", () => {
       expect(createFibonacciClosure).toBeDefined();
@@ -362,7 +370,7 @@ describe("Assessment 5 - Closures", () => {
   });
 });
 
-describe("Assessment 6", () => {
+describe("Exercise 6 - Function Currying", () => {
   describe("add", () => {
     it("Is defined", () => {
       expect(add).toBeDefined();

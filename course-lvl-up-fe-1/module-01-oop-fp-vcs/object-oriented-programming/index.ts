@@ -1,16 +1,16 @@
-// Assessment 1
+// Exercise 1
 
 export class Greeter {}
 
-// Assessment 2
+// Exercise 2
 
 export class Shape {}
 
-// Assessment 3
+// Exercise 3
 
 export class Cat {}
 
-// Assessment 4
+// Exercise 4
 
 interface IStudent {
   grade: number;
@@ -27,3 +27,19 @@ export class Person {}
 export class Student {}
 
 export class Teacher {}
+
+// Exercise 5
+import { paypalApi, stripeApi } from "./_api";
+
+interface PaymentProvider {
+  pay(price: string): {
+    success: boolean;
+    total: number;
+  };
+}
+
+export class Store {}
+
+export class StripeProvider {}
+
+export class PayPalProvider {}

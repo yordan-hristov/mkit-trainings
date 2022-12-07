@@ -1,21 +1,18 @@
-// Assessment 1
+// Exercise 1
 
 const map = (array) => {
   return array.map((x) => x * 2);
-  // Implement me!
 };
 
 const filter = (array) => {
   return array.filter((x) => x % 2 === 0);
-  // Implement me!
 };
 
 const reduce = (array) => {
   return array.reduce((a, b) => a + b);
-  // Implement me!
 };
 
-// Assessment 2
+// Exercise 2
 
 const sort = (array) => {
   return [...array].sort(
@@ -23,7 +20,7 @@ const sort = (array) => {
   );
 };
 
-// Assessment 3
+// Exercise 3
 
 const calculator = {
   result: 0,
@@ -45,7 +42,7 @@ const calculator = {
   },
 };
 
-// Assessment 4
+// Exercise 4
 
 function recursive(n, result = []) {
   if (n % 2 === 0) {
@@ -59,7 +56,7 @@ function recursive(n, result = []) {
   }
 }
 
-// Assessment 5
+// Exercise 5
 
 function createFibonacciClosure() {
   let current = 0;
@@ -73,7 +70,7 @@ function createFibonacciClosure() {
   };
 }
 
-// Assessment 6
+// Exercise 6
 
 function add(n) {
   return (b) => {
