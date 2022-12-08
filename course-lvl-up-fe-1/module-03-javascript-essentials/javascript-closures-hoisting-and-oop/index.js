@@ -28,7 +28,9 @@ function Human() {
  * @param {string} name
  * @param {number} age
  */
-function Person(name, age) {}
+function Person(name, age) {
+  // Implement it
+}
 
 // Exercise 4 - Car
 function drive() {
@@ -48,6 +50,29 @@ function Car(tank, fuel) {
   // Implement it
 }
 
+// Exercise 5 - Create Husky
+/**
+ *
+ * @param {number} arms
+ * @param {number} legs
+ */
+function Animal(arms, legs) {
+  // Implement it
+}
+
+function Dog() {
+  // Implement it
+}
+
+/**
+ *
+ * @param {string} name
+ * @param {number} age
+ */
+function Husky(name, age) {
+  // Implement it
+}
+
 /*********************************************
  * DO NOT MODIFY THIS AREA
  *
@@ -58,4 +83,7 @@ module.exports = {
   guessingGame,
   Person,
   Car,
+  Animal,
+  Dog,
+  Husky,
 };

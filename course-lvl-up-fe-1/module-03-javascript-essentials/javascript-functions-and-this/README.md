@@ -95,7 +95,7 @@ console.log(result); // {online: [ "John", "Harry" ], offline: [ "Peter" ]}
 
 ## Exercise #4 - Create a Javascript Class From Scratch
 
-In this Exercise you are provided with `Person` function declaration. It will receive 2 arguments `name: string, age: number` as input and you can safely expect this input to be valid.
+In this Exercise you are provided with `Person` function constructor. It will receive 2 arguments `name: string, age: number` as input and you can safely expect this input to be valid.
 
 Your Objective is to:
 

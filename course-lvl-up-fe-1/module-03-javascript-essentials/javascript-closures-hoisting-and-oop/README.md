@@ -62,7 +62,7 @@ guess3(3); // "This game is over!"
 
 ## Exercise 3 - Human Body
 
-In this exercise your are provided with a `Human` function declaration. It should have 3 properties and you can safely expect to be tested with valid data.
+In this exercise your are provided with a `Human` function constructor. It should have 3 properties and you can safely expect to be tested with valid data.
 
 ```javascript
 arms = 2;
@@ -93,7 +93,7 @@ console.log(john.startFighting()); // I am walking and I am punching
 
 ## Exercise 4 - Car
 
-In this exercise you are provided with a `Car` function declaration. It should have 2 properties `tank: number, fuel: string` as input and you can safely expect to be tested with valid data. Also you will be provided with `drive` and `stop` function declarations already implemented for you.
+In this exercise you are provided with a `Car` function constructor. It should have 2 properties `tank: number, fuel: string` as input and you can safely expect to be tested with valid data. Also you will be provided with `drive` and `stop` function declarations already implemented for you.
 
 Your Objective is to:
 
@@ -106,4 +106,47 @@ const car = new Car();
 
 car.drive(); // "I am driving!"
 car.stop("I am stopping!"); // "I am stopping!"
+```
+
+## Exercise 5 - Create Husky
+
+In this exercise you are provided with a `Husky` function constructor. It should receive 2 properties `name: string, age: number` as input and you can safely expect to be tested with valid data.
+
+Your Objective is to:
+
+- create `Dog` and `Animal` function constructors
+
+  - `Animal` properties:
+
+    ```javascript
+    head = 1;
+    arms; // as input
+    legs; // as input
+    ```
+
+  - `Dog`
+
+    - should inherit all properties from `Animal`
+    - should 1 more property and 1 method
+
+    ```javascript
+    fur = // as an input;
+      startBarking; // returns "Woof!"
+    ```
+
+- `Husky` should inherit all properties/methods from `Dog // fur = 'black and white`
+- create a prototype based inheritance with `Husky -> Dog -> Animal`
+
+Example:
+
+```javascript
+const maya = new Husky("Maya", 2);
+
+console.log(maya.head); // 1;
+console.log(maya.arms); // 0;
+console.log(maya.legs); // 4;
+console.log(maya.fur); // "black and white";
+console.log(maya.startBarking()); // "Woof!";
+console.log(Object.getPrototypeOf(Husky) === Dog); // true;
+console.log(Object.getPrototypeOf(Dog) === Animal); // true;
 ```

@@ -100,10 +100,53 @@ function Car(tank, fuel) {
 Car.prototype.drive = drive;
 Car.prototype.stop = stop;
 
+// Exercise 5 - Exercise 5 - Create Husky
+
+function Animal(arms, legs) {
+  this.head = 1;
+  this.arms = arms;
+  this.legs = legs;
+}
+
+function Dog(fur) {
+  Animal.call(this, 0, 4);
+
+  this.fur = fur;
+
+  this.startBarking = function () {
+    return "Woof!";
+  };
+}
+
+Object.setPrototypeOf(Dog, Animal);
+
+function Husky(name, age) {
+  if (typeof name !== "string") {
+    throw new Error("Name should be a string");
+  }
+
+  if (typeof age !== "number") {
+    throw new Error("Age should be a number");
+  }
+
+  Dog.call(this, "black and white");
+
+  this.name = name;
+  this.age = age;
+}
+
+Object.setPrototypeOf(Husky, Dog);
+
+/*********************************************
+ * DO NOT MODIFY THIS AREA
+ *
+ * This area is used by the automated tests.
+ ********************************************/
 module.exports = {
   multiply,
   guessingGame,
   Person,
   Human,
   Car,
+  Husky,
 };

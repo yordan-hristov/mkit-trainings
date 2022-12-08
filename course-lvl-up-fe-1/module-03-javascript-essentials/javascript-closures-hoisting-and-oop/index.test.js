@@ -1,4 +1,11 @@
-const { multiply, guessingGame, Human, Person, Car } = require("./solution");
+const {
+  multiply,
+  guessingGame,
+  Human,
+  Person,
+  Car,
+  Husky,
+} = require("./solution");
 
 describe("Exercise 1 - Multiplication", () => {
   describe("multiply()", () => {
@@ -286,22 +293,146 @@ describe("Exercise 2 - Guessing Game", () => {
       });
 
       it("Should have functions attached to prototype", () => {
-        const MockedCar = jest.fn(Car);
+        const instance = new Car(100, "gas");
 
-        // const instance = new MockedCar(100, "gas");
-        const prototype = Object.getPrototypeOf(MockedCar);
+        const prototype = Object.getPrototypeOf(instance);
 
         expect(prototype).toHaveProperty("drive");
         expect(prototype).toHaveProperty("stop");
       });
 
       it("Should have functions attached to prototype", () => {
-        const MockedCar = jest.fn(Car);
-
-        const instance = new MockedCar(100, "gas");
+        const instance = new Car(100, "gas");
 
         expect(instance.drive()).toBe("I am driving!");
         expect(instance.stop()).toBe("I am stopping!");
+      });
+    });
+  });
+
+  describe("Exercise 5 - Create Husky", () => {
+    describe("Husky", () => {
+      it("Should be defined", () => {
+        expect(Husky).toBeDefined();
+      });
+
+      it("Should accept string as first parameter", () => {
+        expect(() => {
+          new Husky(123, 123);
+        }).toThrow();
+
+        expect(() => {
+          new Husky(false, 123);
+        }).toThrow();
+
+        expect(() => {
+          new Husky([], 123);
+        }).toThrow();
+
+        expect(() => {
+          new Husky({}, 123);
+        }).toThrow();
+
+        expect(() => {
+          new Husky("Maya", 123);
+        }).not.toThrow();
+      });
+
+      it("Should accept number as second parameter", () => {
+        expect(() => {
+          new Husky("Maya", "test");
+        }).toThrow();
+
+        expect(() => {
+          new Husky("Maya", false);
+        }).toThrow();
+
+        expect(() => {
+          new Husky("Maya", []);
+        }).toThrow();
+
+        expect(() => {
+          new Husky("Maya", {});
+        }).toThrow();
+
+        expect(() => {
+          new Husky("Maya", 123);
+        }).not.toThrow();
+      });
+
+      it("Should return an instance", () => {
+        const MockedHusky = jest.fn(Husky);
+
+        const instance = new MockedHusky("Maya", 2);
+
+        expect(instance).toBeInstanceOf(MockedHusky);
+      });
+
+      it("Should inherit from Dog", () => {
+        const prototype = Object.getPrototypeOf(Husky);
+
+        const isInheritFromDog = prototype.name === "Dog";
+
+        expect(isInheritFromDog).toBeTruthy();
+      });
+
+      it("Should inherit from Animal", () => {
+        const huskyPrototype = Object.getPrototypeOf(Husky);
+
+        const dogPrototype = Object.getPrototypeOf(huskyPrototype);
+        const isInheritFromAnimal = dogPrototype.name === "Animal";
+
+        expect(isInheritFromAnimal).toBeTruthy();
+      });
+
+      it("Should have correct properties", () => {
+        const MockedHusky = jest.fn(Husky);
+        const maya = new MockedHusky("Maya", 2);
+
+        expect(maya).toHaveProperty("name");
+        expect(maya).toHaveProperty("age");
+        expect(maya).toHaveProperty("fur");
+        expect(maya).toHaveProperty("startBarking");
+        expect(maya).toHaveProperty("head");
+        expect(maya).toHaveProperty("arms");
+        expect(maya).toHaveProperty("legs");
+      });
+
+      it("Should have correct property values", () => {
+        const MockedHusky = jest.fn(Husky);
+        const maya = new MockedHusky("Maya", 2);
+
+        expect(maya.name).toBe("Maya");
+        expect(maya.age).toBe(2);
+        expect(maya.fur).toBe("black and white");
+        expect(maya.head).toBe(1);
+        expect(maya.arms).toBe(0);
+        expect(maya.legs).toBe(4);
+      });
+
+      describe("startBarking()", () => {
+        it("Should be a function", () => {
+          const MockedHusky = jest.fn(Husky);
+          const maya = new MockedHusky("Maya", 2);
+
+          expect(typeof maya.startBarking).toBe("function");
+        });
+
+        it("Should be return woof", () => {
+          const MockedHusky = jest.fn(Husky);
+          const maya = new MockedHusky("Maya", 2);
+
+          expect(maya.startBarking()).toBe("Woof!");
+        });
+
+        it("Should be with prototype Dog", () => {
+          const Dog = Object.getPrototypeOf(Husky);
+          const dog = new Dog("black and white");
+
+          expect(dog).not.toHaveProperty("name");
+          expect(dog).not.toHaveProperty("age");
+          expect(dog.startBarking()).toBe("Woof!");
+        });
       });
     });
   });
