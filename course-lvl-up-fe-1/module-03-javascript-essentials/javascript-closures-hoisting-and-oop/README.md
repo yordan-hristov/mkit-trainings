@@ -8,7 +8,7 @@ Every programming language has specifics necessary as a prerequisite to taking f
 
 ## Exercise #1 - Multiplication
 
-In this exercise you will be provided with `multiply` function declaration. It will receive 2 arguments `n: number, b?: number`(b is optional) as an input and you can safely expect this input to be valid. After the last call it should return `No more calculations`.
+In this Exercise you will be provided with `multiply` function declaration. It will receive 2 arguments `n: number, b?: number`(b is optional) as an input and you can safely expect this input to be valid. After the last call it should return `No more calculations`.
 
 Your Objective is to:
 
@@ -25,7 +25,7 @@ multiply(3)(4); // 24
 
 ## Exercise 2 - Guessing Game
 
-In this exercise you are provided with `guessingGame` function declaration. It will receive 2 arguments `guesses: number, answer: number` as an input and you can safely expect this input to be valid. After calling `guessingGame` it should return a `guess` function. `guess` must receive an argument `n: number`.
+In this Exercise you are provided with `guessingGame` function declaration. It will receive 2 arguments `guesses: number, answer: number` as an input and you can safely expect this input to be valid. After calling `guessingGame` it should return a `guess` function. `guess` must receive an argument `n: number`.
 
 Your Objective is to:
 
@@ -62,7 +62,7 @@ guess3(3); // "This game is over!"
 
 ## Exercise 3 - Human Body
 
-In this exercise your are provided with a `Human` function constructor. It should have 3 properties and you can safely expect to be tested with valid data.
+In this Exercise your are provided with a `Human` function constructor. It should have 3 properties and you can safely expect to be tested with valid data.
 
 ```javascript
 arms = 2;
@@ -93,7 +93,7 @@ console.log(john.startFighting()); // I am walking and I am punching
 
 ## Exercise 4 - Car
 
-In this exercise you are provided with a `Car` function constructor. It should have 2 properties `tank: number, fuel: string` as input and you can safely expect to be tested with valid data. Also you will be provided with `drive` and `stop` function declarations already implemented for you.
+In this Exercise you are provided with a `Car` function constructor. It should have 2 properties `tank: number, fuel: string` as input and you can safely expect to be tested with valid data. Also you will be provided with `drive` and `stop` function declarations already implemented for you.
 
 Your Objective is to:
 
@@ -110,7 +110,7 @@ car.stop("I am stopping!"); // "I am stopping!"
 
 ## Exercise 5 - Create Husky
 
-In this exercise you are provided with a `Husky` function constructor. It should receive 2 properties `name: string, age: number` as input and you can safely expect to be tested with valid data.
+In this Exercise you are provided with a `Husky` function constructor. It should receive 2 properties `name: string, age: number` as input and you can safely expect to be tested with valid data.
 
 Your Objective is to:
 
