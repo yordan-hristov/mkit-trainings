@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Every programming language has specifics necessary as a prerequisite to taking full advantage of its features. Having solid understanding of how to operate variables, functions, and scope in JavaScript is essential to both functional and object-oriented programming.
+Every programming language has specifics necessary as a prerequisite to taking full advantage of its features. Having solid understanding of how to operate **variables**, **functions**, and **scope** in JavaScript is essential to both **functional and object-oriented programming**.
 
-[Learning Materials About This Topic](https://www.notion.so/mkit/Quest-3-JavaScript-Essentials-efb2218bedfc4039b571b6d6d88f2258#c6553f7cdebf41fe86569b170d3f3d11)
+[Learning Materials About This Topic](https://www.notion.so/mkit/JavaScript-Closures-Hoisting-and-OOP-b69fb880517f49e4b19e59e120af4dea)
 
 ## Exercise #1 - Multiplication
 

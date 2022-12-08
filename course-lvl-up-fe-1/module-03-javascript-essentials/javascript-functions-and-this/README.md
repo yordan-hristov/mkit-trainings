@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In JavaScript there is a global scope that contains and is visible in all other scopes. In client-side (browser) JavaScript the global scope is generally the web page or window object. However, since JavaScript runs on the server-side as well, there is another global scope available there. In addition to that, the keyword this behaves a little differently in JavaScript compared to other languages.
+In JavaScript there is a **global scope** that contains and is visible in all other scopes. In **client-side** (browser) JavaScript the global scope is generally the web page or `window` object. However, since JavaScript runs on the **server-side** as well, there is another global scope available there. In addition to that, the keyword `this` behaves a little differently in JavaScript compared to other languages.
 
-[Learning Materials About This Topic](https://www.notion.so/mkit/Quest-3-JavaScript-Essentials-efb2218bedfc4039b571b6d6d88f2258#8644fbda29c14bd287a93af4917be492)
+[Learning Materials About This Topic](https://www.notion.so/mkit/JavaScript-Functions-and-this-8d8513ed71c54bf4ab6b716ce936f7de)
 
 ## Exercise #1 - Car Manufacturing
 
