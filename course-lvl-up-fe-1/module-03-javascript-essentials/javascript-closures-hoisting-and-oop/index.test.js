@@ -5,7 +5,7 @@ const {
   Person,
   Car,
   Husky,
-} = require("./solution");
+} = require("./index");
 
 describe("Exercise 1 - Multiplication", () => {
   describe("multiply()", () => {
