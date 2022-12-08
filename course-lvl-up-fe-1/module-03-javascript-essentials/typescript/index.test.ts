@@ -1,7 +1,7 @@
 // @ts-nocheck
 import path from "path";
 import { readFileSync } from "fs";
-import { find, findInfo } from "ast-parser";
+import { find } from "ast-parser";
 import { parse as babelParse } from "@babel/parser";
 
 import tsconfig from "./index.json";
