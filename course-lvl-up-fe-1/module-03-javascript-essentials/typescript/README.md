@@ -87,3 +87,56 @@ Example:
 console.log(reverseArray([1, 2, 3])); // [3, 2, 1]: number[]
 console.log(reverseArray(["John", "Harry"])); // ["Harry", "John"]: string[]
 ```
+
+## Exercise #4 - Create Cat from Animal
+
+In this exercise you are provided with `Animal` interface. It has 3 properties
+
+```typescript
+interface Animal {
+  type: "mammal" | "bird" | "reptiles" | "fish";
+  legs: number;
+  arms: number;
+}
+```
+
+Your Objective is to:
+
+- create a `Cat` interface
+- it should have all properties of `Animal` and a `fur: boolean` property
+
+## Exercise #5 - Mammal
+
+In this exercise you are provided with `Animal` interface. It has 4 properties
+
+```typescript
+interface Mammal {
+  arms: number;
+  legs: number; // required
+  wings: number;
+}
+```
+
+Your objective is to
+
+- refactor `Animal` so that some characteristics are not required
+
+_Pro Tip: only bats have wings_
+
+Example:
+
+```typescript
+const dog: Mammal = {
+  legs: 4;
+};
+
+const monkey: Mammal = {
+  arms: 2,
+  legs: 2
+}
+
+const bats: Mammal = {
+  legs: 2;
+  wings: 2;
+};
+```

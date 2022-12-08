@@ -26,6 +26,20 @@ function reverseArray(arr: unknown) {
   // Implement it
 }
 
+// Exercise 4 - Create Cat from Animal
+
+interface Animal {
+  // Implement it
+}
+
+interface Cat {
+  // Implement it
+}
+
+// Exercise #5 - Mammal
+
+interface Mammal {}
+
 /*********************************************
  * DO NOT MODIFY THIS AREA
  *

@@ -4,8 +4,22 @@ import { readFileSync } from "fs";
 import { find, findInfo } from "ast-parser";
 import { parse as babelParse } from "@babel/parser";
 
-import tsconfig from "./solution.json";
-import { reverseArray } from "./solution";
+import tsconfig from "./index.json";
+import { reverseArray } from "./index";
+
+function getNode(code: string) {
+  return babelParse(code, {
+    sourceType: "module",
+    plugins: ["typescript"],
+  });
+}
+
+const fileToString = readFileSync(path.join(__dirname, "index.ts"), "utf-8");
+
+const allInterfaceDeclaration = find(
+  "TSInterfaceDeclaration",
+  getNode(fileToString)
+);
 
 describe("Exercise 1 - Config", () => {
   it("Should not be an empty object", () => {
@@ -154,22 +168,6 @@ describe("Exercise 1 - Config", () => {
 });
 
 describe("Exercise 2 - Type John", () => {
-  function getNode(code: string) {
-    return babelParse(code, {
-      sourceType: "module",
-      plugins: ["typescript"],
-    });
-  }
-
-  const fileToString = readFileSync(
-    path.join(__dirname, "solution.ts"),
-    "utf-8"
-  );
-  const allInterfaceDeclaration = find(
-    "TSInterfaceDeclaration",
-    getNode(fileToString)
-  );
-
   describe("person", () => {
     it("Should be typed", () => {
       const john = find("VariableDeclaration", getNode(fileToString));
@@ -306,17 +304,6 @@ describe("Exercise 2 - Type John", () => {
 
 describe("Exercise 3 - Reverse Array Generic Function", () => {
   describe("reverse()", () => {
-    function getNode(code: string) {
-      return babelParse(code, {
-        sourceType: "module",
-        plugins: ["typescript"],
-      });
-    }
-
-    const fileToString = readFileSync(
-      path.join(__dirname, "solution.ts"),
-      "utf-8"
-    );
     const allFunctionDeclarations = find(
       "FunctionDeclaration",
       getNode(fileToString)
@@ -358,6 +345,102 @@ describe("Exercise 3 - Reverse Array Generic Function", () => {
       expect(result1).toEqual([3, 2, 1]);
       expect(result2).toEqual(["Peter", "John"]);
       expect(result3).toEqual([3, "John", 1]);
+    });
+  });
+});
+
+describe("Exercise - Create Cat from Animal", () => {
+  describe("Animal", () => {
+    const animalInterface = allInterfaceDeclaration.find(
+      (int) => int.id.name === "Animal"
+    );
+
+    it("Should be defined", () => {
+      expect(animalInterface).not.toBeUndefined();
+    });
+
+    it("Should have 3 correct props", () => {
+      const { type, arms, legs } = animalInterface.body?.reduce(
+        (acc, curr) => ({ ...acc, [curr.key.name]: curr }),
+        {}
+      );
+
+      expect(type).not.toBeUndefined();
+      expect(arms).not.toBeUndefined();
+      expect(legs).not.toBeUndefined();
+
+      const typePropType = type.typeAnnotation.string;
+      const armsPropType = arms.typeAnnotation.string;
+      const legsPropType = legs.typeAnnotation.string;
+
+      expect(typePropType).toBe(`"mammal" | "bird" | "reptiles" | "fish"`);
+      expect(armsPropType).toBe("number");
+      expect(legsPropType).toBe("number");
+    });
+  });
+
+  describe("Cat", () => {
+    const catInterface = allInterfaceDeclaration.find(
+      (int) => int.id.name === "Cat"
+    );
+
+    it("Should be defined", () => {
+      expect(catInterface).not.toBeUndefined();
+    });
+
+    it("Should extend Animal", () => {
+      const [extendedInterface] = catInterface.extends;
+      expect(extendedInterface.string).toBe("Animal");
+    });
+
+    it("Should have 1 correct props", () => {
+      const { fur } = catInterface.body?.reduce(
+        (acc, curr) => ({ ...acc, [curr.key.name]: curr }),
+        {}
+      );
+
+      expect(fur).not.toBeUndefined();
+
+      const furPropType = fur.typeAnnotation.string;
+
+      expect(furPropType).toBe("string");
+    });
+  });
+});
+
+describe("Exercise #5 - Mammal", () => {
+  const mammalInterface = allInterfaceDeclaration.find(
+    (int) => int.id.name === "Mammal"
+  );
+
+  it("Should be defined", () => {
+    expect(mammalInterface).not.toBeUndefined();
+  });
+
+  describe("props", () => {
+    const { legs, arms, wings } = mammalInterface.body?.reduce(
+      (acc, curr) => ({ ...acc, [curr.key.name]: curr }),
+      {}
+    );
+
+    it("Should have correct props", () => {
+      expect(legs).not.toBeUndefined();
+      expect(arms).not.toBeUndefined();
+      expect(wings).not.toBeUndefined();
+    });
+
+    it("Should have wings and arms optional", () => {
+      const armsOptional = arms.optional;
+      const wingsOptional = wings.optional;
+
+      expect(armsOptional).toBeTruthy();
+      expect(wingsOptional).toBeTruthy();
+    });
+
+    it("Should not have legs optional", () => {
+      const legsOptional = legs.optional;
+
+      expect(legsOptional).toBeFalsy();
     });
   });
 });

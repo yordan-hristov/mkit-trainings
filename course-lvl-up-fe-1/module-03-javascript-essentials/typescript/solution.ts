@@ -42,10 +42,26 @@ const john: John = {
 
 // Exercise 3
 
-function reverseArray<T extends []>(arr: T) {
+export function reverseArray<T extends []>(arr: T) {
   return arr.reverse();
 }
 
-export = {
-  reverseArray,
-};
+// Exercise 4
+
+interface Animal {
+  type: "mammal" | "bird" | "reptiles" | "fish";
+  legs: number;
+  arms: number;
+}
+
+interface Cat extends Animal {
+  fur: string;
+}
+
+// Exercise 5 - Mammal
+
+interface Mammal {
+  legs: number;
+  arms?: number;
+  wings?: number;
+}
