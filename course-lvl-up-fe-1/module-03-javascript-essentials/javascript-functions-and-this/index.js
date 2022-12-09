@@ -12,7 +12,7 @@ const carOwner = {
    * @param {number} year
    * @returns string[]
    */
-  selectNew, // Implement it
+  selectNew: null, // Implement it
 };
 
 /**

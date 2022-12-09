@@ -177,8 +177,8 @@ describe("Exercise 2 - Type John", () => {
       expect(johnType).toBe("John");
     });
 
-    describe("Primitive props", () => {
-      it("Should John interface has primitive variables typed correctly", () => {
+    describe("Primitive values", () => {
+      it("Should be typed correctly", () => {
         const johnInterface = allInterfaceDeclaration?.find(
           (int) => int.id.name === "John"
         );
@@ -204,6 +204,7 @@ describe("Exercise 2 - Type John", () => {
         expect(wifeType).toBe("string");
       });
     });
+    // describe("Primitive props", () => {});
 
     describe("Referential props", () => {
       describe("profession", () => {
