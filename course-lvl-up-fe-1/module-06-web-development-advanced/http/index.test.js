@@ -1,4 +1,4 @@
-const { getData, postData, putData, deleteData } = require("./solution");
+const { getData, postData, putData, deleteData } = require("./index");
 
 describe("Exercise 1 - Send GET Request", () => {
   describe("getData()", () => {
