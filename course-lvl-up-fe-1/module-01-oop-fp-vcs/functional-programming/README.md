@@ -17,6 +17,7 @@ Your objectives are to:
 - Implement `reduce` in such a way that it returns the total sum of all the numbers.
 
 Example:
+
 ```js
 const testInput = [1, 2, 3, 4, 5];
 
@@ -72,9 +73,9 @@ Example:
 ];
 ```
 
-## Exercise #3 - Function Chaining and `this`
+## Exercise #3 - Function Chaining And `this`
 
-In this Exercise, you are provided with `calculator` object literal. Your Objective is to implement 1 property and 4 functions that can be chained. You can safely expect a valid input.
+In this Exercise, you are provided with `calculator` object literal. All functions should receive a number as an input and you can safely expect this input to be valid.
 
 Your objectives are to:
 
@@ -84,7 +85,7 @@ Your objectives are to:
 - Implement a function `multiply(n: number)`, which should multiply `result` by the value of `n`
 - Implement a function `divide(n: number)`, which should divide `result` by the value of `n`
 
-Example: 
+Example:
 
 ```javascript
 calculator.add(10).add(10).subtract(5);

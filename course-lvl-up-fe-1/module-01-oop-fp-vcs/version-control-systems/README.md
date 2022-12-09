@@ -10,15 +10,15 @@ No one can control the chaos of software development without the help of the pow
 
 ## Exercise #1 - Branches And Commits
 
-In this Exercise you are provided with the object `vcs`. Your objectives are to:
+In this Exercise you are provided with the `vcs` object literal.
+
+Your objectives are to:
 
 - Create a new branch
-
-- And new property called `git` that has a value `"Git is a DevOps tool used for source code management."`
-
+- Add new property called `git` that has a value `"Git is a DevOps tool used for source code management."`
 - Commit the changed file
 
-- Follow the best practices for naming branches and commit messages
+_Pro tip: Follow the [best practices](https://www.conventionalcommits.org/en/v1.0.0/) for naming branches and commit messages_
 
 ## Exercise #2 - Rebasing And Resolving Conflicts
 
@@ -36,8 +36,7 @@ After you have completed `Exercise 2`, your next objectives are to:
 
 - Cherry-pick the `feat: github flow` commit from `feature/cherry-pick`
 
-- `Hint:` use `git log --oneline feature/cherry-pick` to see the commits' `SHA`
+_Pro tip: use `git log --oneline feature/cherry-pick` to see the commits' `SHA`_
 
 **After you have completed all Exercises, your final task is to push the branch to remote.**
-
 If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message. If you feel stuck, checkout a new branch and start over.

@@ -1,16 +1,24 @@
-// Exercise 1
+/**
+ * Exercise 1 - Access Modifiers
+ */
 
-export class Greeter {}
+class Greeter {}
 
-// Exercise 2
+/**
+ * Exercise 2 - Constructor
+ */
 
-export class Shape {}
+class Shape {}
 
-// Exercise 3
+/**
+ * Exercise 3 - Encapsulation And Abstraction
+ */
 
-export class Cat {}
+class Cat {}
 
-// Exercise 4
+/**
+ * Exercise 4 - Inheritance And Polymorphism
+ */
 
 interface IStudent {
   grade: number;
@@ -22,14 +30,17 @@ interface ITeacher {
   displaySubject: () => string; // Subject: {subject}
 }
 
-export class Person {}
+class Person {}
 
-export class Student {}
+class Student {}
 
-export class Teacher {}
+class Teacher {}
 
-// Exercise 5
-import { paypalApi, stripeApi } from "./_api";
+/**
+ * Exercise 5 - Dependency Inversion Principle
+ */
+
+import { paypalApi, stripeApi } from "./_resources/_api";
 
 interface PaymentProvider {
   pay(price: string): {
@@ -38,8 +49,26 @@ interface PaymentProvider {
   };
 }
 
-export class Store {}
+class Store {}
 
-export class StripeProvider {}
+class StripeProvider {}
 
-export class PayPalProvider {}
+class PayPalProvider {}
+
+/*********************************************
+ * DO NOT MODIFY THIS AREA
+ *
+ * This area is used by the automated tests.
+ ********************************************/
+
+export {
+  Greeter,
+  Shape,
+  Cat,
+  Person,
+  Student,
+  Teacher,
+  Store,
+  StripeProvider,
+  PayPalProvider,
+};
