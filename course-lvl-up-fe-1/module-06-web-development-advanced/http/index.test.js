@@ -1,4 +1,4 @@
-const { getData, postData, putData, deleteData } = require("./index");
+const { getData, postData, putData, deleteData, login, authorizedRequest } = require("./index");
 
 describe("Exercise 1 - Send GET Request", () => {
   describe("getData()", () => {
@@ -286,6 +286,179 @@ describe("Exercise 1 - Send GET Request", () => {
 
       expect(isTestWithId12Object).toBeTruthy();
       expect(isTestWithId38Object).toBeTruthy();
+    });
+  });
+});
+
+
+describe("Exercise 2 - Authentication", () => {
+  describe("login()", () => {
+    const body = { email: 'mkit_user@gmail.com', password: '123456'};
+
+    it("Should be defined", () => {
+      expect(login).toBeDefined();
+    });
+
+    it("Should accept object", async () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      await expect(login("string")).rejects.toThrow();
+      await expect(login(null)).rejects.toThrow();
+      await expect(login(undefined)).rejects.toThrow();
+      await expect(login(true)).rejects.toThrow();
+      await expect(login(array)).rejects.toThrow();
+      await expect(login(() => {})).rejects.toThrow();
+
+      await expect(login(body)).resolves.not.toThrow();
+    });
+
+    it("Should body be in correct format", async () => {
+
+      await expect(login({email: 'test'})).rejects.toThrow();
+      await expect(login({password: 'test'})).rejects.toThrow();
+      await expect(login({password: 'test'})).rejects.toThrow();
+
+      await expect(login(body)).resolves.not.toThrow();
+    });
+
+    it("Should return error message if credentials are incorrect", async () => {
+      const response = await login({ email: 'mkit_user@gmail.com', password: '1234567'});
+      expect(response.message).toBe('invalid username or password');
+    });
+
+    it("Should function return promise", () => {
+      const promise = login(body);
+      const isPromise = typeof promise?.then === "function";
+
+      expect(isPromise).toBeTruthy();
+    });
+
+    it("Should function return object when is awaited", async () => {
+      const response = await login(body);
+      const type = typeof response;
+
+      expect(type).not.toBe("undefined");
+      expect(type).not.toBe("number");
+      expect(type).not.toBe("string");
+      expect(type).toBe("object");
+    });
+
+    it("Should return object with data property", async () => {
+      const response = await login(body);
+
+      expect(response.data).toBeTruthy();
+    });
+
+    it("Should return object should contain Token", async () => {
+      const response = await login(body);
+
+      expect(response.data.Token).toBeTruthy();
+    });
+
+    it("Should return correct values", async () => {
+      const response = await login(body);
+      const {Id, Name, Email} = response.data;
+
+      expect(response.message).toBe('success');
+      expect(Id).toBe(193690);
+      expect(Name).toBe('MK_IT_User');
+      expect(Email).toBe('mkit_user@gmail.com');
+    });
+  });
+
+  describe("authorizedRequest()", () => {
+    const body = { email: 'mkit_user@gmail.com', password: '123456'};
+
+    it("Should be defined", () => {
+      expect(authorizedRequest).toBeDefined();
+    });
+
+    it("Should accept object", async () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      await expect(authorizedRequest("string")).rejects.toThrow();
+      await expect(authorizedRequest(null)).rejects.toThrow();
+      await expect(authorizedRequest(undefined)).rejects.toThrow();
+      await expect(authorizedRequest(true)).rejects.toThrow();
+      await expect(authorizedRequest(array)).rejects.toThrow();
+      await expect(authorizedRequest(() => {})).rejects.toThrow();
+
+      await expect(authorizedRequest(body)).resolves.not.toThrow();
+    });
+
+    it("Should body be in correct format", async () => {
+
+      await expect(authorizedRequest({email: 'test'})).rejects.toThrow();
+      await expect(authorizedRequest({password: 'test'})).rejects.toThrow();
+      await expect(authorizedRequest({password: 'test'})).rejects.toThrow();
+
+      await expect(authorizedRequest(body)).resolves.not.toThrow();
+    });
+
+    it("Should function return promise", () => {
+      const promise = authorizedRequest(body);
+      const isPromise = typeof promise?.then === "function";
+
+      expect(isPromise).toBeTruthy();
+    });
+
+    it("Should function return object when is awaited", async () => {
+      const response = await authorizedRequest(body);
+      const type = typeof response;
+
+      expect(type).not.toBe("undefined");
+      expect(type).not.toBe("number");
+      expect(type).not.toBe("string");
+      expect(type).toBe("object");
+    });
+
+    it("Should have name property", async () => {
+      const data = await authorizedRequest(body);
+
+      expect(data.name).toBeTruthy();
+    });
+
+    it("Should have email property", async () => {
+      const data = await authorizedRequest(body);
+
+      expect(data.email).toBeTruthy();
+    });
+
+    it("Should have profilepicture property", async () => {
+      const data = await authorizedRequest(body);
+
+      expect(data.profilepicture).toBeTruthy();
+    });
+
+    it("Should have location property", async () => {
+      const data = await authorizedRequest(body);
+
+      expect(data.location).toBeTruthy();
+    });
+
+    it("Should have createdat property", async () => {
+      const data = await authorizedRequest(body);
+
+      expect(data.createdat).toBeTruthy();
+    });
+
+    it("Should return correct values", async () => {
+      const response = await authorizedRequest(body);
+      const expectedResponse = {
+        id: 193695,
+        name: 'MK IT User',
+        email: 'test_email_bg@gmail.com',
+        profilepicture: 'http://restapi.adequateshop.com/Media//Images/userimageicon.png',
+        location: 'BG',
+        createdat: '2022-12-09T15:30:43.5753278'
+      }
+
+      expect(response.id).toBe(expectedResponse.id);
+      expect(response.name).toBe(expectedResponse.name);
+      expect(response.email).toBe(expectedResponse.email);
+      expect(response.profilepicture).toBe(expectedResponse.profilepicture);
+      expect(response.location).toBe(expectedResponse.location);
+      expect(response.createdat).toBe(expectedResponse.createdat);
     });
   });
 });

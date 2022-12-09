@@ -1,4 +1,8 @@
-const apiUrl = "https://jsonplaceholder.typicode.com";
+/**
+ * Exercise 1 - Send GET Request
+ */
+
+const apiForExercise1 = "https://jsonplaceholder.typicode.com";
 
 async function getData(id) {
   if (typeof id !== "number") {
@@ -7,7 +11,7 @@ async function getData(id) {
     throw Error("Invalid input");
   }
 
-  const result = fetch(`${apiUrl}/posts/${id}`)
+  const result = fetch(`${apiForExercise1}/posts/${id}`)
     .then((response) => response.json())
     .then((data) => data);
 
@@ -20,7 +24,7 @@ async function postData(body) {
   } else if ([body.userId, body.title, body.body].includes(undefined)) {
     throw Error("Invalid input");
   }
-  const result = fetch(`${apiUrl}/posts`, {
+  const result = fetch(`${apiForExercise1}/posts`, {
     method: "POST",
     headers: {
       "Content-Type": "application-json",
@@ -45,7 +49,7 @@ async function putData(id, body) {
     throw Error("Invalid input");
   }
 
-  const result = fetch(`${apiUrl}/posts/${id}`, {
+  const result = fetch(`${apiForExercise1}/posts/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application-json",
@@ -64,8 +68,57 @@ async function deleteData(id) {
     throw Error("Invalid input");
   }
 
-  const result = fetch(`${apiUrl}/posts/${id}`, {
+  const result = fetch(`${apiForExercise1}/posts/${id}`, {
     method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => data);
+
+  return result;
+}
+
+/**
+ * Exercise 2 - Authentication
+ */
+
+const apiForExercise2 = "http://restapi.adequateshop.com";
+const credentials = { email: "mkit_user@gmail.com", password: 123456 };
+const userData = {
+  Id: 193690,
+  Name: "MK_IT_User",
+  Email: "mkit_user@gmail.com",
+  password: "123456",
+};
+const userId = 193695;
+
+async function login(body) {
+  if (typeof body !== "object") {
+    throw Error("Invalid input");
+  } else if ([body.email, body.password].includes(undefined)) {
+    throw Error("Invalid input");
+  }
+  const result = fetch(`${apiForExercise2}/api/authaccount/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => data);
+  return result;
+}
+
+async function authorizedRequest(userData) {
+  const authData = await login(userData);
+  const token = authData.data.Token;
+
+  const result = fetch(`${apiForExercise2}/api/users/${userId}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
   })
     .then((response) => response.json())
     .then((data) => data);
@@ -79,4 +132,11 @@ async function deleteData(id) {
  * This area is used by the automated tests.
  ********************************************/
 
-module.exports = { getData, postData, putData, deleteData };
+module.exports = {
+  getData,
+  postData,
+  putData,
+  deleteData,
+  login,
+  authorizedRequest,
+};
