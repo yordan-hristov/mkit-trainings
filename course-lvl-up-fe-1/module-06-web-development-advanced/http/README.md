@@ -14,7 +14,6 @@ Your objectives are to:
 
 - Send GET request and get data about the post with given id, API endpoint is `/posts/{id}`
 - Post ids should be between 1 and 100 and should be numbers, otherwise should throw error
-- Function should not be asynchronous 
 
 Example:
 

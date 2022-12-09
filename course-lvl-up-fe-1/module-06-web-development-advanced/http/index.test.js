@@ -95,8 +95,6 @@ describe("Exercise 1 - Send GET Request", () => {
 
       const functionResult = await getPostData(23);
 
-
-
       expect(Object.keys(functionResult).length).toBeGreaterThan(0);
       expect(Object.keys(result).length).toBeGreaterThan(0);
 
