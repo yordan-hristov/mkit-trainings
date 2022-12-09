@@ -10,19 +10,19 @@ Frankly, JavaScript lacks many features considered crucial by the software devel
 
 In this Exercise you are provided with a `tsconfig.json` file.
 
-Your Objective is to:
+Your objective are to:
 
 - Create a **TypeScript** configuration from scratch
-- it should have compilerOptions
-  - it should have target for transpilation and it should be `ES6`
-  - it should have libraries to include that describe the target runtime environment and it should be `["dom", "dom.iterable", "esnext"]`
-  - it should enable strict mode
-  - it should allow javascript files to be allowed
-  - it should enable casing check in imports
-  - it should a module type and it should be "CommonJS"
-  - it should enable importing `.json` files
-- it should transpile **ONLY** `.ts`,`.tsx` files
-- it should not transpile `node_modules`
+  - It should have compilerOptions
+    - It should have target for transpilation and it should be `ES6`
+    - It should have libraries to include that describe the target runtime environment and it should be `["dom", "dom.iterable", "esnext"]`
+    - It should enable strict mode
+    - It should allow javascript files to be allowed
+    - It should enable casing check in imports
+    - It should a module type and it should be "CommonJS"
+    - It should enable importing `.json` files
+  - It should transpile **ONLY** `.ts`,`.tsx` files
+  - It should not transpile `node_modules`
 
 ## Exercise #2 - Type John
 
@@ -50,12 +50,12 @@ const john: unknown = {
 };
 ```
 
-Your objective is to:
+Your objectives are to:
 
-- type `john`
-- John `interface` should be `John`
-- every referential value is an `Interface` or a `Type`
-- every referential `type`/`interface` must be named with capitalization -> `name: ['Harry', 'Potter'] // type Name = string[] `
+- Type `john`
+  - John `interface` should be `John`
+- Type every referential value as an `Interface` or a `Type`
+  - Every referential `type`/`interface` must be named with capitalization -> `name: ['Harry', 'Potter'] // type Name = string[] `
 
 Example:
 
@@ -75,11 +75,11 @@ const person: Person = {
 
 In this exercise you are provided with `reverseArray` function declaration. It will receive an argument `arr`.
 
-Your objective is to:
+Your objectives are to to:
 
-- make this function a generic (use `T` as a name of generic)
-- whatever you pass as a parameter it has to be typed correctly
-- it should reverse the array provided
+- Make this function a generic (use `T` as a name of generic)
+  - Whatever you pass as a parameter it has to be typed correctly
+  - It should reverse the array provided
 
 Example:
 
@@ -90,7 +90,7 @@ console.log(reverseArray(["John", "Harry"])); // ["Harry", "John"]: string[]
 
 ## Exercise #4 - Create Cat from Animal
 
-In this exercise you are provided with `Animal` interface. It has 3 properties
+In this Exercise, you are provided with `Animal` interface. It has 3 properties
 
 ```typescript
 interface Animal {
@@ -100,10 +100,10 @@ interface Animal {
 }
 ```
 
-Your Objective is to:
+Your objectives are to:
 
-- create a `Cat` interface
-- it should have all properties of `Animal` and a `fur: boolean` property
+- Create a `Cat` interface
+- Implement it in this way that it should have all properties of `Animal` and a `fur: boolean` property
 
 ## Exercise #5 - Mammal
 
@@ -119,7 +119,7 @@ interface Mammal {
 
 Your objective is to
 
-- refactor `Animal` so that some characteristics are not required
+- Refactor `Animal` so that some characteristics are not required
 
 _Pro Tip: only bats have wings_
 

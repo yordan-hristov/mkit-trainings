@@ -1,5 +1,6 @@
-// Exercise 2 - Type John
-
+/**
+ * Exercise 2 - Type John
+ */
 const john: unknown = {
   name: "John",
   age: 23,
@@ -20,14 +21,16 @@ const john: unknown = {
   },
 };
 
-// Exercise 3 - Reverse Array Generic Function
-
+/**
+ * Exercise 3 - Reverse Array Generic Function
+ */
 function reverseArray(arr: unknown) {
   // Implement it
 }
 
-// Exercise 4 - Create Cat from Animal
-
+/**
+ * Exercise 4 - Create Cat from Animal
+ */
 interface Animal {
   // Implement it
 }
@@ -36,8 +39,9 @@ interface Cat {
   // Implement it
 }
 
-// Exercise #5 - Mammal
-
+/**
+ * Exercise #5 - Mammal
+ */
 interface Mammal {}
 
 /*********************************************

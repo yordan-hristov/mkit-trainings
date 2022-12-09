@@ -1,4 +1,6 @@
-// Exercise 1 - Car Manufacturing
+/**
+ * Exercise 1 - Car Manufacturing
+ */
 const carOwner = {
   name: "John",
   cars: [
@@ -13,21 +15,22 @@ const carOwner = {
   selectNew, // Implement it
 };
 
-// Exercise 2 - Sum of two numbers by context
-
+/**
+ * Exercise 2 - Sum of two numbers by context
+ */
 function addTwo() {
   // Implement it
 }
 
-// Exercise 3 - Check for available users
-
+/**
+ * Exercise 3 - Check for available users
+ */
 function getUser() {
   // Implement it
 }
 
-// Exercise 4 - Create a javascript Class from scratch
-
 /**
+ * Exercise 4 - Create a javascript Class from scratch
  *
  * @param {string} name
  * @param {age} age
@@ -36,8 +39,9 @@ function Person(name, age) {
   // Implement it
 }
 
-// Exercise 5 - Get Person's Name
-
+/**
+ * Exercise 5 - Get Person's Name
+ */
 function getPrintName() {
   // Implement it
 }
