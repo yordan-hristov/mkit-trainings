@@ -8,12 +8,12 @@ JavaScript is our primarily used programming language for the full-stack. Gettin
 
 ## Exercise #1 - Generator Functions
 
-In this Exercise you are provided with `fibonacci` function declaration.
+In this Exercise, you are provided with `fibonacci` function declaration.
 
-Your Objective is to:
+Your objectives are to:
 
-- refactor `fibonacci` function declaration to a generator function
-- when `fibonacci` is called/yielded should returns a fibonacci number
+- Refactor `fibonacci` function declaration to a generator function
+- Implement it in such way that when it is called/yielded it should return a the next Fibonacci number
 
 Example:
 
@@ -32,14 +32,13 @@ console.log(getNextFibonacci.next().value); // 13
 
 ## Exercise #2 - Array Methods(Map)
 
-In this Exercise you are provided with `map` function declaration. It will receive an array of elements
-and a `map<T>(arr: T[], cb: () => [])` callback function as arguments. The callback must receive 3 arguments
+In this Exercise, you are provided with `map` function declaration. It will receive an array of elements and a `map<T>(arr: T[], cb: () => [])` callback function as arguments. The callback must receive 3 arguments
 `(el:T, index: number, arr: T[] ) => []`.
 
-Your Objective is to:
+Your objectives are to:
 
-- implement the well known array method `array.map()`
-- handle incorrect arguments by throwing an Error if passed arguments are incorrect
+- Implement the well known array method `array.map()`
+- Handle incorrect arguments by throwing an Error if passed arguments are incorrect
 
 Example:
 
@@ -55,12 +54,12 @@ console.log(
 
 ## Exercise #3 - Array Methods(Reduce)
 
-In this Exercise you are provided with `potentialVotersResult` function declaration. It will receive an array of object literals of potential voters `{ name:string , age: number, voted: boolean }` as input and you can safely expect this input to be valid.
+In this Exercise, you are provided with `potentialVotersResult` function declaration. It will receive an array of object literals of potential voters `{ name:string , age: number, voted: boolean }` as input and you can safely expect this input to be valid.
 
-Your Objective is to:
+Your objective are to:
 
-- return how many people are voters for each age group as an object literal
-- the object literal should be in format `ageGroup: voters // number`
+- Return how many people are voters for each age group as an object literal
+- The object literal should be in format `ageGroup: voters // number`
 
 Age groups:
 
@@ -86,21 +85,21 @@ console.log(
 );
 
 // {
-// young: 2,
-// midAged: 0,
-// afterMidAged: 2,
-// old: 0,
+//   young: 2,
+//   midAged: 0,
+//   afterMidAged: 2,
+//   old: 0,
 // }
 ```
 
 ## Exercise #4 - Array methods(Reduce implementation)
 
-In this Exercise you are provided with `reduce<T, InitializerT>(arr: T[], callback: (accumulator: InitializerT, currentElement: T) => InitializerT, initializer: InitializerT = undefined)` function declaration and you can safely expect it's arguments to be valid.
+In this Exercise, you are provided with `reduce<T, InitializerT>(arr: T[], callback: (accumulator: InitializerT, currentElement: T) => InitializerT, initializer: InitializerT = undefined)` function declaration and you can safely expect it's arguments to be valid.
 
-Your Objective is to:
+Your objectives are to:
 
-- implement the well known `array.reduce()` method from scratch
-- You must throw an error if the the provided arguments are not correct
+- Implement the well known `array.reduce()` method from scratch
+- Throw an error if the the provided arguments are not correct
 
 Example:
 
@@ -116,13 +115,13 @@ console.log(
 
 ## Exercise #5 - Even Average Sum
 
-In this Exercise you are provided with `calculateEvenAverage` function declaration. It will receive an array of numbers `arr: number[]` as input and you can safely expect this input to be valid.
+In this Exercise, you are provided with `calculateEvenAverage` function declaration. It will receive an array of numbers `arr: number[]` as input and you can safely expect this input to be valid.
 
-Your Objective is to:
+Your objectives are to:
 
-- implement a `calculateEvenAverage` that when called returns the average of only even numbers
-- return array of even numbers sorted decreasingly
-- the end result should be an object literal in format of `{ sum: number, evenArray: number[] }`
+- Implement a `calculateEvenAverage` function that when called returns the average of only even numbers
+- Return an array of even numbers sorted decreasingly
+- The end result should be an object literal in format of `{ sum: number, evenArray: number[] }`
 
 Example:
 

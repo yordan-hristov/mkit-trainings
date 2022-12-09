@@ -8,13 +8,14 @@ Every programming language has specifics necessary as a prerequisite to taking f
 
 ## Exercise #1 - Multiplication
 
-In this Exercise you will be provided with `multiply` function declaration. It will receive 2 arguments `n: number, b?: number`(b is optional) as an input and you can safely expect this input to be valid. After the last call it should return `No more calculations`.
+In this Exercise, you are provided with `multiply` function declaration. It will receive 2 arguments `n: number, b?: number`(b is optional) as an input and you can safely expect this input to be valid.
 
-Your Objective is to:
+Your objectives are to:
 
-- use closure
-- providing both arguments must return result
-- providing only one should return a function that can return the result
+- Implement `multiply` in such way that:
+  - When provided with **both** arguments it returns a result
+  - When provided with **only one** argument it returns a function that returns the result
+- Do the above using a Closure
 
 Example:
 
@@ -25,44 +26,46 @@ multiply(3)(4); // 24
 
 ## Exercise 2 - Guessing Game
 
-In this Exercise you are provided with `guessingGame` function declaration. It will receive 2 arguments `guesses: number, answer: number` as an input and you can safely expect this input to be valid. After calling `guessingGame` it should return a `guess` function. `guess` must receive an argument `n: number`.
+In this Exercise, you are provided with `guessingGame` function declaration. It will receive 2 arguments `guesses: number, answer: number` as an input and you can safely expect this input to be valid. After calling `guessingGame` it should return a `guess` function. `guess` must receive an argument `n: number`.
 
-Your Objective is to:
+Your objectives are to:
 
-- to use closure
-- after calling `guess` it should return whether the answer is correct or incorrect
-  - correct: `<n> is the correct answer! You have <guesses-left> guesses left.`
-  - incorrect: `<n> is too <high | low>, go <higher | lower>`
-  - when run out of guesses you should return `No more guesses left`.
-- after calling `guess` after a **WIN** you should return `This game is over!`
+- Implement `guessingGame` in such way that it returns a `guess` function
+- Implement `guess` in such way that it:
+  - Receives `n: number` as an argument
+  - Returns `"{n} is the correct answer! You have {guesses-left} guesses left."`, if the input `n` is the correct number
+  - Returns `"{n} is too {"high" | "low"}, go {"higher" | "lower"}"`, if the input `n` is not the correct answer
+  - Returns `"No more guesses left"` if you run out of guesses
+  - Returns `"This game is over!"` after a **WIN**
+- Do the above using a Closure
 
 Example:
 
 ```javascript
 const guess = guessingGame(4);
-guess(5); // "5" is too low, go higher!
-guess(9); // "9" is too high, go lower!
-guess(8); // "8" is too high, go lower!
-guess(6); // "6" is the correct answer!
+console.log(guess(5)); // "5" is too low, go higher!
+console.log(guess(9)); // "9" is too high, go lower!
+console.log(guess(8)); // "8" is too high, go lower!
+console.log(guess(6)); // "6" is the correct answer!
 
 const guess2 = guessingGame(2);
-guess2(2); // "2" is too low, go higher!
-guess2(7); // "7" is too high, go lower!
-guess2(8); // No more guesses left.
-guess2(6); // No more guesses left.
-guess2(3); // No more guesses left.
+console.log(guess2(2)); // "2" is too low, go higher!
+console.log(guess2(7)); // "7" is too high, go lower!
+console.log(guess2(8)); // No more guesses left.
+console.log(guess2(6)); // No more guesses left.
+console.log(guess2(3)); // No more guesses left.
 
 const guess3 = guessingGame(3);
-guess3(2); // "2" is too low, go higher!
-guess3(6); // "6" is the correct answer!
-guess3(8); // "This game is over!"
-guess3(6); // "This game is over!"
-guess3(3); // "This game is over!"
+console.log(guess3(2)); // "2" is too low, go higher!
+console.log(guess3(6)); // "6" is the correct answer!
+console.log(guess3(8)); // "This game is over!"
+console.log(guess3(6)); // "This game is over!"
+console.log(guess3(3)); // "This game is over!"
 ```
 
 ## Exercise 3 - Human Body
 
-In this Exercise your are provided with a `Human` function constructor. It should have 3 properties and you can safely expect to be tested with valid data.
+In this Exercise, your are provided with `Human` constructor function. It should have 3 properties and you can safely expect to be tested with valid data.
 
 ```javascript
 arms = 2;
@@ -70,13 +73,13 @@ legs = 2;
 head = 1;
 ```
 
-Your Objective is to:
+Your objectives are to:
 
-- implement 2 methods:
+- Implement 2 methods:
   - `punch` that should return `"I am punching"`
   - `walk` that should return `"I am walking"`
-- create another `Person` constructor that should receive `name: string, age: number` as an input and you can safely expect this input to be valid. `Person` should inherit all `Human` properties.
-- implement a `startFighting` method on person that prints both results from `walk` and `punch in this order with `and` in between.
+- Create another `Person` constructor function that receives 2 arguments `name: string, age: number` as an input and you can safely expect this input to be valid. `Person` should inherit all `Human` properties.
+- Implement a `startFighting` method on person that returns both results from `walk` and `punch` in format `{walk()} and {punch()}`
 
 Example:
 
@@ -93,49 +96,36 @@ console.log(john.startFighting()); // I am walking and I am punching
 
 ## Exercise 4 - Car
 
-In this Exercise you are provided with a `Car` function constructor. It should have 2 properties `tank: number, fuel: string` as input and you can safely expect to be tested with valid data. Also you will be provided with `drive` and `stop` function declarations already implemented for you.
+In this Exercise, you are provided with `Car` constructor function. It will receive 2 arguments `tank: number, fuel: string` as input and you can safely expect to be tested with valid data. Also you will be provided with `drive` and `stop` function declarations already implemented for you.
 
-Your Objective is to:
+Your objective is to:
 
-- chain both `drive` and `stop` to Car
+- Attach both `drive` and `stop` to `Car's` prototype
 
 Example:
 
 ```javascript
-const car = new Car();
+const car = new Car(100, "gas");
 
-car.drive(); // "I am driving!"
-car.stop("I am stopping!"); // "I am stopping!"
+console.log(car.drive()); // "I am driving!"
+console.log(car.stop("I am stopping!")); // "I am stopping!"
 ```
 
 ## Exercise 5 - Create Husky
 
-In this Exercise you are provided with a `Husky` function constructor. It should receive 2 properties `name: string, age: number` as input and you can safely expect to be tested with valid data.
+In this Exercise, you are provided with `Husky` constructor function. It will receive 2 arguments `name: string, age: number` as input and you can safely expect to be tested with valid data.
 
-Your Objective is to:
+Your objectives are to:
 
-- create `Dog` and `Animal` function constructors
-
-  - `Animal` properties:
-
-    ```javascript
-    head = 1;
-    arms; // as input
-    legs; // as input
-    ```
-
-  - `Dog`
-
-    - should inherit all properties from `Animal`
-    - should 1 more property and 1 method
-
-    ```javascript
-    fur = // as an input;
-      startBarking; // returns "Woof!"
-    ```
-
-- `Husky` should inherit all properties/methods from `Dog // fur = 'black and white`
-- create a prototype based inheritance with `Husky -> Dog -> Animal`
+- Create `Animal` constructor function that:
+  - Receives `arms: number, legs: number` as arguments
+  - Has a `head` property that equals `1`
+- Create `Dog` constructor function that:
+  - Inherits all properties from `Animal`
+  - Receives `fur: string` as an argument
+  - Has a `startBarking()` function that returns `"Woof!"`
+- Implement `Husky` in such way that it inherits all fields from `Dog`
+- Create a prototype based inheritance: `Husky -> Dog -> Animal`
 
 Example:
 

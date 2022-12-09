@@ -42,7 +42,7 @@ describe("Exercise 1 - Generator Functions", () => {
       expect(map).toBeDefined();
     });
 
-    it("Should accepts array as first argument", () => {
+    it("Should accept an array as first argument", () => {
       expect(() => {
         map("test", mockedCallBack);
       }).toThrow();
@@ -64,7 +64,7 @@ describe("Exercise 1 - Generator Functions", () => {
       }).not.toThrow();
     });
 
-    it("Should accepts a function as a second argument", () => {
+    it("Should accept a function as a second argument", () => {
       expect(() => {
         map(numberedArray, "test");
       }).toThrow();
@@ -193,7 +193,7 @@ describe("Exercise 3 - Array Methods(Reduce)", () => {
       expect(potentialVotersResult).toBeDefined();
     });
 
-    it("Should accept array", () => {
+    it("Should accept an array", () => {
       expect(() => {
         potentialVotersResult("test");
       }).toThrow();

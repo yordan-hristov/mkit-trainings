@@ -164,9 +164,7 @@ describe("Exercise 2 - Guessing Game", () => {
       });
 
       it("Should return an instance", () => {
-        const MockedHuman = jest.fn(Human);
-
-        const instance = new MockedHuman();
+        const instance = new Human();
 
         expect(instance).toBeInstanceOf(MockedHuman);
       });
@@ -258,11 +256,19 @@ describe("Exercise 2 - Guessing Game", () => {
       });
 
       describe("startFighting()", () => {
-        const MockedPerson = jest.fn(Person);
+        it("Should be defined", () => {
+          const testPerson = new Person("John", 23);
 
-        const john = new MockedPerson("John", 23);
+          expect(testPerson.startFighting).toBeDefined();
+        });
 
-        expect(john.startFighting()).toBe("I am walking and I am punching");
+        it("Should return correct result", () => {
+          const testPerson = new Person("John", 23);
+
+          const result = testPerson.startFighting();
+
+          expect(result).toBe("I am walking and I am punching");
+        });
       });
     });
   });
@@ -274,9 +280,7 @@ describe("Exercise 2 - Guessing Game", () => {
       });
 
       it("Should return an instance", () => {
-        const MockedCar = jest.fn(Car);
-
-        const instance = new MockedCar(100, "gas");
+        const instance = new Car(100, "gas");
 
         expect(instance).toBeInstanceOf(MockedCar);
       });
@@ -418,7 +422,7 @@ describe("Exercise 2 - Guessing Game", () => {
           expect(typeof maya.startBarking).toBe("function");
         });
 
-        it("Should be return woof", () => {
+        it("Should return woof", () => {
           const MockedHusky = jest.fn(Husky);
           const maya = new MockedHusky("Maya", 2);
 

@@ -1,24 +1,26 @@
-// Exercise 1 - Generator Functions
-
 /**
+ * Exercise 1 - Generator Functions
  *
  * @param {number[]} arr
  * @param {Function} callback
  */
 function map(arr, callback = () => {}) {}
 
-// Exercise 2 - Array Methods(Map)
-function* fibonacci() {}
-
-// Exercise 3 - Array Methods(Reduce)
 /**
+ * Exercise 2 - Array Methods(Map)
+ */
+function fibonacci() {}
+
+/**
+ * Exercise 3 - Array Methods(Reduce)
+ *
  * @typeparam {T} the type parameter
  * @param {{ name: string, age: number, voted: boolean }[]} votersList
  */
 function potentialVotersResult(votersList) {}
 
-// Exercise 4 - Array methods(Reduce implementation)
 /**
+ * Exercise 4 - Array methods(Reduce implementation)
  *
  * @typeparam {T} the current value type
  * @typeparam {InitializerT} the initializer type
@@ -28,8 +30,8 @@ function potentialVotersResult(votersList) {}
  */
 function reduce(arr, callback, initializer) {}
 
-// Exercise 5 - Even Average Sum
 /**
+ * Exercise 5 - Even Average Sum
  *
  * @param {number[]} arr
  */
