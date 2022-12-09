@@ -2,9 +2,15 @@
  * Exercise 1 - Send GET Request
  */
 
-const apiUrl = 'https://jsonplaceholder.typicode.com';
+const apiUrl = "https://jsonplaceholder.typicode.com";
 
-function getPostData() {}
+function getData() {}
+
+function postData() {}
+
+function putData() {}
+
+function deleteData() {}
 
 /*********************************************
  * DO NOT MODIFY THIS AREA
@@ -12,6 +18,4 @@ function getPostData() {}
  * This area is used by the automated tests.
  ********************************************/
 
-export {
-    getPostData
-  };
+module.exports = { getData, postData, putData, deleteData };
