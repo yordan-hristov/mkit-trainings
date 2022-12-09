@@ -73,3 +73,46 @@ Example:
 // Sample output
 {}
 ```
+
+
+## Exercise 2 - Authentication
+
+In this Exercise, you are provided with `login`, `authorizedRequest`, function declarations and API `http://restapi.adequateshop.com`. Link to the documentation of the API `https://www.appsloveworld.com/sample-rest-api-url-for-testing-with-authentication`.
+
+Your objectives are to:
+- All functions should be asynchronous
+- First you should send `POST` request to `/api/authaccount/login` endpoint.
+- You should use the following credentials:
+```js
+// Credentials
+email: "mkit_user@gmail.com"
+password: 123456
+```
+
+- login() should return data in the following format:
+```js
+// Response from login()
+{
+  code: 0,
+  message: 'success',
+  data: {
+    Id: 193690,
+    Name: 'MK_IT_User',
+    Email: 'mkit_user@gmail.com',
+    Token: '3f468069-2382-408d-a8b3-2d7a18509ea4'
+  }
+}
+```
+
+- In authorizedRequest() function you should make authorized request to `/api/users/{id}` endpoint and get data about user with id `193695`
+- authorizedRequest() should return object in the following format:
+```js
+{
+    id: 193695,
+    name: 'User',
+    email: 'email@gmail.com',
+    profilepicture: 'http://restapi.adequateshop.com/Media//Images/userimageicon.png',
+    location: 'BG',
+    createdat: '2030-12-09T15:30:43.5753333'
+}
+```
