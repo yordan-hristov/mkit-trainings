@@ -16,4 +16,4 @@
 
 `yarn test ${module_title}` - Executes all tests for the module `(oop, fp, vcs)`
 
-`yarn run:${module_title}` - Executes index.js file associated with the module `(oop, fp)`
+`yarn start` - Open the CLI where the user can run index.js files
