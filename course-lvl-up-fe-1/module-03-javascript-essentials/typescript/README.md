@@ -8,9 +8,9 @@ Frankly, JavaScript lacks many features considered crucial by the software devel
 
 ## Exercise #1 - Config
 
-In this Exercise you are provided with a `tsconfig.json` file.
+In this Exercise, you are provided with a `tsconfig.json` file.
 
-Your objective are to:
+Your objectives are to:
 
 - Create a **TypeScript** configuration from scratch
   - It should have compilerOptions
@@ -26,7 +26,7 @@ Your objective are to:
 
 ## Exercise #2 - Type John
 
-In this Exercise you are given with a `john` object literal. It will be:
+In this Exercise, you are given with a `john` object literal. It will be:
 
 ```typescript
 const john: unknown = {
@@ -73,7 +73,7 @@ const person: Person = {
 
 ## Exercise #3 - Reverse Array Generic Function
 
-In this exercise you are provided with `reverseArray` function declaration. It will receive an argument `arr`.
+In this Exercise, you are provided with `reverseArray` function declaration. It will receive an argument `arr`.
 
 Your objectives are to to:
 
@@ -107,7 +107,7 @@ Your objectives are to:
 
 ## Exercise #5 - Mammal
 
-In this exercise you are provided with `Animal` interface. It has 4 properties
+In this Exercise, you are provided with `Animal` interface. It has 4 properties
 
 ```typescript
 interface Mammal {
