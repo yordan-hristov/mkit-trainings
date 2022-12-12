@@ -132,14 +132,15 @@ async function authorizedRequest(userData) {
  * Exercise 3 - Web Sockets
  */
 
+const socketUrl =
+  "wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self";
+
 async function webSockets(message) {
   if (typeof message !== "string") {
     throw Error("Invalid input");
   }
 
-  const socket = new WebSocket(
-    "wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self"
-  );
+  const socket = new WebSocket(socketUrl);
 
   socket.on("open", () => {
     socket.send(message);
@@ -152,6 +153,29 @@ async function webSockets(message) {
 
   return message;
 }
+
+/**
+ * Exercise 4 - Submit Form
+ */
+
+async function submitForm(path) {
+  if (typeof path !== "string") {
+    throw Error("Invalid input");
+  }
+
+  const result = fetch(`${apiForExercise1}${path}`, {
+    method: "OPTIONS",
+  })
+    .then((response) => response.headers)
+    .then((data) => data.get("access-control-allow-methods"));
+  const stringResult = await result;
+  return stringResult.split(",");
+}
+
+
+/**
+ * Exercise 5 - Advanced HTTP Methods
+ */
 
 /*********************************************
  * DO NOT MODIFY THIS AREA
@@ -167,4 +191,7 @@ module.exports = {
   login,
   authorizedRequest,
   webSockets,
+  getMethods,
+  checkEndPoint,
+  modifyData
 };

@@ -129,3 +129,49 @@ Your objectives are to:
 - On closing you should send `Closing` message
 - The function should return the message, received as argument in the end
 
+## Exercise 4 - Advanced HTTP Methods
+
+In this Exercise, you are provided with `getMethods`, `checkEndPoint`, `modifyData` function declarations and API `https://jsonplaceholder.typicode.com`.
+
+Your objectives are to:
+- You should use the correct method for each function.
+- In `getMethods` you should get all possible methods that are allowed to the endpoint, passed as argument. The function should return array of all allowed methods.
+```js
+getMethods('/posts').then(response => console.log(response)) // ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
+```
+
+- In `checkEndPoint` you should check if endpoint exists. The function should receive path as argument. Your response should't have a body. The function should return status code of the response.
+```js
+getMethods('/invalid').then(response => console.log(response)) // 404
+```
+
+- In `modifyData` you should send request to `/posts`and change only one field of item. The function should receive id of post and body as argument. The id should be number between 1 and 100, and body should have only one property. You should return the response from the request.
+```js
+modifyData(48, {title: 'title'}) // {id: 1, userId: 5, title: 'title', body: 'ut voluptatem illum ea doloribus itaque eos'}
+```
+
+- You should validate input for each function.
+
+## Exercise 5 - Submit Form
+
+In this Exercise, you are provided with `submitForm` function declaration and html of form:
+
+```html
+    <form name="Form name" onsubmit="submitForm()">
+        <input
+        name="name"
+        type="text"
+        />
+        <input
+        name="file"
+        type="file"
+        />
+        <button>Submit</button>
+    </form>
+```
+
+Your objectives are to:
+- Create submit function, that sends texts and files in the correct format.
+- You should pass headers and body as argument of the function
+- The function should send the request with the correct headers
+- You can use `https://fake-api.com` as API placeholder.

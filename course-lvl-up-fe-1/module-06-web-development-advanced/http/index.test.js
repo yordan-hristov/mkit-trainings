@@ -6,11 +6,14 @@ const {
   login,
   authorizedRequest,
   webSockets,
+  getMethods,
+  checkEndPoint,
+  modifyData
 } = require("./index");
 const WebSocket = require("ws");
 
 function timeout(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 describe("Exercise 1 - Send GET Request", () => {
@@ -541,6 +544,234 @@ describe("Exercise 3 - WebSocket", () => {
 
       expect(response).not.toBe("wrong test");
       expect(response).toBe("test");
+    });
+  });
+});
+
+describe("Exercise 2 - Advanced HTTP Methods", () => {
+  describe("getMethods()", () => {
+    const mockedPath = "/posts";
+    it("Should be defined", () => {
+      expect(getMethods).toBeDefined();
+    });
+
+    it("Should accept string", async () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const object = { test: "string" };
+
+      await expect(getMethods(null)).rejects.toThrow();
+      await expect(getMethods(undefined)).rejects.toThrow();
+      await expect(getMethods(true)).rejects.toThrow();
+      await expect(getMethods(array)).rejects.toThrow();
+      await expect(getMethods(object)).rejects.toThrow();
+      await expect(getMethods(() => {})).rejects.toThrow();
+      await expect(getMethods(1)).rejects.toThrow();
+
+      await expect(getMethods(mockedPath)).resolves.not.toThrow();
+    });
+
+    it("Should function return promise", () => {
+      const promise = getMethods(mockedPath);
+      const isPromise = typeof promise?.then === "function";
+
+      expect(isPromise).toBeTruthy();
+    });
+
+    it("Should function return array when is awaited", async () => {
+      const data = await getMethods(mockedPath);
+      const type = typeof data;
+      const isArray = !!data && data.constructor === Array;
+
+      expect(type).not.toBe("undefined");
+      expect(type).not.toBe("number");
+      expect(type).not.toBe("string");
+      expect(isArray).toBeTruthy();
+    });
+
+    it("Should return correct values", async () => {
+      const response = fetch(
+        `https://jsonplaceholder.typicode.com${mockedPath}`,
+        {
+          method: "OPTIONS",
+        }
+      )
+        .then((response) => response.headers)
+        .then((data) => data.get("access-control-allow-methods"));
+
+      let res = await response;
+      const result = res.split(",");
+
+      const functionResult = await getMethods(mockedPath);
+
+      let areArraysEqual = true;
+
+      functionResult.sort((a, b) => a.localeCompare(b));
+      result.sort((a, b) => a.localeCompare(b));
+
+      result.forEach((item, index) => {
+        if (item !== functionResult[index]) {
+          areArraysEqual = false;
+        }
+      });
+
+      expect(Object.keys(result).length).toBeGreaterThan(0);
+      expect(Object.keys(functionResult).length).toBeGreaterThan(0);
+
+      expect(areArraysEqual).toBeTruthy();
+    });
+  });
+
+  describe("checkEndPoint()", () => {
+    const mockedPath = "/posts";
+    it("Should be defined", () => {
+      expect(checkEndPoint).toBeDefined();
+    });
+
+    it("Should accept string", async () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const object = { test: "string" };
+
+      await expect(checkEndPoint(null)).rejects.toThrow();
+      await expect(checkEndPoint(undefined)).rejects.toThrow();
+      await expect(checkEndPoint(true)).rejects.toThrow();
+      await expect(checkEndPoint(array)).rejects.toThrow();
+      await expect(checkEndPoint(object)).rejects.toThrow();
+      await expect(checkEndPoint(() => {})).rejects.toThrow();
+      await expect(checkEndPoint(1)).rejects.toThrow();
+
+      await expect(checkEndPoint(mockedPath)).resolves.not.toThrow();
+    });
+
+    it("Should function return promise", () => {
+      const promise = checkEndPoint(mockedPath);
+      const isPromise = typeof promise?.then === "function";
+
+      expect(isPromise).toBeTruthy();
+    });
+
+    it("Should function return number when is awaited", async () => {
+      const data = await checkEndPoint(mockedPath);
+      const type = typeof data;
+
+      expect(type).not.toBe("undefined");
+      expect(type).not.toBe("boolean");
+      expect(type).not.toBe("object");
+      expect(type).not.toBe("string");
+
+      expect(type).toBe("number");
+    });
+
+    it("Should return correct values", async () => {
+      await expect(checkEndPoint("/posts")).resolves.toBe(200);
+      await expect(checkEndPoint("/posts/1")).resolves.toBe(200);
+      await expect(checkEndPoint("/posts/1/comments")).resolves.toBe(200);
+      
+      await expect(checkEndPoint("/posts/200")).resolves.toBe(404);
+      await expect(checkEndPoint("/posts/1/comments/50")).resolves.toBe(404);
+      await expect(checkEndPoint("/test")).resolves.toBe(404);
+    });
+    
+  });
+  describe("modifyData()", () => {
+    const body = { body: "test" };
+
+    it("Should be defined", () => {
+      expect(modifyData).toBeDefined();
+    });
+
+    it("Should accept number and object", async () => {
+
+      await expect(modifyData(1, "string")).rejects.toThrow();
+      await expect(modifyData(1, null)).rejects.toThrow();
+      await expect(modifyData(1, undefined)).rejects.toThrow();
+      await expect(modifyData(1, true)).rejects.toThrow();
+      await expect(modifyData(1, 1)).rejects.toThrow();
+
+      await expect(modifyData("string", body)).rejects.toThrow();
+      await expect(modifyData(true, body)).rejects.toThrow();
+      await expect(modifyData(null, body)).rejects.toThrow();
+      await expect(modifyData(undefined, body)).rejects.toThrow();
+      await expect(modifyData({}, body)).rejects.toThrow();
+      await expect(modifyData([], body)).rejects.toThrow();
+      await expect(modifyData(() => {}, body)).rejects.toThrow();
+
+      await expect(modifyData(1, body)).resolves.not.toThrow();
+    });
+
+    it("Should body be in correct format", async () => {
+      await expect(modifyData(1, {})).rejects.toThrow();
+      await expect(
+        modifyData(1, { userId: 1, title: "test" })
+      ).rejects.toThrow();
+      await expect(modifyData(1, { userId: 1, body: "test" })).rejects.toThrow();
+      await expect(
+        modifyData(1, { title: "test", body: "test" })
+      ).rejects.toThrow();
+      await expect(
+        modifyData(1, { title: "test", body: "test" })
+      ).rejects.toThrow();
+      await expect(
+        modifyData(1, { userId: 1, title: "test", body: "test" })
+      ).rejects.toThrow();
+      await expect(
+        modifyData(1, { userId: 1})
+      ).resolves.not.toThrow();
+      await expect(
+        modifyData(1, { body: "test" })
+      ).resolves.not.toThrow();
+      await expect(
+        modifyData(1, { title: "test" })
+      ).resolves.not.toThrow();
+    });
+
+    it("Should function return promise", () => {
+      const promise = modifyData(1, body);
+      const isPromise = typeof promise?.then === "function";
+
+      expect(isPromise).toBeTruthy();
+    });
+
+    it("Should function return object when is awaited", async () => {
+      const data = await modifyData(1, body);
+      const type = typeof data;
+
+      expect(type).not.toBe("undefined");
+      expect(type).not.toBe("number");
+      expect(type).not.toBe("string");
+      expect(type).toBe("object");
+    });
+
+    it("Should have id property", async () => {
+      const data = await modifyData(1, body);
+
+      expect(data.id).toBeTruthy();
+    });
+
+    it("Should have userId property", async () => {
+      const data = await modifyData(1, body);
+
+      expect(data.userId).toBeTruthy();
+    });
+
+    it("Should have title property", async () => {
+      const data = await modifyData(1, body);
+
+      expect(data.title).toBeTruthy();
+    });
+
+    it("Should have body property", async () => {
+      const data = await modifyData(1, body);
+
+      expect(data.body).toBeTruthy();
+    });
+
+    it("Should return correct values", async () => {
+      const data = await modifyData(48, body);
+
+      expect(data.id).toBe(48);
+      expect(data.userId).toBe(5);
+      expect(data.title).toBe("ut voluptatem illum ea doloribus itaque eos");
+      expect(data.body).toBe("test");
     });
   });
 });
