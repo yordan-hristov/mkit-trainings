@@ -1,3 +1,5 @@
+const WebSocket = require("ws");
+
 /**
  * Exercise 1 - Send GET Request
  */
@@ -126,6 +128,31 @@ async function authorizedRequest(userData) {
   return result;
 }
 
+/**
+ * Exercise 3 - Web Sockets
+ */
+
+async function webSockets(message) {
+  if (typeof message !== "string") {
+    throw Error("Invalid input");
+  }
+
+  const socket = new WebSocket(
+    "wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self"
+  );
+
+  socket.on("open", () => {
+    socket.send(message);
+  });
+
+  setTimeout(() => {
+    socket.send("Closing");
+    socket.close();
+  }, 1000);
+
+  return message;
+}
+
 /*********************************************
  * DO NOT MODIFY THIS AREA
  *
@@ -139,4 +166,5 @@ module.exports = {
   deleteData,
   login,
   authorizedRequest,
+  webSockets,
 };
