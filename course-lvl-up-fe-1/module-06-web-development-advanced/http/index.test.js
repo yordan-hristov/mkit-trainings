@@ -1,4 +1,17 @@
-const { getData, postData, putData, deleteData, login, authorizedRequest } = require("./index");
+const {
+  getData,
+  postData,
+  putData,
+  deleteData,
+  login,
+  authorizedRequest,
+  webSockets,
+} = require("./index");
+const WebSocket = require("ws");
+
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 describe("Exercise 1 - Send GET Request", () => {
   describe("getData()", () => {
@@ -172,7 +185,7 @@ describe("Exercise 1 - Send GET Request", () => {
 
     it("Should accept number and object", async () => {
       const validBody = { userId: 1, title: "test", body: "test" };
-      
+
       await expect(putData(1, "string")).rejects.toThrow();
       await expect(putData(1, null)).rejects.toThrow();
       await expect(putData(1, undefined)).rejects.toThrow();
@@ -289,7 +302,6 @@ describe("Exercise 1 - Send GET Request", () => {
     });
   });
 });
-
 
 describe("Exercise 2 - Authentication", () => {
   describe("login()", () => {
@@ -459,6 +471,76 @@ describe("Exercise 2 - Authentication", () => {
       expect(response.profilepicture).toBe(expectedResponse.profilepicture);
       expect(response.location).toBe(expectedResponse.location);
       expect(response.createdat).toBe(expectedResponse.createdat);
+    });
+  });
+});
+
+describe("Exercise 3 - WebSocket", () => {
+  describe("webSockets()", () => {
+    it("Should be defined", () => {
+      expect(webSockets).toBeDefined();
+    });
+
+    it("Should accept string", async () => {
+      const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      await expect(webSockets(null)).rejects.toThrow();
+      await expect(webSockets(undefined)).rejects.toThrow();
+      await expect(webSockets(true)).rejects.toThrow();
+      await expect(webSockets(array)).rejects.toThrow();
+      await expect(webSockets(() => {})).rejects.toThrow();
+
+      await expect(webSockets("string")).resolves.not.toThrow();
+    });
+
+    it("Should receive correct message on open", async () => {
+      const socket = new WebSocket(
+        "wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self"
+      );
+      let receivedMessage = "no message";
+      const expectedMessage = "Test message";
+      socket.on("message", (event) => {
+        const data = event.toString();
+        if (data === expectedMessage) {
+          receivedMessage = expectedMessage;
+          socket.close();
+        }
+      });
+      webSockets(expectedMessage);
+      await timeout(1500);
+      expect(receivedMessage).toBe(expectedMessage);
+    }, 3000);
+
+    it("Should receive correct message on close", async () => {
+      const socket = new WebSocket(
+        "wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self"
+      );
+      let receivedMessage = "no message";
+      const expectedMessage = "Closing";
+      socket.on("message", (event) => {
+        const data = event.toString();
+        if (data === expectedMessage) {
+          receivedMessage = expectedMessage;
+          socket.close();
+        }
+      });
+      webSockets("test");
+      await timeout(2000);
+      expect(receivedMessage).toBe(expectedMessage);
+    }, 3000);
+
+    it("Should function return promise", () => {
+      const promise = webSockets("test");
+      const isPromise = typeof promise?.then === "function";
+
+      expect(isPromise).toBeTruthy();
+    });
+
+    it("Should return message", async () => {
+      const response = await webSockets("test");
+
+      expect(response).not.toBe("wrong test");
+      expect(response).toBe("test");
     });
   });
 });

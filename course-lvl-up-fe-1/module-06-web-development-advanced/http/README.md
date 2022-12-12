@@ -116,3 +116,16 @@ password: 123456
     createdat: '2030-12-09T15:30:43.5753333'
 }
 ```
+
+## Exercise 3 - Web Sockets
+
+In this Exercise, you are provided with `webSockets` function declarations and WebSocket API `wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self`.
+
+Your objectives are to:
+- The function should accept one argument of type string
+- Connect to the websocket and send message on connecting. Use the argument as text of the message
+- Validate message. It should be string
+- You should close the connection with websocket after one second.
+- On closing you should send `Closing` message
+- The function should return the message, received as argument in the end
+

@@ -22,6 +22,16 @@ function login() {}
 
 function authorizedRequest() {}
 
+/**
+ * Exercise 3 - Web Sockets
+ */
+
+const apiUrlForExercise3 = "wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self";
+
+function webSockets(){
+
+}
+
 /*********************************************
  * DO NOT MODIFY THIS AREA
  *
