@@ -68,7 +68,7 @@ ukCurrencyResponse.then((res) => console.log(res));
 
 ## Exercise #2 - Social Media
 
-In this Exercise, you are provided with `socialMedia` function declaration. It will receive an optional arguments `id?: number` and an required argument `comments: boolean` as input and you can safely expect this input to be valid.
+In this Exercise, you are provided with `socialMedia` function declaration. It will receive an optional arguments `id?: number` and a required argument `comments: boolean` as input and you can safely expect this input to be valid.
 
 Your objectives are to:
 
@@ -149,7 +149,7 @@ deletePost().then((post) => console.log(post)); // {}
 
 In this exercise you are provided with a `getPostById` function declaration and a `baseUrl` variable equals to `https://jsonplaceholder.typicode.com`. It will receive an argument `id: number` as input and you can safely expect this input to be valid.
 
-Your objective is to:
+Your objective are to:
 
 - Implement it in such a way that it throws an `{ message: "No post found with this id!", statusCode: 404 }"` `Error` if the provided `id` is not found.
 - Implement it in such a way that it throws an `{ message: "Id must be a number!", statusCode: 400 }` `Error` if the provided `id` is not of type of `number`.
