@@ -2,6 +2,20 @@ const WebSocket = require("ws");
 
 /**
  * Exercise 1 - Send GET Request
+ * 
+ * getData()
+ * @param {string} id
+ * @return {{id: string, userId: string, body: string, title: string}}
+ * postData()
+ * @param {{userId: string, body: string, title: string}} body
+ * @return {{id: string, userId: string, body: string, title: string}}
+ * putData()
+ * @param {string} id
+ * @param {{userId: string, body: string, title: string}} body
+ * @return {{id: string}}
+ * deleteData()
+ * @param {string} id
+ * @returns {}
  */
 
 const apiForExercise1 = "https://jsonplaceholder.typicode.com";
@@ -81,6 +95,27 @@ async function deleteData(id) {
 
 /**
  * Exercise 2 - Authentication
+ * login()
+ * @param {{email: string, password: string | number}} body
+ * @return {{
+ * code: number,
+ * message: string, 
+ * data:{
+ * Id: number,
+ * Name: string,
+ * Email: string,
+ * Token: string
+ * }}}
+ * authorizedRequest()
+ * @param {{email: string, password: string | number}} body
+ * @returns {
+ * id: number,
+ * name: string,
+ * email: string,
+ * profilepicture: string,
+ * location: string,
+ * createdat: Date
+ * }
  */
 
 const apiForExercise2 = "http://restapi.adequateshop.com";
@@ -130,6 +165,8 @@ async function authorizedRequest(userData) {
 
 /**
  * Exercise 3 - Web Sockets
+ * @param {string} message
+ * @returns {string}
  */
 
 const socketUrl =
@@ -156,6 +193,16 @@ async function webSockets(message) {
 
 /**
  * Exercise 4 - Advanced Methods
+ * getMethods()
+ * @param {string} path
+ * @return {string[]} 
+ * checkEndPoint()
+ * @param {string} path
+ * @return {number} 
+ * modifyData()
+ * @param {string} id
+ * @param {{userId: string | body: string | title: string}} body
+ * @return {{id: string, userId: string, body: string, title: string}}
  */
 
 async function getMethods(path) {
@@ -171,6 +218,7 @@ async function getMethods(path) {
   const stringResult = await result;
   return stringResult.split(",");
 }
+
 async function checkEndPoint(path) {
   if (typeof path !== "string") {
     throw Error("Invalid input");
