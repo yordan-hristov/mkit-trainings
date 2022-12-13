@@ -2,7 +2,7 @@
  * Exercise 1 - Multiplication
  *
  * @param {number} n
- *
+ * @returns {number}
  */
 function multiply(n) {
   // Implement it
@@ -13,7 +13,7 @@ function multiply(n) {
  *
  * @param {number} guesses
  * @param {number} answer
- *
+ * @returns {string}
  */
 function guessingGame(guesses, answer) {
   // Implement it
@@ -21,6 +21,8 @@ function guessingGame(guesses, answer) {
 
 /**
  * Exercise 3 - Human Body
+ *
+ * @returns {Human}
  */
 function Human() {
   // Implement it
@@ -30,7 +32,7 @@ function Human() {
  *
  * @param {string} name
  * @param {number} age
- *
+ * @returns {Person}
  */
 function Person(name, age) {
   // Implement it
@@ -38,11 +40,17 @@ function Person(name, age) {
 
 /**
  * Exercise 4 - Car
+ *
+ * @returns {string}
  */
 function drive() {
   return "I am driving!";
 }
 
+/**
+ *
+ * @returns {string}
+ */
 function stop() {
   return "I am stopping!";
 }
@@ -51,6 +59,7 @@ function stop() {
  *
  * @param {number} tank
  * @param {string} fuel
+ * @returns {Car}
  */
 function Car(tank, fuel) {
   // Implement it
@@ -61,12 +70,15 @@ function Car(tank, fuel) {
  *
  * @param {number} arms
  * @param {number} legs
- *
+ * @returns {Animal}
  */
 function Animal(arms, legs) {
   // Implement it
 }
 
+/**
+ * @returns {Dog}
+ */
 function Dog() {
   // Implement it
 }
@@ -75,6 +87,7 @@ function Dog() {
  *
  * @param {string} name
  * @param {number} age
+ * @returns {Husky}
  */
 function Husky(name, age) {
   // Implement it

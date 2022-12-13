@@ -6,6 +6,7 @@ const baseUrl = "https://jsonplaceholder.typicode.com";
  * Exercise 1 - Fetch Currency With Soap
  *
  * @param {string} countryCode
+ * @return {Promise<string>}
  */
 function getCurrency(countryCode) {
   // Implement it
@@ -16,6 +17,18 @@ function getCurrency(countryCode) {
  *
  * @param {number=} id
  * @param {boolean=} comments
+ * @returns {Promise<Array<{
+ * userId: number;
+ * id: number;
+ * title: string;
+ * body: string;
+ * }>| {
+ * userId: number;
+ * id: number;
+ * title: string;
+ * body: string;
+ * }
+ * >}
  */
 function socialMedia(id, comments) {
   // Implement it
@@ -23,8 +36,14 @@ function socialMedia(id, comments) {
 
 /**
  * Exercise 3 - CRUD Operations
+ *
+ * @returns {Promise<{
+ * userId: number;
+ * id: number;
+ * title: string;
+ * body: string;
+ * }>}
  */
-
 function createPost() {
   // Implement it
 }
@@ -32,6 +51,12 @@ function createPost() {
 /**
  *
  * @param {number} id
+ * @returns {Promise<{
+ * userId: number;
+ * id: number;
+ * title: string;
+ * body: string;
+ * }>}
  */
 function getPost(id) {
   // Implement it
@@ -40,6 +65,10 @@ function getPost(id) {
 /**
  *
  * @param {number} id
+ * @returns {Promise<{
+ * id: number;
+ * title: string;
+ * }>}
  */
 function updatePost(id) {
   // Implement it
@@ -48,6 +77,7 @@ function updatePost(id) {
 /**
  *
  * @param {number} id
+ * @returns {Promise<{}>}
  */
 function deletePost(id) {
   // Implement it
@@ -57,6 +87,10 @@ function deletePost(id) {
  * Exercise 4 - Status Codes
  *
  * @param {number} id
+ * @returns {Promise<{
+ * message: string;
+ * statusCode: number;
+ * }>}
  */
 function getPostById(id) {
   // Implement it

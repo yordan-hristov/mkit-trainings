@@ -1,5 +1,9 @@
-// Exercise 1
-
+/**
+ * Exercise 1 - Multiplication
+ *
+ * @param {number} n
+ * @returns {number}
+ */
 function multiply(n, b) {
   if (b || b === 0) {
     return n * b;
@@ -10,8 +14,13 @@ function multiply(n, b) {
   };
 }
 
-// Exercise 2
-
+/**
+ * Exercise 2 - Guessing Game
+ *
+ * @param {number} guesses
+ * @param {number} answer
+ * @returns {string}
+ */
 function guessingGame(maxGuesses, answer) {
   let guesses = 0;
   let win = false;
@@ -49,7 +58,11 @@ function guessingGame(maxGuesses, answer) {
   };
 }
 
-// Exercise 3
+/**
+ * Exercise 3 - Human Body
+ *
+ * @returns {Human}
+ */
 function Human() {
   this.head = 1;
   this.arms = 2;
@@ -83,15 +96,29 @@ function Person(name, age) {
   };
 }
 
-// Exercise 4 - Car
+/**
+ * Exercise 4 - Car
+ *
+ * @returns {string}
+ */
 function drive() {
   return "I am driving!";
 }
 
+/**
+ *
+ * @returns {string}
+ */
 function stop() {
   return "I am stopping!";
 }
 
+/**
+ *
+ * @param {number} tank
+ * @param {string} fuel
+ * @returns {Car}
+ */
 function Car(tank, fuel) {
   this.tank = tank;
   this.fuel = fuel;
@@ -100,14 +127,22 @@ function Car(tank, fuel) {
 Car.prototype.drive = drive;
 Car.prototype.stop = stop;
 
-// Exercise 5 - Exercise 5 - Create Husky
-
+/**
+ * Exercise 5 - Create Husky
+ *
+ * @param {number} arms
+ * @param {number} legs
+ * @returns {Animal}
+ */
 function Animal(arms, legs) {
   this.head = 1;
   this.arms = arms;
   this.legs = legs;
 }
 
+/**
+ * @returns {Dog}
+ */
 function Dog(fur) {
   Animal.call(this, 0, 4);
 
@@ -120,6 +155,13 @@ function Dog(fur) {
 
 Object.setPrototypeOf(Dog, Animal);
 
+
+/**
+ *
+ * @param {string} name
+ * @param {number} age
+ * @returns {Husky}
+ */
 function Husky(name, age) {
   if (typeof name !== "string") {
     throw new Error("Name should be a string");

@@ -1,5 +1,10 @@
-// Exercise 1
-
+/**
+ * Exercise 1 - Generator Functions
+ *
+ * @param {number[]} arr
+ * @param {Function} callback
+ * @returns {Array}
+ */
 function map(array, cb) {
   if (!Array.isArray(arr)) {
     throw new Error("You must pass an array as a first argument!");
@@ -18,8 +23,11 @@ function map(array, cb) {
   return newArray;
 }
 
-// Exercise 2
-
+/**
+ * Exercise 2 - Array Methods(Map)
+ * 
+ * @returns {Generator}
+ */
 function* fibonacci() {
   let current = 0;
   let next = 1;
@@ -30,8 +38,18 @@ function* fibonacci() {
   }
 }
 
-// Exercise 3
-
+/**
+ * Exercise 3 - Array Methods(Reduce)
+ *
+ * @typeparam {T} the type parameter
+ * @param {{ name: string, age: number, voted: boolean }[]} votersList
+ * @returns {{
+* young: number;
+* midAged: number;
+* afterMidAged: number;
+* old: number;
+* }}
+*/
 function potentialVotersResult(votersList) {
   if (!Array.isArray(votersList)) {
     throw new Error("Voters list should be an array!");
@@ -82,8 +100,16 @@ function potentialVotersResult(votersList) {
   );
 }
 
-// Exercise 4
-
+/**
+ * Exercise 4 - Array methods(Reduce implementation)
+ *
+ * @typeparam {T} the current value type
+ * @typeparam {InitializerT} the initializer type
+ * @param {Array<T>} arr
+ * @param {(currElement: T) => InitializerT} callback
+ * @param {InitializerT} initializer
+ * @returns {InitializerT}
+ */
 function reduce(array, callback, initializer = undefined) {
   if (!Array.isArray(arr)) {
     throw new Error("Your must provide an array as a first argument!");
@@ -102,8 +128,15 @@ function reduce(array, callback, initializer = undefined) {
   return accumulator;
 }
 
-// Exercise 5
-
+/**
+ * Exercise 5 - Even Average Sum
+ *
+ * @param {number[]} arr
+ * @returns {{
+* sum: number;
+* evenArray: number[];
+* }}
+*/
 function calculateEvenAverage(arr) {
   if (!Array.isArray(arr)) {
     throw new Error("Provided argument should be an array");

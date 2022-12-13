@@ -1,5 +1,6 @@
-// Exercise 1
-
+/**
+ * Exercise 1 - Car Manufacturing
+ */
 const { accessSync } = require("fs");
 
 const carOwner = {
@@ -33,14 +34,23 @@ const carOwner = {
   },
 };
 
-// Exercise 2
-
+/**
+ * Exercise 2 - Sum of two numbers by context
+ *
+ * @returns {number}
+ */
 function addTwo() {
   return this.a + this.b;
 }
 
-// Exercise 3
-
+/**
+ * Exercise 3 - Check for available users
+ *
+ * @returns {{
+* online: string[];
+* offline: string[];
+* }}
+*/
 function getUsers() {
   const users = this.reduce(
     (acc, curr) => {
@@ -60,8 +70,13 @@ function getUsers() {
   return users;
 }
 
-// Exercise 4
-
+/**
+ * Exercise 4 - Create a javascript Class from scratch
+ *
+ * @param {string} name
+ * @param {age} age
+ * @returns {Person}
+ */
 function Person(name, age) {
   if (typeof name !== "string") {
     throw new Error("Name should be a string");
@@ -79,8 +94,11 @@ function Person(name, age) {
   };
 }
 
-// Exercise 3
-
+/**
+ * Exercise 5 - Get Person's Name
+ *
+ * @returns {Function}
+ */
 function getPrintName() {
   return () => {
     return this.name;
