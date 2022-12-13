@@ -4,26 +4,97 @@
 
 const apiUrlForExercise1 = "https://jsonplaceholder.typicode.com";
 
+/**
+ *
+ * @param {string} id
+ * @return {{id: string, userId: string, body: string, title: string}}
+ *
+ */
+
 function getData() {}
+
+/**
+ *
+ * @param {{userId: string, body: string, title: string}} body
+ * @return {{id: string, userId: string, body: string, title: string}}
+ *
+ */
 
 function postData() {}
 
+/**
+ *
+ * @param {string} id
+ * @param {{userId: string, body: string, title: string}} body
+ * @return {{id: string}}
+ *
+ */
+
 function putData() {}
+
+/**
+ *
+ * @param {string} id
+ * @returns {}
+ *
+ */
 
 function deleteData() {}
 
 /**
- * Exercise 2 - Send Authentication
+ * Exercise 2 - Authentication
+ * login()
+ * authorizedRequest()
+ * @param {{email: string, password: string | number}} body
+ * @returns {
+ * id: number,
+ * name: string,
+ * email: string,
+ * profilepicture: string,
+ * location: string,
+ * createdat: Date
+ * }
  */
 
 const apiUrlForExercise2 = "http://restapi.adequateshop.com";
 
+/**
+ *
+ * @param {{email: string, password: string}} body
+ * @return {{
+  * code: number,
+  * message: string,
+  * data:{
+  *   Id: number,
+  *   Name: string,
+  *   Email: string,
+  *   Token: string
+  * }}}
+ *
+ */
+
 function login() {}
+
+/**
+ *
+ * @param {{email: string, password: string}} body
+ * @returns {
+  * id: number,
+  * name: string,
+  * email: string,
+  * profilepicture: string,
+  * location: string,
+  * createdat: Date
+  * }
+ *
+ */
 
 function authorizedRequest() {}
 
 /**
  * Exercise 3 - Web Sockets
+ * @param {string} message
+ * @returns {string}
  */
 
 const apiUrlForExercise3 =
@@ -32,12 +103,34 @@ const apiUrlForExercise3 =
 function webSockets() {}
 
 /**
- * Exercise 4 - Advanced HTTP Methods
+ * Exercise 4 - Advanced Methods
+ */
+
+/**
+ *
+ * @param {string} path
+ * @return {string[]}
+ *
  */
 
 function getMethods() {}
 
+/**
+ *
+ * @param {string} path
+ * @return {number}
+ *
+ */
+
 function checkEndPoint() {}
+
+/**
+ *
+ * @param {string} id
+ * @param {{userId: string | body: string | title: string}} body
+ * @return {{id: string, userId: string, body: string, title: string}}
+ *
+ */
 
 function modifyData() {}
 
@@ -57,5 +150,5 @@ module.exports = {
   webSockets,
   getMethods,
   checkEndPoint,
-  modifyData
+  modifyData,
 };
