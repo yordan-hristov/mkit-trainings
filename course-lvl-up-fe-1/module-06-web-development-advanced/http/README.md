@@ -13,13 +13,14 @@ In this Exercise, you are provided with `getData`, `postData`, `putData`, `delet
 Your objectives are to:
 
 - All functions should be asynchronous 
-- Send GET request and get data about the post with given id, API endpoint is `/posts/{id}`. Use `getData` for this method. The function should receive id as argument, which should be number between 1 and 100.
+- Send GET request and get data about the post with given id, API endpoint is `/posts/{id}`. Use `getData` for this method.
+- The function should receive a number as input and you should validate it. The number should be between 1 and 100 inclusive. If the input is invalid you should throw error.
 
 Example:
 
 ```js
 // Sample input
-1
+getData(1).then(res => console.log(res));
 
 // Sample output
 {
@@ -30,15 +31,17 @@ Example:
 }
 ```
 
-- Send POST request and make new post, API endpoint is `/posts`. Use `postData` for this method. The function should receive body as argument, which should be in the following format:
+- Send POST request and make new post, API endpoint is `/posts`. Use `postData` for this method.
+- The function should receive an object as input and you should validate it. The object should have `userId`, `title`, `body` fields. If the input is invalid you should throw error.
 
 ```js
 // Sample input
-{
+const input = {
     "userId": 1,
     "title": "Post title",
     "body": "Post body"
 }
+postData(input).then(res => console.log(res))
 
 // Sample output
 {
@@ -47,33 +50,33 @@ Example:
 ```
 
 - Send PUT request and overwrite post, API endpoint is `/posts/{id}`. Use `putData` for this method. The function should receive id and body as argument. Id should be number between 1 and 100.
+- The function should receive a number and an object as input and you should validate it. The number should be between 1 and 100 inclusive. The object should have `userId`, `title`, `body` fields. If the input is invalid you should throw error.
 
 ```js
 // Sample input
-30,
-{
+const input = {
     "userId": 1,
     "title": "Post title",
     "body": "Post body"
 }
+putData(30, input).then(res => console.log(res)),
 
 // Sample output
 {
     "id": 30,
-
 }
 ```
 
 - Send DELETE request and delete post, API endpoint is `/posts/{id}`. Use `deleteData` for this method. The function should receive id as argument. Id should be number between 1 and 100.
+- The function should receive a number as input and you should validate it. The number should be between 1 and 100 inclusive. If the input is invalid you should throw error.
 
 ```js
 // Sample input
-1
+deleteData(1).then(res => console.log(res));
 
 // Sample output
 {}
 ```
-
 
 ## Exercise 2 - Authentication
 
@@ -81,7 +84,8 @@ In this Exercise, you are provided with `login`, `authorizedRequest`, function d
 
 Your objectives are to:
 - All functions should be asynchronous
-- First you should send `POST` request to `/api/authaccount/login` endpoint.
+- You should send request to `/api/authaccount/login` endpoint.
+- The `login` function should receive an object as input and you should validate it. The object should have `email` and `password` fields. If the input is invalid you should throw error.
 - You should use the following credentials:
 ```js
 // Credentials
@@ -89,9 +93,12 @@ email: "mkit_user@gmail.com"
 password: 123456
 ```
 
-- login() should return data in the following format:
+Example:
 ```js
-// Response from login()
+// Sample input
+login({email: "mkit_user@gmail.com",password: 123456}).then(res => console.log(res))
+
+// Sample output
 {
   code: 0,
   message: 'success',
@@ -105,8 +112,14 @@ password: 123456
 ```
 
 - In authorizedRequest() function you should make authorized request to `/api/users/{id}` endpoint and get data about user with id `193695`
+- The function `authorizedRequest` should receive object as input and you can safely expect this input to be valid.
+- First you should use the `login` function that you already declared and use the token from the object that it returns to make the authorized request
 - authorizedRequest() should return object in the following format:
 ```js
+// Sample input
+authorizedRequest({email: "mkit_user@gmail.com",password: 123456}).then(res => console.log(res))
+
+// Sample output
 {
     id: 193695,
     name: 'User',
@@ -122,12 +135,19 @@ password: 123456
 In this Exercise, you are provided with `webSockets` function declarations and WebSocket API `wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self`.
 
 Your objectives are to:
-- The function should accept one argument of type string
+- The function should receive a string as input and you should validate it. If the input is invalid you should throw error.
 - Connect to the websocket and send message on connecting. Use the argument as text of the message
-- Validate message. It should be string
 - You should close the connection with websocket after one second.
-- On closing you should send `Closing` message
+- On closing you should send `Closing` message to the server
 - The function should return the message, received as argument in the end
+
+```js
+//Sample input
+webSockets('Example message').then(res => console.log(res))
+
+//Sample output
+'Example message'
+```
 
 ## Exercise 4 - Advanced HTTP Methods
 
@@ -135,43 +155,39 @@ In this Exercise, you are provided with `getMethods`, `checkEndPoint`, `modifyDa
 
 Your objectives are to:
 - You should use the correct method for each function.
+- The function `getMethods` should receive a string as input and you should validate it. If the input is invalid you should throw error.
 - In `getMethods` you should get all possible methods that are allowed to the endpoint, passed as argument. The function should return array of all allowed methods.
 ```js
-getMethods('/posts').then(response => console.log(response)) // ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
+//Sample input
+getMethods('/posts').then(response => console.log(response)) 
+
+//Sample output
+["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
 ```
 
-- In `checkEndPoint` you should check if endpoint exists. The function should receive path as argument. Your response should't have a body. The function should return status code of the response.
+- The function `checkEndPoint` should receive a string as input and you should validate it. If the input is invalid you should throw error.
+- In `checkEndPoint` function you should check if endpoint exists. The function should return status code of the response.
 ```js
-getMethods('/invalid').then(response => console.log(response)) // 404
+//Sample input
+getMethods('/invalid').then(response => console.log(response))
+
+//Sample output
+404
 ```
 
-- In `modifyData` you should send request to `/posts`and change only one field of item. The function should receive id of post and body as argument. The id should be number between 1 and 100, and body should have only one property. You should return the response from the request.
+- The function `modifyData` should receive a number and an object as input and you should validate it. The number should be between 1 and 100 inclusive. The object should have only one of `userId`, `title`, `body` fields. If the input is invalid you should throw error.
+- In `modifyData` function you should send request to `/posts` and change only one field of item. The function should return the response.
 ```js
-modifyData(48, {title: 'title'}) // {id: 1, userId: 5, title: 'title', body: 'ut voluptatem illum ea doloribus itaque eos'}
+//Sample input
+modifyData(48, {title: 'title'})
+
+// Sample output
+{
+    id: 1, 
+    userId: 5, 
+    title: 'title', 
+    body: 'ut voluptatem illum ea doloribus itaque eos'
+}
 ```
 
 - You should validate input for each function.
-
-## Exercise 5 - Submit Form
-
-In this Exercise, you are provided with `submitForm` function declaration and html of form:
-
-```html
-    <form name="Form name" onsubmit="submitForm()">
-        <input
-        name="name"
-        type="text"
-        />
-        <input
-        name="file"
-        type="file"
-        />
-        <button>Submit</button>
-    </form>
-```
-
-Your objectives are to:
-- Create submit function, that sends texts and files in the correct format.
-- You should pass headers and body as argument of the function
-- The function should send the request with the correct headers
-- You can use `https://fake-api.com` as API placeholder.
