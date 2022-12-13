@@ -548,7 +548,7 @@ describe("Exercise 3 - WebSocket", () => {
   });
 });
 
-describe("Exercise 2 - Advanced HTTP Methods", () => {
+describe("Exercise 4 - Advanced HTTP Methods", () => {
   describe("getMethods()", () => {
     const mockedPath = "/posts";
     it("Should be defined", () => {
@@ -672,6 +672,7 @@ describe("Exercise 2 - Advanced HTTP Methods", () => {
     });
     
   });
+  
   describe("modifyData()", () => {
     const body = { body: "test" };
 

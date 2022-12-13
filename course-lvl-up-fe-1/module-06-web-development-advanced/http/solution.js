@@ -155,10 +155,10 @@ async function webSockets(message) {
 }
 
 /**
- * Exercise 4 - Submit Form
+ * Exercise 4 - Advanced Methods
  */
 
-async function submitForm(path) {
+async function getMethods(path) {
   if (typeof path !== "string") {
     throw Error("Invalid input");
   }
@@ -171,11 +171,43 @@ async function submitForm(path) {
   const stringResult = await result;
   return stringResult.split(",");
 }
+async function checkEndPoint(path) {
+  if (typeof path !== "string") {
+    throw Error("Invalid input");
+  }
 
+  const result = fetch(`${apiForExercise1}${path}`, {
+    method: "HEAD",
+  })
+    .then((response) => response.status)
+    .then((data) => data);
+  return result;
+}
 
-/**
- * Exercise 5 - Advanced HTTP Methods
- */
+async function modifyData(id, body) {
+  if (typeof id !== "number") {
+    throw Error("Invalid input");
+  } else if (id <= 0 || id > 100) {
+    throw Error("Invalid input");
+  }
+
+  if (typeof body !== "object") {
+    throw Error("Invalid input");
+  } else if (!Boolean(body.userId || body.title || body.body) || Object.keys(body).length !== 1) {
+    throw Error("Invalid input");
+  }
+
+  const result = fetch(`${apiForExercise1}/posts/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => data);
+  return result;
+}
 
 /*********************************************
  * DO NOT MODIFY THIS AREA
