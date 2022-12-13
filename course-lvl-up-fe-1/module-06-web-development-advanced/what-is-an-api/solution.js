@@ -2,8 +2,12 @@ const fetch = require("node-fetch");
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
 
-// Exercise 1
-
+/**
+ * Exercise 1 - Fetch Currency With Soap
+ *
+ * @param {string} countryCode
+ * @return {Promise<string>}
+ */
 async function getCurrency(countryCode) {
   const response = await fetch(
     "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
@@ -29,8 +33,24 @@ async function getCurrency(countryCode) {
   return responseAsText;
 }
 
-// Exercise 2
-
+/**
+ * Exercise 2 - Social Media
+ *
+ * @param {number=} id
+ * @param {boolean=} comments
+ * @returns {Promise<Array<{
+* userId: number;
+* id: number;
+* title: string;
+* body: string;
+* }>| {
+* userId: number;
+* id: number;
+* title: string;
+* body: string;
+* }
+* >}
+*/
 async function socialMedia(id, comments) {
   if (id && comments) {
     const response = await fetch(
@@ -53,8 +73,16 @@ async function socialMedia(id, comments) {
   return response.json();
 }
 
-// Exercise 3
-
+/**
+ * Exercise 3 - CRUD Operations
+ *
+ * @returns {Promise<{
+* userId: number;
+* id: number;
+* title: string;
+* body: string;
+* }>}
+*/
 async function createPost() {
   const result = await fetch(`${baseUrl}/posts`, {
     method: "POST",
@@ -69,6 +97,16 @@ async function createPost() {
   return result.json();
 }
 
+/**
+ *
+ * @param {number} id
+ * @returns {Promise<{
+* userId: number;
+* id: number;
+* title: string;
+* body: string;
+* }>}
+*/
 async function getPost(id) {
   if (typeof id !== "number") {
     throw new Error("Id should be a number!");
@@ -79,6 +117,14 @@ async function getPost(id) {
   return result.json();
 }
 
+/**
+ *
+ * @param {number} id
+ * @returns {Promise<{
+* id: number;
+* title: string;
+* }>}
+*/
 async function updatePost(id) {
   if (typeof id !== "number") {
     throw new Error("Id should be a number!");
@@ -95,6 +141,11 @@ async function updatePost(id) {
   return result.json();
 }
 
+/**
+ *
+ * @param {number} id
+ * @returns {Promise<{}>}
+ */
 async function deletePost(id) {
   if (typeof id !== "number") {
     throw new Error("Id should be a number!");
@@ -107,8 +158,15 @@ async function deletePost(id) {
   return result.json();
 }
 
-// Exercise 4
-
+/**
+ * Exercise 4 - Status Codes
+ *
+ * @param {number} id
+ * @returns {Promise<{
+* message: string;
+* statusCode: number;
+* }>}
+*/
 async function getPostById(id) {
   if (typeof id !== "number") {
     throw new Error({ message: "Id must be a number!", statusCode: 400 });

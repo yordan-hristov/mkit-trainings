@@ -10,13 +10,15 @@ const carOwner = {
   /**
    *
    * @param {number} year
-   * @returns string[]
+   * @returns {string[]}
    */
   selectNew: null, // Implement it
 };
 
 /**
  * Exercise 2 - Sum of two numbers by context
+ *
+ * @returns {number}
  */
 function addTwo() {
   // Implement it
@@ -24,6 +26,11 @@ function addTwo() {
 
 /**
  * Exercise 3 - Check for available users
+ *
+ * @returns {{
+ * online: string[];
+ * offline: string[];
+ * }}
  */
 function getUser() {
   // Implement it
@@ -34,6 +41,7 @@ function getUser() {
  *
  * @param {string} name
  * @param {age} age
+ * @returns {Person}
  */
 function Person(name, age) {
   // Implement it
@@ -41,6 +49,8 @@ function Person(name, age) {
 
 /**
  * Exercise 5 - Get Person's Name
+ *
+ * @returns {Function}
  */
 function getPrintName() {
   // Implement it
