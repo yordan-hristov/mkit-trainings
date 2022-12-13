@@ -8,7 +8,7 @@ Modern web applications are dynamic and interactive. We naturally expect web app
 
 ## Exercise #1 - Callbacks
 
-In this Exercise, you are provided with `readFile` function declaration. It receives `fileName` and `cb` as arguments. You can safely expect `fileName` to be a file only from `_resources` folder when tested.
+In this Exercise, you are provided with `readFile` function declaration. It receives `fileName: string` and `cb: (err, result) => void` as arguments. You can safely expect `fileName` to be a file only from `_resources` folder when tested.
 
 Your objectives are to:
 
@@ -25,7 +25,7 @@ readFile("test.txt", (err, result) => {
 
 ## Exercise #2 - Creating Promises
 
-In this Exercise, you are provided with `isEven` function declaration. It receives `n` of type `number` as an argument. You can safely expected `n` to be a valid input when tested.
+In this Exercise, you are provided with `isEven` function declaration. It receives `n: number` as an argument. You can safely expected `n` to be a valid input when tested.
 
 Your objectives are to:
 
@@ -58,8 +58,8 @@ In this exercise you are provided with `handlePromise` function declaration. It 
 Your objectives are to:
 
 - Implement it in such way that it attempts to resolve the argument `promise`
-- If `promise` is fulfilled, call `successHandler` with the result
-- If `promise` throws error, call `errorHandler` with the error
+  - If `promise` is fulfilled, call `successHandler` with the result
+  - If `promise` throws error, call `errorHandler` with the error
 - Implement the above without using `async` function
 
 Example:
@@ -94,14 +94,14 @@ isEvenAsync(1)
 
 ## Exercise #5 - Error Handling With `async/await`
 
-In this Exercise, you are provided with `handlePromiseAsync` function declaration. It receives `promise: Promise` as an argument.
+In this Exercise, you are provided with `handlePromiseAsync` function declaration. It receives `promise: Promise` as an argument and you can safely expect this input to be valid.
 
 Your objectives are to:
 
 - Make `handlePromiseAsync` an async function
+  - If `promise` is fulfilled return `{data: {result}, errorMessage: null}`
+  - If `promise` throws error return `{data: null, errorMessage: "Error Occurred!"}`
 - Implement it in such way that it attempts to resolve the argument `promise`
-- If `promise` is fulfilled return `{data: {result}, errorMessage: null}`
-- If `promise` throws error return `{data: null, errorMessage: "Error Occurred!"}`
 
 Example:
 
