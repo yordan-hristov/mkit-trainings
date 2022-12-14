@@ -43,3 +43,5 @@ Your objective is to:
   - Change the text color of the button from `black` to `white`
   - Increase the `border radius` of the button with `10px`
 
+![Hero Before Styles](./example-images/hero-before-styles.png)
+![Hero After Styles](./example-images/hero-after-styles.png)
