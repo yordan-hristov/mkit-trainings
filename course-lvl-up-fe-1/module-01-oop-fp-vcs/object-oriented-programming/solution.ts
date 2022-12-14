@@ -1,6 +1,8 @@
+import { paypalApi, stripeApi } from "./_resources/_api";
+
 // Exercise 1
 
-export class Greeter {
+class Greeter {
   private name: string;
 
   constructor(name: string) {
@@ -18,11 +20,11 @@ export class Greeter {
 
 // Exercise 2
 
-export class Shape {}
+class Shape {}
 
 // Exercise 3
 
-export class Cat {
+class Cat {
   private mood: number;
   private hungry: number;
   private energy: number;
@@ -67,7 +69,7 @@ interface ITeacher {
   displaySubject: () => string; // Subject: {subject}
 }
 
-export abstract class Person {
+abstract class Person {
   protected firstName: string;
   protected lastName: string;
 
@@ -79,7 +81,7 @@ export abstract class Person {
   abstract greet(): string;
 }
 
-export class Student extends Person implements IStudent {
+class Student extends Person implements IStudent {
   grade: number;
 
   constructor(firstName: string, lastName: string, grade: number) {
@@ -96,7 +98,7 @@ export class Student extends Person implements IStudent {
   }
 }
 
-export class Teacher extends Person implements ITeacher {
+class Teacher extends Person implements ITeacher {
   subject: string;
 
   constructor(firstName: string, lastName: string, subject: string) {
@@ -122,7 +124,7 @@ interface PaymentProvider {
   };
 }
 
-export class Store {
+class Store {
   private provider: PaymentProvider;
 
   constructor(provider: PaymentProvider) {
@@ -134,12 +136,10 @@ export class Store {
   }
 }
 
-export class StripeProvider implements PaymentProvider {
+class StripeProvider implements PaymentProvider {
   pay(price: string) {
-    // @ts-ignore
     const { isSuccess } = stripeApi.createPayment(price);
     const priceToNumber = Number(price);
-    // @ts-ignore
     const total = priceToNumber + priceToNumber * stripeApi.tax;
 
     return {
@@ -149,10 +149,9 @@ export class StripeProvider implements PaymentProvider {
   }
 }
 
-export class PayPalProvider implements PaymentProvider {
+class PayPalProvider implements PaymentProvider {
   pay(price: string) {
     const priceToNumber = Number(price);
-    // @ts-ignore
     const { hasFailed } = paypalApi.makePayment(priceToNumber);
 
     return {

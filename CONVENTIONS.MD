@@ -18,7 +18,7 @@
 - [ ] - Consistency in figure of speech
 - [ ] - Output result should be on the same line or with `...` in between
 - [ ] - Always console.log output function result e.g. `console.log(solve(123))`
-- [ ] - You can use -> `_Pro tip: Use something_` if needed
+- [ ] - You can use -> `_Pro Tip: Use something._` if needed
 - [ ] - Functions in index should be with documentation
   - [ ] Use multi-line comments to separate the code in a more readable way
   - [ ] Eventually consider adding the types of the params

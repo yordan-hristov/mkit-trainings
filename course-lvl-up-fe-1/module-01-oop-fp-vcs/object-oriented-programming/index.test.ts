@@ -30,7 +30,7 @@ const allClassDeclarations = find("ClassDeclaration", getNode(fileToString));
 
 const [
   greeterDeclaration,
-  shapeDeclaration,
+  shapeDeclaration, // unused
   catDeclaration,
   personDeclaration,
   studentDeclaration,
@@ -83,8 +83,8 @@ describe("Exercise 1 - Access Modifiers", () => {
             return this.getName();
           }
         }
-        const testGreeter = new TestChildClass("John");
 
+        const testGreeter = new TestChildClass("John");
         const result = testGreeter.test();
 
         expect(result).toEqual("John");
@@ -391,12 +391,12 @@ describe("Exercise 4 - Inheritance And Polymorphism", () => {
       expect(Student).toBeDefined();
     });
 
-    it("Should implement IStudent", () => {
-      expect(studentDeclaration.implements[0].string).toEqual("IStudent");
-    });
-
     it("Should be derived from class Person", () => {
       expect(studentDeclaration.superClass.string).toEqual("Person");
+    });
+
+    it("Should implement IStudent", () => {
+      expect(studentDeclaration.implements[0].string).toEqual("IStudent");
     });
 
     describe("grade", () => {
@@ -450,6 +450,7 @@ describe("Exercise 4 - Inheritance And Polymorphism", () => {
     describe("subject", () => {
       it("Should be defined", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
+
         expect(testTeacher.subject).toBeDefined();
       });
     });
@@ -457,6 +458,7 @@ describe("Exercise 4 - Inheritance And Polymorphism", () => {
     describe("greet", () => {
       it("Should be defined", () => {
         const testTeacher = new Teacher("Jane", "Doe", "history");
+
         expect(testTeacher.greet).toBeDefined();
       });
 
@@ -553,7 +555,7 @@ describe("Exercise 5 - Dependency Inversion Principle", () => {
         expect(spyPay).toHaveBeenCalledTimes(1);
       });
 
-      it("Should return correct value with stripe provider", () => {
+      it("Should return correct value with Stripe provider", () => {
         const testProvider = new StripeProvider();
         const testStore = new Store(testProvider);
 
@@ -566,7 +568,7 @@ describe("Exercise 5 - Dependency Inversion Principle", () => {
         expect(result).toEqual(expected);
       });
 
-      it("Should return correct value with paypal provider", () => {
+      it("Should return correct value with PayPal provider", () => {
         const testProvider = new PayPalProvider();
         const testStore = new Store(testProvider);
 
@@ -599,7 +601,7 @@ describe("Exercise 5 - Dependency Inversion Principle", () => {
         expect(test.pay).toBeDefined();
       });
 
-      it("Should call createPayment from stripe api", () => {
+      it("Should call createPayment from Stripe api", () => {
         const testStripeProvider = new StripeProvider();
         const createPaymentSpy = jest.spyOn(stripeApi, "createPayment");
 
@@ -640,7 +642,7 @@ describe("Exercise 5 - Dependency Inversion Principle", () => {
         expect(test.pay).toBeDefined();
       });
 
-      it("Should call makePayment from paypal api", () => {
+      it("Should call makePayment from PayPal api", () => {
         const testPaypalProvider = new PayPalProvider();
         const makePaymentSpy = jest.spyOn(paypalApi, "makePayment");
 

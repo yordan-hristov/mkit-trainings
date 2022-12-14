@@ -60,7 +60,7 @@ describe("Exercise 2 - Rebasing And Resolving Conflicts", () => {
 
     it("Should return correct value", () => {
       const expectedGitResult =
-        "Git is a DevOps tool used for source code management.";
+        "Git is an awesome tool used for version control management.";
 
       expect(vcs.git).toEqual(expectedGitResult);
     });

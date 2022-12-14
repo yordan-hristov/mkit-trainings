@@ -115,7 +115,7 @@ Your objectives are to:
 - Implement `updatePost` in such a way that it updates a post's title to `"Harry Potter and the Philosopher's Stone"` and returns the result as `json`.
 - Implement `deletePost` in such a way that it deletes a post and returns the result as `json`. ( The API always returns an empty object on DELETE )
 
-_Pro tip: Be careful with the `request headers`_
+_Pro Tip: Be careful with the `request headers`_
 
 Example:
 

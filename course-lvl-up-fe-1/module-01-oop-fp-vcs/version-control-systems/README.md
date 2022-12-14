@@ -15,28 +15,29 @@ In this Exercise you are provided with the `vcs` object literal.
 Your objectives are to:
 
 - Create a new branch
-- Add new property called `git` that has a value `"Git is a DevOps tool used for source code management."`
+- Add new property called `git` that has a value `"Git is an awesome tool used for version control management."`
 - Commit the changed file
 
-_Pro tip: Follow the [best practices](https://www.conventionalcommits.org/en/v1.0.0/) for naming branches and commit messages_
+_Pro Tip: Follow the [best practices](https://www.conventionalcommits.org/en/v1.0.0/) for naming branches and commit messages._
 
 ## Exercise #2 - Rebasing And Resolving Conflicts
 
-After you have completed `Exercise 1`, your next objectives are to:
+After you have completed Exercise 1, your next objectives are to:
 
 - Rebase your branch with `feature/john-doe-solution`
 
-- Resolve the conflict is such way that you keep your changes but also John Doe's changes.
+- Resolve the conflict in such way that you keep your changes but also John Doe's changes.
 
 ## Exercise #3 - Cherry Picking
 
-After you have completed `Exercise 2`, your next objectives are to:
+After you have completed Exercise 2, your next objectives are to:
 
 - Cherry-pick the `feat: git flow` commit from `feature/cherry-pick`
 
 - Cherry-pick the `feat: github flow` commit from `feature/cherry-pick`
 
-_Pro tip: use `git log --oneline feature/cherry-pick` to see the commits' `SHA`_
+_Pro Tip: use `git log --oneline feature/cherry-pick` to see the commits' `SHA`._
 
 **After you have completed all Exercises, your final task is to push the branch to remote.**
+
 If you have completed all steps and all unit tests pass you can expect a success message in the terminal after you push to remote. Otherwise you will see an error message. If you feel stuck, checkout a new branch and start over.

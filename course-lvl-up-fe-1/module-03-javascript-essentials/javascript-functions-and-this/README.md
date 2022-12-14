@@ -10,7 +10,7 @@ In JavaScript there is a **global scope** that contains and is visible in all ot
 
 In this Exercise, you are provided with `carOwner` object literal with 2 properties `name: string, cars: Cars` and a method `selectNew`. Cars value will be an array of object literals with 2 properties `model: string, year: number`. As an input for `selectNew` will be `years: number`. You can safely expect to be tested with valid data.
 
-_Pro tip: Think about what type of function you will use._
+_Pro Tip: Think about what type of function you will use._
 
 Your objectives are to:
 
