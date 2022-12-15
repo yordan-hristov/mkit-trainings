@@ -60,3 +60,64 @@ section > .hero-button {
   background-color: #253f6e;
   color: white;
 }
+
+/* 
+    Exercise 3 - Select Nested Elements
+*/
+
+#todo-list > li:nth-of-type(1) > ul > li:nth-of-type(2) > ul > li {
+  color: red;
+}
+
+#todo-list > li:nth-of-type(2) > ul > li:nth-child(2) {
+  color: yellow;
+}
+
+#todo-list > li:nth-of-type(3) > ul:nth-child(1) > li > ul > li:nth-child(2) {
+  color: blue;
+}
+
+#todo-list > li:nth-of-type(3) > ul:nth-child(2) > li > ul > li:last-child {
+  color: green;
+}
+
+#todo-list > li:nth-of-type(3) > ul:nth-child(3) > li > ul > li {
+  color: violet;
+}
+
+#todo-list > li:nth-of-type(3) > ul:nth-child(4) > li > ul > li {
+  color: cyan;
+}
+
+/* 
+    Exercise 4 - Use Of BEM
+*/
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px #c5c5c5;
+  background-color: white;
+}
+
+.footer__copyright {
+  margin-left: 24px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.footer__social-media {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-right: 24px;
+}
+
+.social-media__social-item--platform {
+  color: #777789;
+}

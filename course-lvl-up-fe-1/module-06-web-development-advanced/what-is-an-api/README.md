@@ -147,7 +147,7 @@ deletePost().then((post) => console.log(post)); // {}
 
 ## Exercise #4 - Status Codes
 
-In this exercise you are provided with a `getPostById` function declaration and a `baseUrl` variable equals to `https://jsonplaceholder.typicode.com`. It will receive an argument `id: number` as input and you can safely expect this input to be valid.
+In this Exercise you are provided with a `getPostById` function declaration and a `baseUrl` variable equals to `https://jsonplaceholder.typicode.com`. It will receive an argument `id: number` as input and you can safely expect this input to be valid.
 
 Your objective are to:
 

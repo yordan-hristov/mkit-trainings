@@ -6,11 +6,11 @@ CSS is powerful and flexible language to help you **style an HTML** document. Ev
 
 [Learning Materials About This Topic](https://www.notion.so/mkit/CSS-Best-Practices-d65051b2bc3f407cabfbc6384fa6c8d3)
 
-## You are provided with an `index.html` file. In this exercises you have to style the whole page until it covers all requirements. You **DO NOT** to edit the `html` file, you only have to write the css.
+_Pro Tip: You are provided with an `index.html` file. In this Exercises you have to style the whole page until it covers all requirements. You do not have to edit the HTML file, you only have to write the CSS._
 
 ## Exercise #1 - Style Navbar
 
-In this exercise you have to style the navbar of our page.
+In this Exercise you have to style the navbar of the page.
 
 Your objectives are to:
 
@@ -31,17 +31,97 @@ Example:
 
 ## Exercise #2 - Specificity
 
-In this exercise you are provided with `hero section`, which is the first section in our page, and the styles written for this section in the head tag. The hero section consists a title, subtitle and a button.
+In this Exercise you are provided with hero section, which is the first section in the page, and the styles written for this section in the head tag. The hero section consists a title, subtitle and a button.
 
-Your objective is to:
+Your objective are to:
 
 - overwrite the styles in the head by increasing the specificity for different elements so required styles are applied:
   - Change the `background` of the hero section from `red` to `#A7C3CF`
-  - Increase the `font size` of the title with `22px` so our users can read it easily
+  - Increase the `font size` of the title with `22px` so the users can read it easily
   - Increase the width of the button with `50px`
-  - Change the color of the button from `black` to #253F6E`
+  - Change the color of the button from `black` to `#253F6E`
   - Change the text color of the button from `black` to `white`
-  - Increase the `border radius` of the button with `10px`
+  - Increase the border radius of the button with `10px`
 
 ![Hero Before Styles](./example-images/hero-before-styles.png)
 ![Hero After Styles](./example-images/hero-after-styles.png)
+
+## Exercise #3 - Select Nested Elements
+
+In this Exercise you are provided with `how-to-become-a-front-end-developer` unordered list, which is the second section in the page. The unordered list consists the steps you need to take in order to become a Front end developer.
+
+Your objectives are to:
+
+- Make all Learn HTML structure bullet points with text color `red`
+- Make Learn specificity bullet point `yellow`
+- Make Learn operators bullet point `blue`
+- Make Learn regex bullet point `green`
+- Make all Advance bullet points `violet`
+- Make all Proficient bullet points `cyan`
+
+![How To Become a Front end Developer Styled](./example-images/unstyled-list.png)
+![How To Become a Front end Developer Unstyled](./example-images/styled-list.png)
+
+## Exercise #4 - Use of BEM
+
+In this Exercise you are provided with the `footer` and the styles for it. Every child element of the footer have a different class name, which does not satisfy the BEM convention.
+
+_Pro Tip: You can modify only this section of the html file!_
+
+Styles:
+
+```css
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px #c5c5c5;
+  background-color: white;
+}
+
+.copyright {
+  margin-left: 24px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-right: 24px;
+}
+
+.platform {
+  color: #777789;
+}
+```
+
+Your objective is to:
+
+- Change every elements class name in order to satisfy BEM convention
+- Change styles class names in order to satisfy BEM convention
+
+_Pro Tip: This Exercise will be tested with css which satisfy BEM Convention!_
+
+Example:
+
+```html
+<div class="todo-list">
+  <div class="todo-list__todo-item">
+    <p class="todo-list__todo_item--sweep">Sweep the floor</p>
+  </div>
+
+  <div class="todo-list__todo-item">
+    <p class="todo-list__todo_item--wash">Wash the dishes</p>
+  </div>
+
+  <div class="todo-list__todo-item">
+    <p class="todo-list__todo_item--chill">Netflix and Chill</p>
+  </div>
+</div>
+```

@@ -53,7 +53,7 @@ isEven(1)
 
 ## Exercise #3 - Error Handling With `then/catch`
 
-In this exercise you are provided with `handlePromise` function declaration. It receives 3 arguments: `promise: Promise`, `successHandler: (result) => void`, and `errorHandler: (error) => void`.
+In this Exercise you are provided with `handlePromise` function declaration. It receives 3 arguments: `promise: Promise`, `successHandler: (result) => void`, and `errorHandler: (error) => void`.
 
 Your objectives are to:
 
