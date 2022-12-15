@@ -73,7 +73,7 @@ In this Exercise, you are provided with `socialMedia` function declaration. It w
 Your objectives are to:
 
 - Implement `socialMedia` in such a way that it calls an `API` with `base url: https://jsonplaceholder.typicode.com`
-- Implement it in a way that if `id` is not provided it should return all `100` posts
+- Implement it in a way that if `id` is not provided it should return all 100 posts
 - Implement it in a way that if `id` is provided it should return only one post
 - Implement it in a way that if both `id` and `comments = true` you should return all comments connected to a post
 - Return the response JSON

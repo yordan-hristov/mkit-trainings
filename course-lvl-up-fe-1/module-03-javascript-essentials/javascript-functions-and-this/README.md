@@ -14,7 +14,7 @@ _Pro Tip: Think about what type of function you will use._
 
 Your objectives are to:
 
-- Implement the method to return on the cars manufactured by a given `years`
+- Implement the method to return on the cars manufactured by a given years
 - End result should be an array of strings sorted by year.
 
 Example:
@@ -91,7 +91,7 @@ const users = [
 
 const result = getUsers.call(users);
 
-console.log(result); // {online: [ "John", "Harry" ], offline: [ "Peter" ]}
+console.log(result); // { online: [ "John", "Harry" ], offline: [ "Peter" ] }
 ```
 
 ## Exercise #4 - Create a Javascript Class From Scratch

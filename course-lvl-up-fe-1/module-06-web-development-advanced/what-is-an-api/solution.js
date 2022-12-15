@@ -190,13 +190,3 @@ async function getPostById(id) {
     });
   }
 }
-
-module.exports = {
-  getCurrency,
-  socialMedia,
-  createPost,
-  getPost,
-  updatePost,
-  deletePost,
-  getPostById,
-};

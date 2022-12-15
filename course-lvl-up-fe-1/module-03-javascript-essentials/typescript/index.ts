@@ -24,7 +24,7 @@ const john: unknown = {
 /**
  * Exercise 3 - Reverse Array Generic Function
  */
-function reverseArray(arr: unknown) {
+export default function reverseArray(arr: unknown) {
   // Implement it
 }
 

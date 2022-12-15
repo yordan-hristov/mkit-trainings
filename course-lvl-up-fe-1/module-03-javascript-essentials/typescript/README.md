@@ -14,7 +14,7 @@ Your objectives are to:
 
 - Create a TypeScript configuration from scratch
   - It should have compilerOptions
-    - It should have target for transpilation and it should be `ES6`
+    - It should have target for transpilation and it should be ES6
     - It should have libraries to include that describe the target runtime environment and it should be `["dom", "dom.iterable", "esnext"]`
     - It should enable strict mode
     - It should allow javascript files to be allowed
@@ -53,7 +53,7 @@ const john: unknown = {
 Your objectives are to:
 
 - Type `john`
-  - John `interface` should be `John`
+  - John `interface` should be named `John`
 - Type every referential value as an `Interface` or a `Type`
   - Every referential `type`/`interface` must be named with capitalization -> `name: ['Harry', 'Potter'] // type Name = string[]`
 

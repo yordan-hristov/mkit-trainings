@@ -178,17 +178,3 @@ function Husky(name, age) {
 }
 
 Object.setPrototypeOf(Husky, Dog);
-
-/*********************************************
- * DO NOT MODIFY THIS AREA
- *
- * This area is used by the automated tests.
- ********************************************/
-module.exports = {
-  multiply,
-  guessingGame,
-  Person,
-  Human,
-  Car,
-  Husky,
-};

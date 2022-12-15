@@ -160,11 +160,3 @@ function calculateEvenAverage(arr) {
     evenArray: evenArray.sort((a, b) => b - a),
   };
 }
-
-module.exports = {
-  map,
-  fibonacci,
-  potentialVotersResult,
-  reduce,
-  calculateEvenAverage,
-};

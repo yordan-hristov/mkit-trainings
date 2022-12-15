@@ -5,7 +5,7 @@ import { find } from "ast-parser";
 import { parse as babelParse } from "@babel/parser";
 
 import tsconfig from "./index.json";
-import { reverseArray } from "./index";
+import reverseArray from "./index";
 
 function getNode(code: string) {
   return babelParse(code, {
