@@ -13,8 +13,8 @@ In this Exercise, you are provided with `multiply` function declaration. It will
 Your objectives are to:
 
 - Implement `multiply` in such way that:
-  - When provided with **both** arguments it returns a result
-  - When provided with **only one** argument it returns a function that returns the result
+  - When provided with both arguments it returns a result
+  - When provided with only one argument it returns a function that returns the result
 - Do the above using a Closure
 
 Example:
@@ -36,7 +36,7 @@ Your objectives are to:
   - Returns `"{n} is the correct answer! You have {guesses-left} guesses left."`, if the input `n` is the correct number
   - Returns `"{n} is too {"high" | "low"}, go {"higher" | "lower"}"`, if the input `n` is not the correct answer
   - Returns `"No more guesses left"` if you run out of guesses
-  - Returns `"This game is over!"` after a **WIN**
+  - Returns `"This game is over!"` after a win
 - Do the above using a Closure
 
 Example:
