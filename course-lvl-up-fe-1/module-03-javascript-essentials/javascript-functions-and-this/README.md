@@ -37,17 +37,17 @@ const carOwner = {
         }
     ],
     selectNew: // Implement it
-}
+};
 
 // Current year - 2022
 
-console.log(carOwner.selectNew(2)) // ["Mercedes", "Audi"]
-console.log(carOwner.selectNew(1)) // ["Mercedes"]
+console.log(carOwner.selectNew(2)); // ["Mercedes", "Audi"]
+console.log(carOwner.selectNew(1)); // ["Mercedes"]
 ```
 
 ## Exercise #2 - Sum Of Two Numbers By Context
 
-In this Exercise, you are provided with `addTwo` function declaration. It should **NOT** accept any arguments.
+In this Exercise, you are provided with `addTwo` function declaration. It should not accept any arguments.
 
 Your objective is to:
 
@@ -101,7 +101,7 @@ In this Exercise, you are provided with `Person` function constructor. It will r
 Your objectives are to:
 
 - Assign it to a variable so that it can be called with the keyword `new`
-- Implement the old **EcmaScript 5** version of the javascript `Class`
+- Implement the old EcmaScript 5 version of the javascript `Class`
 - Implement it in such way that:
   - When called it should return an instance
   - The instance should be `Person`
@@ -117,7 +117,7 @@ john.getPerson(); // "John 23"
 
 ## Exercise #5 - Get Person's Name
 
-In this Exercise, you are provided with `getPrintName` function declaration. It will be assigned in to a `printName` property in a `person` object literal. The object literal will have a `name` property as well and you can safely expect to be tested with valid data. `getPrintName` should **NOT** accept any arguments.
+In this Exercise, you are provided with `getPrintName` function declaration. It will be assigned in to a `printName` property in a `person` object literal. The object literal will have a `name` property as well and you can safely expect to be tested with valid data. `getPrintName` should not accept any arguments.
 
 Your objectives are to:
 
@@ -132,5 +132,5 @@ const person = {
   printName: getPrintName,
 };
 
-call.printName()(); // "John"
+person.printName()(); // "John"
 ```

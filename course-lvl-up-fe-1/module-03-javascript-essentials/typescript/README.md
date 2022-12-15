@@ -12,7 +12,7 @@ In this Exercise, you are provided with a `tsconfig.json` file.
 
 Your objectives are to:
 
-- Create a **TypeScript** configuration from scratch
+- Create a TypeScript configuration from scratch
   - It should have compilerOptions
     - It should have target for transpilation and it should be `ES6`
     - It should have libraries to include that describe the target runtime environment and it should be `["dom", "dom.iterable", "esnext"]`
@@ -21,7 +21,7 @@ Your objectives are to:
     - It should enable casing check in imports
     - It should a module type and it should be "CommonJS"
     - It should enable importing `.json` files
-  - It should transpile **ONLY** `.ts`,`.tsx` files
+  - It should transpile ONLY `.ts`,`.tsx` files
   - It should not transpile `node_modules`
 
 ## Exercise #2 - Type John
@@ -63,7 +63,7 @@ Example:
 interface Person {
   name: string;
   age: number
-}
+};
 
 const person: Person = {
   name: 'Peter'
@@ -117,11 +117,11 @@ interface Mammal {
 }
 ```
 
-Your objective is to
+Your objective is to:
 
 - Refactor `Animal` so that some characteristics are not required
 
-_Pro Tip: only bats have wings_
+_Pro Tip: Only bats have wings._
 
 Example:
 
@@ -133,7 +133,7 @@ const dog: Mammal = {
 const monkey: Mammal = {
   arms: 2,
   legs: 2
-}
+};
 
 const bats: Mammal = {
   legs: 2;
