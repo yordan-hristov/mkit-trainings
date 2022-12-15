@@ -94,7 +94,7 @@ console.log(
 
 ## Exercise #4 - Array methods(Reduce implementation)
 
-In this Exercise, you are provided with `reduce<T, InitializerT>(arr: T[], callback: (accumulator: InitializerT, currentElement: T) => InitializerT, initializer: InitializerT = undefined)` function declaration and you can safely expect it's arguments to be valid.
+In this Exercise, you are provided with `reduce<T, InitializerT>(arr: T[], callback: (accumulator: InitializerT, currentElement: T) => InitializerT, initializer: InitializerT = undefined)` function declaration and you can safely expect its arguments to be valid.
 
 Your objectives are to:
 
