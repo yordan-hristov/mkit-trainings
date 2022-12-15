@@ -63,7 +63,7 @@ Your objective are to:
 
 Age groups:
 
-```
+```txt
 Young: 18 - 30;
 Mid Aged: 30 - 45;
 After Mid Aged: 45 - 60;
