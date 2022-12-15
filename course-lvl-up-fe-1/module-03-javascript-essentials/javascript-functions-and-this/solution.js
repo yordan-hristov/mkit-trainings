@@ -104,5 +104,3 @@ function getPrintName() {
     return this.name;
   };
 }
-
-module.exports = { carOwner, addTwo, getUsers, Person, getPrintName };

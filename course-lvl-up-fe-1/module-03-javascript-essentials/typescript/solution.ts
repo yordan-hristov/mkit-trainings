@@ -42,7 +42,7 @@ const john: John = {
 
 // Exercise 3
 
-export function reverseArray<T extends []>(arr: T) {
+function reverseArray<T extends []>(arr: T) {
   return arr.reverse();
 }
 
@@ -65,3 +65,5 @@ interface Mammal {
   arms?: number;
   wings?: number;
 }
+
+export {};
