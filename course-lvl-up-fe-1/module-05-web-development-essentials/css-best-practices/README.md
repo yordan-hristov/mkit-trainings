@@ -6,7 +6,7 @@ CSS is powerful and flexible language to help you **style an HTML** document. Ev
 
 [Learning Materials About This Topic](https://www.notion.so/mkit/CSS-Best-Practices-d65051b2bc3f407cabfbc6384fa6c8d3)
 
-_Pro Tip: You are provided with an `index.html` file. In this Exercises you have to style the whole page until it covers all requirements. You do not have to edit the HTML file, you only have to write the CSS._
+_Pro Tip: You are provided with an `index.html` file. In this module you have to style the whole page until it covers all requirements. You do not have to edit the HTML file, you only have to write the CSS._
 
 ## Exercise #1 - Style Navbar
 
@@ -35,7 +35,7 @@ In this Exercise you are provided with hero section, which is the first section 
 
 Your objective are to:
 
-- overwrite the styles in the head by increasing the specificity for different elements so required styles are applied:
+- Overwrite the styles in the head by increasing the specificity for different elements so required styles are applied:
   - Change the `background` of the hero section from `red` to `#A7C3CF`
   - Increase the `font size` of the title with `22px` so the users can read it easily
   - Increase the width of the button with `50px`
@@ -101,27 +101,27 @@ Styles:
 }
 ```
 
-Your objective is to:
+Your objectives are to:
 
 - Change every elements class name in order to satisfy BEM convention
 - Change styles class names in order to satisfy BEM convention
 
-_Pro Tip: This Exercise will be tested with css which satisfy BEM Convention!_
+_Pro Tip: This Exercise will be tested with css which satisfy BEM convention!_
 
 Example:
 
 ```html
 <div class="todo-list">
   <div class="todo-list__todo-item">
-    <p class="todo-list__todo_item--sweep">Sweep the floor</p>
+    <p class="todo-list__todo_item--chore">Sweep the floor</p>
   </div>
 
   <div class="todo-list__todo-item">
-    <p class="todo-list__todo_item--wash">Wash the dishes</p>
+    <p class="todo-list__todo_item--chore">Wash the dishes</p>
   </div>
 
   <div class="todo-list__todo-item">
-    <p class="todo-list__todo_item--chill">Netflix and Chill</p>
+    <p class="todo-list__todo_item--chore">Netflix and Chill</p>
   </div>
 </div>
 ```
