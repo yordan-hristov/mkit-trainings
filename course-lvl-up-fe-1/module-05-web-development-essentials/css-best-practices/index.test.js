@@ -6,7 +6,7 @@ const { readFileSync } = require("fs");
 
 const fileToString = readFileSync(path.join(__dirname, "index.html"), "utf-8");
 const cssFileToString = readFileSync(
-  path.join(__dirname, "solution.css"),
+  path.join(__dirname, "index.css"),
   "utf-8"
 );
 
