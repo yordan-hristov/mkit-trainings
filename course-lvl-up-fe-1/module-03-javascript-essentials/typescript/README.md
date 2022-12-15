@@ -55,7 +55,7 @@ Your objectives are to:
 - Type `john`
   - John `interface` should be `John`
 - Type every referential value as an `Interface` or a `Type`
-  - Every referential `type`/`interface` must be named with capitalization -> `name: ['Harry', 'Potter'] // type Name = string[] `
+  - Every referential `type`/`interface` must be named with capitalization -> `name: ['Harry', 'Potter'] // type Name = string[]`
 
 Example:
 
