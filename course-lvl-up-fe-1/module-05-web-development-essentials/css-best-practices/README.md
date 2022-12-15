@@ -18,7 +18,7 @@ Your objectives are to:
 - Set navbar should be with `width 100%`.
 - Have background with color `#F5F5F5`.
 - Set all text on the page to be with font family of `Arial, Helvetica, sans-serif`.
-- Style navbar in this way that it's content is pushed `24px` in horizontally and centered vertically.
+- Style navbar in this way that its content is pushed `24px` in horizontally and centered vertically.
   - Style navbar in this way that it have a solid border bottom with width of `1px` and color `#C5C5C5`.
   - Style nav links in this way that they have space between them of `32px`.
   - Style nav links in this way that they do not have any bullets

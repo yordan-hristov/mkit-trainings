@@ -111,7 +111,7 @@ Your objectives are to:
   - `title` equals `"Harry Potter and the Sorcerer's Stone"`.
   - `body` equals `"Harry Potter and the Philosopher's Stone is a 1997 fantasy novel written by British author J. K. Rowling."`.
     and returns it as `json`.
-- Implement `getPost` in such a way that it returns the new created post from `createPost`, by providing it's `id` as input, and returns it as `json`.
+- Implement `getPost` in such a way that it returns the new created post from `createPost`, by providing its `id` as input, and returns it as `json`.
 - Implement `updatePost` in such a way that it updates a post's title to `"Harry Potter and the Philosopher's Stone"` and returns the result as `json`.
 - Implement `deletePost` in such a way that it deletes a post and returns the result as `json`. ( The API always returns an empty object on DELETE )
 
