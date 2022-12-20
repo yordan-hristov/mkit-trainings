@@ -5,11 +5,12 @@ import {
   within,
   configure,
 } from "@testing-library/react";
+
 import { Search, Menu, AddTwo, UserCard } from "./solution";
 
 configure({ testIdAttribute: "id" });
 
-describe("Exercise #1 - Click on Menu Item", () => {
+describe("Exercise 1 - Click on Menu Item", () => {
   describe("Menu", () => {
     const testInput = ["Home", "Test", "John", "Harry"];
 
