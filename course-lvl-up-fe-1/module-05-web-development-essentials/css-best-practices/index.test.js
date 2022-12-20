@@ -403,7 +403,7 @@ describe("Module - Css Best Practices", () => {
       head.appendChild(styles);
     });
 
-    it(`Should have "Learn HTML structure" list items red`, () => {
+    it('Should have "Learn HTML structure" list items red', () => {
       const listItems = document.querySelectorAll(".test-1");
 
       const listItemsColors = Array.from(listItems).map((listItem) => {
@@ -421,7 +421,7 @@ describe("Module - Css Best Practices", () => {
       expect(isEveryListItemRed).toBeTruthy();
     });
 
-    it(`Should have "Learn specificity"`, () => {
+    it('Should have "Learn specificity"', () => {
       const listItem = document.querySelector("#test-2");
 
       const listItemStyles = getComputedStyle(listItem);
@@ -430,7 +430,7 @@ describe("Module - Css Best Practices", () => {
       expect(color).toBe("yellow");
     });
 
-    it(`Should have "Learn operators"`, () => {
+    it('Should have "Learn operators"', () => {
       const listItem = document.querySelector("#test-3");
 
       const listItemStyles = getComputedStyle(listItem);
@@ -439,7 +439,7 @@ describe("Module - Css Best Practices", () => {
       expect(color).toBe("blue");
     });
 
-    it(`Should have "Learn regex bullet"`, () => {
+    it('Should have "Learn regex bullet"', () => {
       const listItem = document.querySelector("#test-4");
 
       const listItemStyles = getComputedStyle(listItem);
@@ -448,7 +448,7 @@ describe("Module - Css Best Practices", () => {
       expect(color).toBe("green");
     });
 
-    it(`Should have "Advance" list items violet`, () => {
+    it('Should have "Advance" list items violet', () => {
       const listItems = document.querySelectorAll(".test-5");
 
       const listItemsColors = Array.from(listItems).map((listItem) => {
@@ -466,7 +466,7 @@ describe("Module - Css Best Practices", () => {
       expect(isEveryListItemRed).toBeTruthy();
     });
 
-    it(`Should have "Proficiency" list items violet`, () => {
+    it('Should have "Proficiency" list items violet', () => {
       const listItems = document.querySelectorAll(".test-6");
 
       const listItemsColors = Array.from(listItems).map((listItem) => {
