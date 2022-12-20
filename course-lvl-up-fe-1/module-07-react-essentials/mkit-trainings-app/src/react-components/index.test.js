@@ -6,7 +6,7 @@ import {
   configure,
 } from "@testing-library/react";
 
-import { Search, Menu, AddTwo, UserCard } from "./solution";
+import { Search, Menu, AddTwo, UserCard } from "./index";
 
 configure({ testIdAttribute: "id" });
 
