@@ -1,4 +1,4 @@
-import { Menu, Search, AddTwo, UserCard } from "./react-components/solution";
+import { Menu, Search, AddTwo, UserCard } from "./react-components";
 
 function App() {
   return (
