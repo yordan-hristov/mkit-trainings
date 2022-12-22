@@ -6,7 +6,7 @@ import React, { useRef, useState, useEffect, memo } from "react";
  * @param {string[]} menuItems
  * @returns {React.ReactElement}
  */
-export class Menu extends React.Component {
+class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -37,7 +37,7 @@ export class Menu extends React.Component {
  * @param {string[]} todoList
  * @returns {React.ReactElement}
  */
-export function Search({ todoList = [] }) {
+function Search({ todoList = [] }) {
   const [searchValue, setSearchValue] = useState("");
 
   const handleChange = (event) => setSearchValue(event.target.value);
@@ -93,7 +93,7 @@ class Result extends React.PureComponent {
 /**
  * @returns {React.ReactElement}
  */
-export class AddTwo extends React.Component {
+class AddTwo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -147,7 +147,7 @@ export class AddTwo extends React.Component {
  * @returns {React.ReactElement}
  */
 
-export function UserCard() {
+function UserCard() {
   const [user, setUser] = useState({
     age: 0,
     description: "",

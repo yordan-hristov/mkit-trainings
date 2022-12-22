@@ -1,4 +1,11 @@
-import { Menu, Search, AddTwo, UserCard } from "./react-components";
+import { Menu, Search, AddTwo, UserCard } from "./react-components/solution";
+import {
+  ColorfulWord,
+  StyledComponent,
+  Toggle,
+  StyledChildren,
+  Box,
+} from "./css-in-js/solution";
 
 function App() {
   return (
@@ -18,6 +25,28 @@ function App() {
       {/* Exercise #4 - User Card */}
       <p>Exercise #4 - User Card</p>
       <UserCard />
+
+      {/* Exercise #1 - Toggle Button */}
+      <p>Exercise #1 - Toggle Button</p>
+      <Toggle isOn={true} />
+
+      {/* Exercise #2 - Colorful Word */}
+      <p>Exercise #2 - Colorful Word</p>
+      <ColorfulWord word="Harry" />
+
+      {/*Exercise #3 - Fully Controlled Styled Component*/}
+      <p>Exercise #3 - Fully Controlled Styled Component</p>
+      <StyledComponent styles={{}} />
+
+      {/*Exercise #4 - Styled Children*/}
+      <p>Exercise #4 - Styled Children</p>
+      <StyledChildren>
+        <span>John Doe</span>
+      </StyledChildren>
+
+      {/*Exercise #5 - Responsive Box*/}
+      <p>Exercise #5 - Responsive Box</p>
+      <Box />
     </>
   );
 }
