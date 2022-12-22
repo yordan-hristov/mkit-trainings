@@ -1,4 +1,4 @@
-# Module 3 - CSS-in-JS
+# Module 7 - CSS-in-JS
 
 ## Introduction
 
