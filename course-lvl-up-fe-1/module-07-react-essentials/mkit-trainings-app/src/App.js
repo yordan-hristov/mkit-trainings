@@ -1,11 +1,11 @@
-import { Menu, Search, AddTwo, UserCard } from "./react-components/solution";
+import { Menu, Search, AddTwo, UserCard } from "./react-components/index";
 import {
   ColorfulWord,
   StyledComponent,
   Toggle,
   StyledChildren,
   Box,
-} from "./css-in-js/solution";
+} from "./css-in-js/index";
 
 function App() {
   return (
