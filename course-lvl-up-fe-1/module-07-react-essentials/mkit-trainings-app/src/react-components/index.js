@@ -7,6 +7,8 @@ import React from "react";
  * @returns {React.ReactElement}
  */
 export class Menu extends React.Component {
+  // Implement it
+
   render() {
     return <div>Menu</div>;
   }
@@ -19,6 +21,8 @@ export class Menu extends React.Component {
  * @returns {React.ReactElement}
  */
 export function Search(todoList) {
+  // Implement it
+
   return <div>Search</div>;
 }
 
@@ -29,6 +33,8 @@ export function Search(todoList) {
  * @returns {React.ReactElement}
  */
 class Result extends React.Component {
+  // Implement it
+
   render() {
     return <div>Result</div>;
   }
@@ -38,6 +44,8 @@ class Result extends React.Component {
  * @returns {React.ReactElement}
  */
 export class AddTwo extends React.Component {
+  // Implement it
+
   render() {
     return <div>Add Two</div>;
   }
@@ -50,6 +58,8 @@ export class AddTwo extends React.Component {
  */
 
 export function UserCard() {
+  // Implement it
+
   return <div>UserCard</div>;
 }
 
@@ -57,6 +67,8 @@ export function UserCard() {
  * @returns {React.ReactElement}
  */
 function Age() {
+  // Implement it
+
   return <div>Age</div>;
 }
 
@@ -64,5 +76,7 @@ function Age() {
  * @returns {React.ReactElement}
  */
 function Description() {
+  // Implement it
+
   return <div>Description</div>;
 }
