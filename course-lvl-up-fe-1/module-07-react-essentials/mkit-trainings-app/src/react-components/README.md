@@ -1,4 +1,4 @@
-# Module 3 - React Components
+# Module 7 - React Components
 
 ## Introduction
 
