@@ -9,7 +9,7 @@ import {
   useLocalStorage,
   useStatus,
   useApi,
-} from "./solution";
+} from "./index";
 
 describe("Exercise 1 - Mouse Position", () => {
   describe("useMousePosition()", () => {
@@ -358,9 +358,7 @@ describe("Exercise 5 - useApi", () => {
     beforeEach(() => {
       jest.useFakeTimers();
 
-      window.fetch = jest.fn(
-        () => new Promise((resolve) => setTimeout(resolve, 100))
-      );
+      window.fetch = jest.fn(() => Promise);
 
       fetchSpy = jest.spyOn(window, "fetch");
       fetchSpy.mockRejectedValue(expectedErrorResponse);
@@ -456,10 +454,8 @@ describe("Exercise 5 - useApi", () => {
 
       it("Should change state if response is different", async () => {
         const expectedDataAfterRefetch = { name: "Peter", age: 23 };
-        const expectedErrorAfterResponse = {
-          message: "Not Found!",
-          statusCode: 404,
-        };
+  
+        window.fetch = jest.fn(() => Promise.resolve(expectedErrorResponse));
 
         const { result, waitForNextUpdate } = renderHook(() => useApi(url));
 
@@ -478,8 +474,7 @@ describe("Exercise 5 - useApi", () => {
         expect(dataBeforeRefetch).toEqual(expectedDataResponse);
         expect(errorBeforeRefetch).toBeNull();
 
-        fetchSpy.mockRejectedValue(expectedErrorAfterResponse);
-        fetchSpy.mockResolvedValue(expectedDataAfterRefetch);
+        window.fetch = jest.fn(() => Promise.resolve(expectedDataAfterRefetch));
 
         await act(async () => {
           await refetch();
