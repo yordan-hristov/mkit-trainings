@@ -1,8 +1,6 @@
 /**
  * Exercise 1 - Car Manufacturing
  */
-const { accessSync } = require("fs");
-
 const carOwner = {
   name: "John",
   cars: [
@@ -47,10 +45,10 @@ function addTwo() {
  * Exercise 3 - Check for available users
  *
  * @returns {{
-* online: string[];
-* offline: string[];
-* }}
-*/
+ * online: string[];
+ * offline: string[];
+ * }}
+ */
 function getUsers() {
   const users = this.reduce(
     (acc, curr) => {
