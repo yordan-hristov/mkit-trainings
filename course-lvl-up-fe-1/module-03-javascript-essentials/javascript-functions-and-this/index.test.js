@@ -18,10 +18,12 @@ describe("Exercise 1 - Car Manufacturing", () => {
 
     it("Should have a cars property", () => {
       expect(mockedCarOwner).toHaveProperty("cars");
+      expect(mockedCarOwner.cars).not.toEqual([]);
     });
 
     it("Should have a select new method", () => {
       expect(mockedCarOwner).toHaveProperty("selectNew");
+      expect(mockedCarOwner.selectNew).not.toBeNull();
     });
 
     describe("cars", () => {
