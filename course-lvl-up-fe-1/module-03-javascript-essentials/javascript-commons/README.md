@@ -32,7 +32,7 @@ console.log(getNextFibonacci.next().value); // 13
 
 ## Exercise #2 - Array Methods(Map)
 
-In this Exercise, you are provided with `map` function declaration. It will receive an array of elements and a `map<T>(arr: T[], cb: () => [])` callback function as arguments. The callback must receive 3 arguments
+In this Exercise, you are provided with `map` function declaration. It will receive an array of elements and a `map<T>(arr: T[], cb: () => [])` callback function as input and you can safely expect this input to be valid. The callback must receive 3 arguments
 `(el:T, index: number, arr: T[] ) => []`.
 
 Your objectives are to:
