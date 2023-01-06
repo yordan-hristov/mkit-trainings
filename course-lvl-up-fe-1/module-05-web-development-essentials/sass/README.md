@@ -31,6 +31,7 @@ transpileFile().then(res => console.log(res))// h1 {\n  color: #ffffff;\n}\nh1 .
 In this Exercise, you are provided with `exercise_2.scss`.
 
 Your objectives are to:
+
 - Create class with name `wrapper` that:
   - Has rounded borders (`10px`)
   - Each text in paragraph in the class has red color
@@ -40,18 +41,21 @@ Your objectives are to:
   - Has white background
   - If the item with this class has id `special`, text color need to be in `green` color
 - Format file before running tests
-- 
-## Exercise #2 - Apply SCSS Styles
 
-In this Exercise, you are provided with `exercise_2.scss`.
+## Exercise #3 - Apply SASS Styles
+
+In this Exercise, you are provided with `exercise_3.sass`.
 
 Your objectives are to:
-- Create class with name `wrapper` that:
-  - Has rounded borders (`10px`)
-  - Each text in paragraph in the class has red color
-  - Each container background to be in blue
+
+- Create class with name `container` that:
+  - Has 1px blue border
+  - Each text in paragraph in the class has blue color
+  - Each div background should be white
+- Create class with name `title` that:
+  - Has text in red color
+  - If the element with this class has parent with class `container`, text should be underlined, else should not be underlined with dots
 - Create class with name `item` that:
-  - Has text in `cyan` color
-  - Has white background
-  - If the item with this class has id `special`, text color need to be in `green` color
-- Format file before running tests
+  - Paragraphs with this class should have green background
+  - The first Button with this class should have red background
+  - When the element with this class is hovered, it should have cyan background
